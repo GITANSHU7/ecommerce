@@ -8,14 +8,14 @@ import "antd/dist/antd.css";
 import {createStore} from "redux";
 import {Provider} from "react-redux";
 import { composeWithDevTools} from "redux-devtools-extension";
-import rootReducer from './reducers/index';
+import rootReducer from './reducers';
 
 // store
-const store = createStore(rootReducer,composeWithDevTools)
+const store = createStore(rootReducer, composeWithDevTools());
 
 
 ReactDOM.render(
-  <Provider>  <BrowserRouter><App /></BrowserRouter></Provider>
+  <Provider store={store}>  <BrowserRouter><App /></BrowserRouter></Provider>
   ,
      
   document.getElementById('root')

@@ -10,8 +10,8 @@ import logo from "./logo"
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import RegisterComplete from "./pages/auth/RegisterComplete";
-
-
+import {auth}from './firebase';
+import {useDispatch} from 'react-redux'
 
 const App = () => {
   return (
