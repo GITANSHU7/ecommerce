@@ -5,9 +5,11 @@ import { toast } from "react-toastify";
 const RegisterComplete = ({ history }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const[name,setName] = useState("")
 
   useEffect(() => {
     setEmail(window.localStorage.getItem("emailForRegistration"));
+    setName(window.localStorage.getItem("nameForRegistration"));
     // console.log(window.location.href);
     // console.log(window.localStorage.getItem("emailForRegistration"));
   }, []);
@@ -61,6 +63,11 @@ const RegisterComplete = ({ history }) => {
         placeholder="Password"
         autoFocus
       />
+      <input type="text"
+      className="form-control"
+      value={name}
+      placeholder="enter name"
+      autoFocus />
       <br />
       <button type="submit" className="btn btn-raised">
         Complete Registration
