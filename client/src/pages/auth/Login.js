@@ -56,7 +56,7 @@ const Login = ({ history }) => {
           className="form-control"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          placeholder="Your password "
+          placeholder="Your password must be of 6 character"
         />
       </div>
 
