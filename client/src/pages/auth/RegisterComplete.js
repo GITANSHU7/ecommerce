@@ -66,6 +66,7 @@ const RegisterComplete = ({ history }) => {
       <input type="text"
       className="form-control"
       value={name}
+      onChange={(e) => setName(e.target.value)}
       placeholder="enter name"
       autoFocus />
       <br />

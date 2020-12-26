@@ -1,11 +1,14 @@
 import React, { useState } from "react";
-import { auth} from  "../../firebase";
+import { auth , googleAuthProvider} from  "../../firebase";
 import { toast } from "react-toastify";
+import { useDispatch } from "react-redux";
+import { Button } from "antd";
+import { MailOutlined, GoogleOutlined } from "@ant-design/icons";
 
 
-const Register = () => {
+const Register = ({history}) => {
   const [email, setEmail] = useState("");
-  
+  let dispatch = useDispatch();
 
   const handleSubmit = async (e) => {
     e.preventDefault();  // prevent auto reload
@@ -25,6 +28,29 @@ const Register = () => {
     setEmail("");
     
   };
+
+  
+  const googleLogin = async () => {
+    auth
+      .signInWithPopup(googleAuthProvider)
+      .then(async (result) => {
+        const { user } = result;
+        const idTokenResult = await user.getIdTokenResult();
+        dispatch({
+          type: "LOGGED_IN_USER",
+          payload: {
+            email: user.email,
+            token: idTokenResult.token,
+          },
+        });
+        history.push("/");
+      })
+      .catch((err) => {
+        console.log(err);
+        toast.error(err.message);
+      });
+  };
+
 
   const registerForm = () => (
     <form onSubmit={handleSubmit}>
@@ -51,6 +77,18 @@ const Register = () => {
           
 
           {registerForm()}
+          <br />
+          <Button
+            onClick={googleLogin}
+            type="danger"
+            className="mb-3"
+            block
+            shape="round"
+            icon={<GoogleOutlined />}
+            size="large"
+          >
+            Continue with Google
+          </Button>
         </div>
       </div>
     </div>
