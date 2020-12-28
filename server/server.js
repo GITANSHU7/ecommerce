@@ -5,6 +5,12 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 require("dotenv").config();
 
+// import routers
+const authRoutes  = require('./routes/auth')
+
+
+
+
 // app
 const app = express();
 
@@ -19,17 +25,14 @@ mongoose
   .then(() => console.log("DB CONNECTED"))
   .catch((err) => console.log("DB CONNECTION ERR", err));
 
-// middlewares
+// middlewares  
 app.use(morgan("dev"));
 app.use(bodyParser.json({ limit: "2mb" }));
 app.use(cors());
 
-// route
-app.get("/api", (req, res) => {
-  res.json({
-    data: "hey you hit node API",
-  });
-});
+// routes  middleware
+
+app.use('/api', authRoutes);
 
 // port
 const port = process.env.PORT || 8000;
