@@ -34,8 +34,10 @@ app.use(cors());
 
 
 // to applied as a middleware we have to use app.use
-fs.readdirSync('./routes').map((r) => app.use(require("./routes/" + r)))  //it will take all the file present in route folder
+//it will take all the file present in route folder
 
+fs.readdirSync("./routes").map((r) => 
+app.use("/api" ,require("./routes/" + r)))  
 // port
 const port = process.env.PORT || 8000;
 
