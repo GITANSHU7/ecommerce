@@ -7,7 +7,6 @@ const cors = require("cors");
 require("dotenv").config();
 
 // import routers
-const authRoutes  = require('./routes/auth')
 
 
 
@@ -33,7 +32,7 @@ app.use(cors());
 
 // routes  middleware
 
-app.use('/api', authRoutes);
+
 // to applied as a middleware we have to use app.use
 fs.readdirSync('./routes').map((r) => app.use(require("./routes/" + r)))  //it will take all the file present in route folder
 
