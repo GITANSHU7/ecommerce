@@ -5,7 +5,7 @@ const router = express.Router()
 
 router.get("/user",  (req,res) => {
     res.send({
-        data:"hey this is create or update portal"
+        data:"hey this is user portal"
     })})
 
     module.exports = router;
