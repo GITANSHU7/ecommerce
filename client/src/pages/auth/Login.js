@@ -9,7 +9,7 @@ import axios from 'axios';
 
 const createOrUpdateUser = async (authtoken) => {
   return await axios.post(
-    `${process.env.REACT_APP_API}/create-or-update-user` , {},{
+    `${process.env.REACT_APP_API}/create-or-update-user ` , {},{
     headers: {
       authtoken,
     }
@@ -41,21 +41,20 @@ const Login = ({ history }) => {
       
       
       createOrUpdateUser(idTokenResult.token)
-      .then(
-        res => console.log('create or update response' , res)
-      )
+      .then((res =>  {
+        dispatch({
+          type: "LOGGED_IN_USER",
+          payload: {
+            name:res.data.name,
+            email: res.user.email,
+            token: idTokenResult.token,
+          },
+        });
+      } ))
       .catch();
 
-
-
-     // dispatch({
-       // type: "LOGGED_IN_USER",
-        //payload: {
-          //email: user.email,
-          //token: idTokenResult.token,
-        //},
-      //});
-      //history.push("/");
+      
+      history.push("/");
     } catch (error) {
       console.log(error);
       toast.error(error.message);
