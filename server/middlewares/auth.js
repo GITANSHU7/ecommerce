@@ -6,6 +6,7 @@ exports.authCheck = (req, res, next) => {
   try{
     const firebaseUser = await admin.auth().verifyIdToken(req.headers.authtoken)
     console.log('Firebase user in authcheck', firebaseUser)
+    req.user = firebaseUser;
   }catch (err){
     console.log(err);
     res.status(401).json({
