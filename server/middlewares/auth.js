@@ -1,7 +1,7 @@
 const admin = require("../firebase");
 
 // to check whether the admin is valid
-exports.authCheck = (req, res, next) => {
+exports.authCheck = async (req, res, next) => {
   //console.log(req.headers); // token
   try{
     const firebaseUser = await admin.auth().verifyIdToken(req.headers.authtoken)
