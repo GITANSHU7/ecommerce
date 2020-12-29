@@ -1,5 +1,6 @@
-exports.createOrUpdateUser  = (req,res) => {
+exports.createOrUpdateUser = (req, res) => {
     res.json({
-        data:" create or update user"
-    })
-}
+      data: "hey you hit create-or-update-user API endpoint",
+    });
+  };
+  

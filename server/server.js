@@ -2,14 +2,9 @@ const express = require("express");
 const mongoose = require("mongoose");
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
-const fs = require("fs");
 const cors = require("cors");
+const { readdirSync } = require("fs");
 require("dotenv").config();
-
-// import routers
-
-
-
 
 // app
 const app = express();
@@ -25,19 +20,18 @@ mongoose
   .then(() => console.log("DB CONNECTED"))
   .catch((err) => console.log("DB CONNECTION ERR", err));
 
-// middlewares  
+// middlewares
 app.use(morgan("dev"));
 app.use(bodyParser.json({ limit: "2mb" }));
 app.use(cors());
 
-// routes  middleware
-
+// routes middleware
 
 // to applied as a middleware we have to use app.use
 //it will take all the file present in route folder
 
-fs.readdirSync("./routes").map((r) => 
-app.use("/api" ,require("./routes/" + r)))  
+readdirSync("./routes").map((r) => app.use("/api", require("./routes/" + r)));
+
 // port
 const port = process.env.PORT || 8000;
 
