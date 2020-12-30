@@ -4,10 +4,11 @@ import { toast } from "react-toastify";
 import { useDispatch,useSelector } from "react-redux";
 import { Button } from "antd";
 import { MailOutlined, GoogleOutlined } from "@ant-design/icons";
+import { GoMail } from "react-icons/go";
 
 
 const Register = ({history}) => {
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState("mayank95866@gmail.com");
   const {user} =useSelector((state) => ({...state}))
   useEffect(() => {
     if(user &&user.token) history.push('/')
