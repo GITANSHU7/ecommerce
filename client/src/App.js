@@ -39,7 +39,7 @@ const App = () => {
             }, 
           });
         }))
-        .catch();
+        .catch(err => console.log(err));
       }
     });
     // cleanup
