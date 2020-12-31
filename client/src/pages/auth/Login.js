@@ -1,23 +1,23 @@
-import React, { useState , useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { auth, googleAuthProvider } from "../../firebase";
 import { toast } from "react-toastify";
 import { Button } from "antd";
 import { MailOutlined, GoogleOutlined } from "@ant-design/icons";
-import { useDispatch , useSelector } from "react-redux";
-import {Link} from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { createOrUpdateUser } from "../../functions/auth";
-
-
 
 const Login = ({ history }) => {
   const [email, setEmail] = useState("mayank95866@gmail.com");
   const [password, setPassword] = useState("123456");
-  const [loading, setLoading] = useState(false);
-  const {user} =useSelector((state) => ({...state}))
-  useEffect(() => {
-    if(user &&user.token) history.push('/')
-},[user])
 
+  const [loading, setLoading] = useState(false);
+
+  const { user } = useSelector((state) => ({ ...state }));
+
+  useEffect(() => {
+    if (user && user.token) history.push("/");
+  }, [user]);
 
   let dispatch = useDispatch();
 
@@ -30,24 +30,22 @@ const Login = ({ history }) => {
       // console.log(result);
       const { user } = result;
       const idTokenResult = await user.getIdTokenResult();
-      
-      
-      createOrUpdateUser(idTokenResult.token)
-      .then((res =>  {
-        dispatch({
-          type: "LOGGED_IN_USER",
-          payload: {
-            name:res.data.name,
-            email: res.data.email,
-            token: idTokenResult.token,
-            role:res.data.role,
-            _id:res.data._id,
-          }, 
-        });
-      }))
-      .catch();
 
-      
+      createOrUpdateUser(idTokenResult.token)
+        .then((res) => {
+          dispatch({
+            type: "LOGGED_IN_USER",
+            payload: {
+              name: res.data.name,
+              email: res.data.email,
+              token: idTokenResult.token,
+              role: res.data.role,
+              _id: res.data._id,
+            },
+          });
+        })
+        .catch();
+
       history.push("/");
     } catch (error) {
       console.log(error);
@@ -63,20 +61,19 @@ const Login = ({ history }) => {
         const { user } = result;
         const idTokenResult = await user.getIdTokenResult();
         createOrUpdateUser(idTokenResult.token)
-        .then((res =>  {
-          dispatch({
-            type: "LOGGED_IN_USER",
-            payload: {
-              name:res.data.name,
-              email: res.data.email,
-              token: idTokenResult.token,
-              role:res.data.role,
-              _id:res.data._id,
-            }, 
-          });
-        }))
-        .catch();
-  
+          .then((res) => {
+            dispatch({
+              type: "LOGGED_IN_USER",
+              payload: {
+                name: res.data.name,
+                email: res.data.email,
+                token: idTokenResult.token,
+                role: res.data.role,
+                _id: res.data._id,
+              },
+            });
+          })
+          .catch();
         history.push("/");
       })
       .catch((err) => {
@@ -146,7 +143,10 @@ const Login = ({ history }) => {
           >
             Login with Google
           </Button>
-          <Link to="/forgot/password" className="float-right text-danger"><strong>Forgot Password??</strong></Link>
+
+          <Link to="/forgot/password" className="float-right text-danger">
+            Forgot Password
+          </Link>
         </div>
       </div>
     </div>

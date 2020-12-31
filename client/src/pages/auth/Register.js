@@ -6,6 +6,8 @@ import { Button } from "antd";
 import { MailOutlined, GoogleOutlined } from "@ant-design/icons";
 import { GoMail } from "react-icons/go";
 
+import { createOrUpdateUser } from "../../functions/auth";
+
 
 const Register = ({history}) => {
   const [email, setEmail] = useState("mayank95866@gmail.com");
@@ -37,19 +39,27 @@ const Register = ({history}) => {
   };
 
   
+
   const googleLogin = async () => {
     auth
       .signInWithPopup(googleAuthProvider)
       .then(async (result) => {
         const { user } = result;
         const idTokenResult = await user.getIdTokenResult();
-        dispatch({
-          type: "LOGGED_IN_USER",
-          payload: {
-            email: user.email,
-            token: idTokenResult.token,
-          },
-        });
+        createOrUpdateUser(idTokenResult.token)
+          .then((res) => {
+            dispatch({
+              type: "LOGGED_IN_USER",
+              payload: {
+                name: res.data.name,
+                email: res.data.email,
+                token: idTokenResult.token,
+                role: res.data.role,
+                _id: res.data._id,
+              },
+            });
+          })
+          .catch();
         history.push("/");
       })
       .catch((err) => {
@@ -57,7 +67,6 @@ const Register = ({history}) => {
         toast.error(err.message);
       });
   };
-
 
   const registerForm = () => (
     <form onSubmit={handleSubmit}>
