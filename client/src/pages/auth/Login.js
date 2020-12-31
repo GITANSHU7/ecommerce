@@ -157,7 +157,7 @@ const Login = ({ history }) => {
           </Button>
 
           <Link to="/forgot/password" className="float-right text-danger">
-            Forgot Password
+           <strong> Forgot Password ??</strong>
           </Link>
         </div>
       </div>
