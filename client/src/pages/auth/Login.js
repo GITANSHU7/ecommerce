@@ -11,6 +11,8 @@ import { createOrUpdateUser } from "../../functions/auth";
 const roleBasedRedirect =(res) => {
   if (res.data.role === "admin") {
     history.push("/admin/dashboard")
+  } else {
+    history.push("/user/history")
   }
 }
 
