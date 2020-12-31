@@ -4,7 +4,7 @@ const logo = () => {
 
     return (
       <div className="text-center">  
-       <img src = "./images/hypekar2.png" ></img>
+       <img src = "./images/hypekar2.png" />
     </div>
     )
 }
