@@ -8,13 +8,7 @@ import { Link } from "react-router-dom";
 import { createOrUpdateUser } from "../../functions/auth";
 
 
-const roleBasedRedirect =(res) => {
-  if (res.data.role === "admin") {
-    history.push("/admin/dashboard")
-  } else {
-    history.push("/user/history")
-  }
-}
+
 
 const Login = ({ history }) => {
   const [email, setEmail] = useState("mayank95866@gmail.com");
@@ -29,6 +23,13 @@ const Login = ({ history }) => {
   }, [user]);
 
   let dispatch = useDispatch();
+  const roleBasedRedirect =(res) => {
+    if (res.data.role === "admin") {
+      history.push("/admin/dashboard")
+    } else {
+      history.push("/user/history")
+    }
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
