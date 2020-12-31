@@ -7,6 +7,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { createOrUpdateUser } from "../../functions/auth";
 
+
+const roleBasedRedirect =(res) => {
+  if (res.data.role === "admin") {
+    history.push("/admin/dashboard")
+  }
+}
+
 const Login = ({ history }) => {
   const [email, setEmail] = useState("mayank95866@gmail.com");
   const [password, setPassword] = useState("123456");
@@ -72,6 +79,7 @@ const Login = ({ history }) => {
                 _id: res.data._id,
               },
             });
+            roleBasedRedirect(res);
           })
           .catch(err => console.log(err));
         history.push("/");
