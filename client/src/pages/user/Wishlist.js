@@ -7,7 +7,7 @@ const Wishlist = () => (
       <div className="col-md-2">
         <UserNav />
       </div>
-      <div className="col"> history page</div>
+      <div className="col"> Wishlist page</div>
     </div>
   </div>
 );
