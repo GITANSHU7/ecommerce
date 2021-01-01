@@ -12,4 +12,4 @@ const Wishlist = () => (
   </div>
 );
 
-export default History;
+export default Wishlist;
