@@ -18,11 +18,11 @@ const RegisterComplete = ({ history }) => {
     setName(window.localStorage.getItem("nameForRegistration"));
     // console.log(window.location.href);
     // console.log(window.localStorage.getItem("emailForRegistration"));
-  }, [history]);
+  }, []);
 
   useEffect(() => {
     if(user &&user.token) history.push('/')
-},[user])
+},[user , history])
 
   const handleSubmit = async (e) => {
     e.preventDefault();
