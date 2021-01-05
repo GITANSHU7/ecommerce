@@ -10,11 +10,19 @@ import axios from "axios";
       `${process.env.REACT_APP_API}/brand/${slug} `)
   
 
-      export const removeBrand = async (slug,authtokn) => 
-      await axios.get(
+      export const removeBrand = async (slug,authtoken) => 
+      await axios.delete(
            `${process.env.REACT_APP_API}/brand/${slug} `,{
                header:{
                    authtoken,
                }
            })
              
+           export const updateBrand = async (slug,authtoken) => 
+           await axios.get(
+                `${process.env.REACT_APP_API}/brand/${slug} `,{
+                    header:{
+                        authtoken,
+                    }
+                })
+       
