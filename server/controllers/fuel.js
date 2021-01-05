@@ -1,4 +1,4 @@
-const Fuel = require("../fuels/fuel");
+const Fuel = require("../models/fuel");
 const slugify = require("slugify");
 
 exports.create = async (req, res) => {
@@ -27,7 +27,7 @@ exports.read = async (req, res) => {
 exports.update = async (req, res) => {
   const { name } = req.body;
   try {
-    const updated = await fuel.findOneAndUpdate(
+    const updated = await Fuel.findOneAndUpdate(
       { slug: req.params.slug },
       { name, slug: slugify(name) },
       { new: true }
