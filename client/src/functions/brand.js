@@ -18,11 +18,20 @@ import axios from "axios";
                }
            })
              
-           export const updateBrand = async (slug,authtoken) => 
-           await axios.get(
-                `${process.env.REACT_APP_API}/brand/${slug} `,{
+           export const updateBrand = async (slug,brand,authtoken) => 
+           await axios.put(
+                `${process.env.REACT_APP_API}/brand/${slug} `, brand,{
                     header:{
                         authtoken,
                     }
                 })
        
+        
+                export const createBrand = async (brand,authtoken) => 
+                await axios.post(
+                     `${process.env.REACT_APP_API}/brand `,brand,{
+                         header:{
+                             authtoken,
+                         }
+                     })
+            
