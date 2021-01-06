@@ -72,7 +72,7 @@ const BrandCreate = () => {
           )}
           {brandForm()}
           <hr />
-         <button className="btn btn-outline-primary"> {brands.length}</button>
+         <button className="btn btn-outline-info"> {brands.length}</button>
           <br />
           <br />
           {JSON.stringify(brands)}
