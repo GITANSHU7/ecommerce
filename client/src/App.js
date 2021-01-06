@@ -21,7 +21,7 @@ import Wishlist from "./pages/user/Wishlist";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import AdminRoute from "./components/routes/AdminRoute";
 import BrandCreate from "./pages/admin/brand/BrandCreate";
-
+import CategoryCreate from "./pages/admin/brand/CategoryCreate";
 
 
 
@@ -76,6 +76,7 @@ const App = () => {
       <UserRoute exact path="/user/wishlist" component={Wishlist} />
       <AdminRoute exact path="/admin/dashboard" component={AdminDashboard} />
       <AdminRoute exact path="/admin/brand" component={BrandCreate} />
+      <AdminRoute exact path="/admin/category" component={CategoryCreate} />
     </Switch>
     </>
   );

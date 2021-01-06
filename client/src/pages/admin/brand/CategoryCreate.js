@@ -3,30 +3,30 @@ import AdminNav from "../../../components/nav/AdminNav";
 import { toast } from "react-toastify";
 import { useSelector } from "react-redux";
 import {
-  createBrand,
-  getBrands,
-  removeBrand,
-} from "../../../functions/brand";
+  createCategory,
+  getCategories,
+  removeCategory,
+} from "../../../functions/category";
 
-const BrandCreate = () => {
+const CategoryCreate = () => {
   const { user } = useSelector((state) => ({ ...state }));
 
   const [name, setName] = useState("");
   const [loading, setLoading] = useState(false);
-  const [brands, setBrands] = useState([]);
+  const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    loadBrands();
+    loadCategories();
   }, []);
 
-  const loadBrands = () =>
-    getBrands().then((c) => setBrands(c.data));
+  const loadCategories = () =>
+    getCategories().then((c) => setCategories(c.data));
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // console.log(name);
     setLoading(true);
-    createBrand({ name }, user.token)
+    createCategory({ name }, user.token)
       .then((res) => {
         // console.log(res)
         setLoading(false);
@@ -40,7 +40,7 @@ const BrandCreate = () => {
       });
   };
 
-  const brandForm = () => (
+  const categoryForm = () => (
     <form onSubmit={handleSubmit}>
       <div className="form-group">
         <label>Name</label>
@@ -68,18 +68,15 @@ const BrandCreate = () => {
           {loading ? (
             <h4 className="text-danger">Loading..</h4>
           ) : (
-            <h4>Create brand</h4>
+            <h4>Create category</h4>
           )}
-          {brandForm()}
+          {categoryForm()}
           <hr />
-         <button className="btn btn-outline-primary"> {brands.length}</button>
-          <br />
-          <br />
-          {JSON.stringify(brands)}
+          {JSON.stringify(categories)}
         </div>
       </div>
     </div>
   );
 };
 
-export default BrandCreate;
+export default CategoryCreate;
