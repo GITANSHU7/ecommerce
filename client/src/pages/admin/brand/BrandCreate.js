@@ -77,7 +77,7 @@ const BrandCreate = () => {
           <br />
           {brands.map((c) => (
               <div className="alert alert-primary" key={c._id}>{c.name}
-              <span></span>
+              <span>Delete</span>
               
               </div>
           ))}
