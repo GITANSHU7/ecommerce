@@ -73,6 +73,7 @@ const CategoryCreate = () => {
           {categoryForm()}
           <br />
           <button className="btn btn-outline-primary">{categories.length}</button>
+          <br />
           {JSON.stringify(categories)}
         </div>
       </div>
