@@ -7,6 +7,9 @@ import {
   getBrands,
   removeBrand,
 } from "../../../functions/brand";
+import { Link } from "react-router-dom";
+
+
 
 const BrandCreate = () => {
   const { user } = useSelector((state) => ({ ...state }));
@@ -20,7 +23,7 @@ const BrandCreate = () => {
   }, []);
 
   const loadBrands = () =>
-    getBrands().then((c) => setBrands(c.data));
+    getBrands().then((b) => setBrands(b.data));
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -75,9 +78,9 @@ const BrandCreate = () => {
          <button className="btn btn-outline-info"> {brands.length}</button>
           <br />
           <br />
-          {brands.map((c) => (
-              <div className="alert alert-primary" key={c._id}>{c.name}
-              <span>Delete</span>
+          {brands.map((b) => (
+              <div className="alert alert-primary" key={b._id}>{b.name}
+              <span>Delete</span> <Link to={`/admin/brand/${b.slug}`}>Edit</Link>
               
               </div>
           ))}
