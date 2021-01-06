@@ -82,7 +82,7 @@ const BrandCreate = () => {
           <br />
           {brands.map((b) => (
               <div className="alert alert-primary" key={b._id}>{b.name}
-              <span className="btn btn-sm float-right" ><DeleteOutlined /></span> <Link to={`/admin/brand/${b.slug}`}><span className="btn btn-sm float-right" ><EditOutlined /></span></Link>
+              <span className="btn btn-sm float-right" ><DeleteOutlined className="text-danger" /></span> <Link to={`/admin/brand/${b.slug}`}><span className="btn btn-sm float-right" ><EditOutlined className="text-warning"/></span></Link>
               
               </div>
           ))}
