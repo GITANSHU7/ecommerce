@@ -75,7 +75,9 @@ const BrandCreate = () => {
          <button className="btn btn-outline-info"> {brands.length}</button>
           <br />
           <br />
-          {JSON.stringify(brands)}
+          {brands.map((c) => (
+              <div key={c._id}>{c.name}</div>
+          ))}
         </div>
       </div>
     </div>
