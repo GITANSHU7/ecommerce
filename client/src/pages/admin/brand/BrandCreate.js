@@ -9,6 +9,8 @@ import {
 } from "../../../functions/brand";
 import { Link } from "react-router-dom";
 
+import {EditOutlined , DeleteOutlined} from '@ant-design/icons';
+
 
 
 const BrandCreate = () => {
@@ -80,7 +82,7 @@ const BrandCreate = () => {
           <br />
           {brands.map((b) => (
               <div className="alert alert-primary" key={b._id}>{b.name}
-              <span>Delete</span> <Link to={`/admin/brand/${b.slug}`}>Edit</Link>
+              <span><DeleteOutlined /></span> <Link to={`/admin/brand/${b.slug}`}><EditOutlined /></Link>
               
               </div>
           ))}
