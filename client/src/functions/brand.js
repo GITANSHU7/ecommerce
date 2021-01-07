@@ -14,7 +14,7 @@ export const removeBrand = async (slug, authtoken) =>
   });
 
 export const updateBrand = async (slug, brand, authtoken) =>
-  await axios.put(`${process.env.REACT_APP_API}/brand/${slug}`, {
+  await axios.put(`${process.env.REACT_APP_API}/brand/brand-update/${slug}`, brand, {
     headers: {
       authtoken,
     },
