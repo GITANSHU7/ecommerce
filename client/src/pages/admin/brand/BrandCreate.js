@@ -10,6 +10,8 @@ import {
 import { Link } from "react-router-dom";
 
 import {EditOutlined , DeleteOutlined} from '@ant-design/icons';
+import BrandForm from "../../../components/forms/BrandForm";
+
 
 
 
@@ -68,24 +70,6 @@ const handleRemove = async(slug) => {
 
 
 
-  const brandForm = () => (
-    <form onSubmit={handleSubmit}>
-      <div className="form-group">
-        <label>Name</label>
-        <input
-          type="text"
-          className="form-control"
-          onChange={(e) => setName(e.target.value)}
-          value={name}
-          autoFocus
-          required
-        />
-        <br />
-        <button className="btn btn-outline-primary">Save</button>
-      </div>
-    </form>
-  );
-
   return (
     <div className="container-fluid">
       <div className="row">
@@ -98,7 +82,7 @@ const handleRemove = async(slug) => {
           ) : (
             <h4>Create brand</h4>
           )}
-          {brandForm()}
+          {BrandForm()}
           <hr />
          <button className="btn btn-outline-info"> {brands.length}</button>
           <br />
