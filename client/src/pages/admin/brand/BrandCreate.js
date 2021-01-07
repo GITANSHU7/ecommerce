@@ -36,14 +36,37 @@ const BrandCreate = () => {
         // console.log(res)
         setLoading(false);
         setName("");
-        toast.success(`"${res.data.name}" is created`);
-      })
+        toast.success(`"${res.data.name}" is created Successfully`);
+        loadBrands();  
+    })
       .catch((err) => {
         console.log(err);
         setLoading(false);
         if (err.response.status === 400) toast.error(err.response.data);
       });
   };
+
+const handleRemove = async(slug) => {
+    if (window.confirm("Do you want to delete this")){
+        setLoading(true);
+        removeBrand(slug,user.token)
+        .then(res => {
+            setLoading(false);
+            toast.error(`${res.data.name} deleted successfully`)
+            loadBrands();
+        })
+        .catch((err) => {
+            if (err.response.status === 400) 
+            {
+                setLoading(false);
+                toast.error(err.response.data)
+            }
+        })
+    }
+}
+
+
+
 
   const brandForm = () => (
     <form onSubmit={handleSubmit}>
@@ -82,7 +105,7 @@ const BrandCreate = () => {
           <br />
           {brands.map((b) => (
               <div className="alert alert-primary" key={b._id}>{b.name}
-              <span className="btn btn-sm float-right" ><DeleteOutlined className="text-danger" /></span> <Link to={`/admin/brand/${b.slug}`}><span className="btn btn-sm float-right" ><EditOutlined className="text-warning"/></span></Link>
+              <span onClick ={() => handleRemove(b.slug)} className="btn btn-sm float-right" ><DeleteOutlined className="text-danger" /></span> <Link to={`/admin/brand/${b.slug}`}><span className="btn btn-sm float-right" ><EditOutlined className="text-warning"/></span></Link>
               
               </div>
           ))}
