@@ -82,7 +82,7 @@ const handleRemove = async(slug) => {
           ) : (
             <h4>Create brand</h4>
           )}
-          {BrandForm()}
+          <BrandForm />
           <hr />
          <button className="btn btn-outline-info"> {brands.length}</button>
           <br />
