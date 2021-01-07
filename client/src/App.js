@@ -22,7 +22,7 @@ import AdminDashboard from "./pages/admin/AdminDashboard";
 import AdminRoute from "./components/routes/AdminRoute";
 import BrandCreate from "./pages/admin/brand/BrandCreate";
 import CategoryCreate from "./pages/admin/brand/CategoryCreate";
-
+import Brandupdate from "./pages/admin/brand/BrandUpdate";
 
 
 
@@ -77,6 +77,7 @@ const App = () => {
       <AdminRoute exact path="/admin/dashboard" component={AdminDashboard} />
       <AdminRoute exact path="/admin/brand" component={BrandCreate} />
       <AdminRoute exact path="/admin/category" component={CategoryCreate} />
+      <AdminRoute exact path="/admin/brand/:slug" component={Brandupdate} />
     </Switch>
     </>
   );
