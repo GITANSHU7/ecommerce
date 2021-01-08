@@ -43,6 +43,6 @@ exports.remove = async (req, res) => {
     const deleted = await Model.findOneAndDelete({ slug: req.params.slug });
     res.json(deleted);
   } catch (err) {
-    res.status(400).send("Create delete failed");
+    res.status(400).send("Model delete failed");
   }
 };
