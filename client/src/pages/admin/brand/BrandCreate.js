@@ -94,6 +94,8 @@ const searched = (keyword) => (b) => b.name.toLowerCase().includes(keyword)
           )}
           <BrandForm handleSubmit ={handleSubmit} name ={name} setName= {setName} />
 
+
+{/* step 2 & 3 */}
        <LocalSearch keyword = {keyword} setKeyword = {setKeyword} />
           <hr />
          <button className="btn btn-outline-info"> {brands.length}</button>

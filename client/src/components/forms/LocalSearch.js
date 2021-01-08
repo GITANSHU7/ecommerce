@@ -1,6 +1,6 @@
 import React from 'react'
 
-const LocalSearch = () => {
+const LocalSearch = ({keyword,setKeyword}) => {
 
     
 const  handleSearchChange = (e) => {
