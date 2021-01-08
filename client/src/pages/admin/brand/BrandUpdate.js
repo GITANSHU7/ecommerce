@@ -7,6 +7,9 @@ import {
   getBrand,
   updateBrand,
 } from "../../../functions/brand";
+import BrandForm from "../../../components/forms/BrandForm";
+
+
 
 
 const BrandUpdate = ({history,match}) => {
@@ -43,24 +46,6 @@ loadBrand()
       });
   };
 
-  const brandForm = () => (
-    <form onSubmit={handleSubmit}>
-      <div className="form-group">
-        <label>Name</label>
-        <input
-          type="text"
-          className="form-control"
-          onChange={(e) => setName(e.target.value)}
-          value={name}
-          autoFocus
-          required
-        />
-        <br />
-        <button className="btn btn-outline-primary">Update</button>
-      </div>
-    </form>
-  );
-
   return (
     <div className="container-fluid">
       <div className="row">
@@ -68,12 +53,12 @@ loadBrand()
           <AdminNav />
         </div>
         <div className="col">
-          {loading ? (
+          {loading ? ( 
             <h4 className="text-danger">Loading..</h4>
           ) : (
             <h4>Update brand</h4>
           )}
-          {brandForm()}
+          <BrandForm handleSubmit ={handleSubmit} name ={name} setName= {setName}/>
           <hr />
          </div>
       </div>
