@@ -14,7 +14,7 @@ const BrandForm = ({handleSubmit,name,setName}) => (
           required
         />
         <br />
-        <button className="btn btn-outline-primary">Save</button>
+        <button className="btn btn-outline-primary">update</button>
       </div>
     </form>
   );

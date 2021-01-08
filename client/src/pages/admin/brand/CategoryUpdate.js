@@ -49,7 +49,7 @@ const CategoryUpdate = ({ history, match }) => {
           required
         />
         <br />
-        <button className="btn btn-outline-primary">Save</button>
+        <button className="btn btn-outline-primary">Update</button>
       </div>
     </form>
   );
