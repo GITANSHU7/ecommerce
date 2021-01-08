@@ -15,6 +15,7 @@ const modelSchema = new mongoose.Schema(
       lowercase: true,
       index: true,
     },
+    parent: {}
   },
   { timestamps: true }
 );
