@@ -27,6 +27,12 @@ const AdminNav = () => (
           Brand
         </Link>
       </li>
+      <li className="nav-item">
+        <Link to="/admin/model" className="nav-link">
+          Model
+        </Link>
+      </li>
+
 
       <li className="nav-item">
         <Link to="/admin/sub" className="nav-link">
