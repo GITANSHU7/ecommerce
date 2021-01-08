@@ -73,12 +73,7 @@ const handleRemove = async(slug) => {
     }
 };
 
-// step 3
 
-const  handleSearchChange = (e) => {
-    e.preventDefault();
-    setKeyword(e.target.value.toLowerCase())
-};
 
 //step 4
 
