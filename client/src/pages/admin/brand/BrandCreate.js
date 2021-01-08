@@ -74,7 +74,7 @@ const handleRemove = async(slug) => {
     <div className="container-fluid">
       <div className="row">
         <div className="col-md-2">
-          <AdminNav />
+          <AdminNav handleSubmit ={handleSubmit} name ={name} setName= {setName} />
         </div>
         <div className="col">
           {loading ? (
