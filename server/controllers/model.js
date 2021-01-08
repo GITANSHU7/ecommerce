@@ -34,7 +34,7 @@ exports.update = async (req, res) => {
     );
     res.json(updated);
   } catch (err) {
-    res.status(400).send("Create update failed");
+    res.status(400).send("Model update failed");
   }
 };
 
