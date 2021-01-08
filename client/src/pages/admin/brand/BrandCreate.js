@@ -98,13 +98,7 @@ const searched = (keyword) => (b) => b.name.toLowerCase().includes(keyword)
           )}
           <BrandForm handleSubmit ={handleSubmit} name ={name} setName= {setName} />
 
-         {/* step 2 search input */}
-         <input type= "search" 
-         placeholder="filter"
-         value={keyword}
-            onChange={handleSearchChange}
-            className="form-control mb-4"
-                />
+       
           <hr />
          <button className="btn btn-outline-info"> {brands.length}</button>
           <br />
