@@ -1,8 +1,8 @@
 import React from 'react'
 
 
-const BrandForm = () => (
-    <form onSubmit={handleSubmit}>
+const BrandForm = (props) => (
+    <form onSubmit={props.handleSubmit}>
       <div className="form-group">
         <label>Name</label>
         <input
