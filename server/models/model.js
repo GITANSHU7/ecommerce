@@ -15,7 +15,7 @@ const modelSchema = new mongoose.Schema(
       lowercase: true,
       index: true,
     },
-    parent: {}
+    parent: {type: ObjectId , ref: "Brand" , required:true},
   },
   { timestamps: true }
 );
