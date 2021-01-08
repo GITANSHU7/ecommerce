@@ -24,7 +24,7 @@ const BrandCreate = () => {
 
 
   // step 1  for search
-const [keyword,setKeyword]
+const [keyword,setKeyword] = useState("")
 
 
   useEffect(() => {
@@ -108,8 +108,10 @@ const searched = (keyword) => (b) => b.name.toLowerCase().includes(keyword)
           <hr />
          <button className="btn btn-outline-info"> {brands.length}</button>
           <br />
-          <br />
-          {brands.map((b) => (
+          <br /> 
+   {/* step 5    */}
+
+          {brands.filter(searched(keyword)).map((b) => (
               <div className="alert alert-primary" key={b._id}>{b.name}
               <span onClick ={() => handleRemove(b.slug)} className="btn btn-sm float-right" ><DeleteOutlined className="text-danger" /></span> <Link to={`/admin/brand/brand-update/${b.slug}`}><span className="btn btn-sm float-right" ><EditOutlined className="text-warning"/></span></Link>
               
