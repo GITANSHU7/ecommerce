@@ -17,7 +17,7 @@ const {
 router.post("/model", authCheck, adminCheck, create);
 router.get("/models", list);
 router.get("/model/:slug", read);
-router.put("/model/:slug", authCheck, adminCheck, update);
+router.put("/model/model-update/:slug", authCheck, adminCheck, update);
 router.delete("/model/:slug", authCheck, adminCheck, remove);
 
 module.exports = router;
