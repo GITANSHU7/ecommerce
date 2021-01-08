@@ -22,6 +22,11 @@ const BrandCreate = () => {
   const [loading, setLoading] = useState(false);
   const [brands, setBrands] = useState([]);
 
+
+  // step 1  for search
+const [keyword,setKeyword]
+
+
   useEffect(() => {
     loadBrands();
   }, []);
@@ -83,6 +88,14 @@ const handleRemove = async(slug) => {
             <h4>Create brand</h4>
           )}
           <BrandForm handleSubmit ={handleSubmit} name ={name} setName= {setName} />
+
+         {/* step 2 search input */}
+         <input type= "search" 
+         placeholder="filter"
+         value={keyword}
+            onChange={handleSearchChange}
+            className="form-control mb-4"
+                />
           <hr />
          <button className="btn btn-outline-info"> {brands.length}</button>
           <br />
