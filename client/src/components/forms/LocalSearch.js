@@ -1,6 +1,12 @@
 import React from 'react'
 
 const LocalSearch = () => {
+
+    
+const  handleSearchChange = (e) => {
+    e.preventDefault();
+    setKeyword(e.target.value.toLowerCase())
+};
  return (
      <div className="container pt-4 pb-4">
   <input type= "search" 
