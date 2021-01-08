@@ -11,6 +11,7 @@ import { Link } from "react-router-dom";
 
 import {EditOutlined , DeleteOutlined} from '@ant-design/icons';
 import BrandForm from "../../../components/forms/BrandForm";
+import LocalSearch from "../../../components/forms/LocalSearch";
 
 
 
@@ -98,7 +99,7 @@ const searched = (keyword) => (b) => b.name.toLowerCase().includes(keyword)
           )}
           <BrandForm handleSubmit ={handleSubmit} name ={name} setName= {setName} />
 
-       
+       <LocalSearch />
           <hr />
          <button className="btn btn-outline-info"> {brands.length}</button>
           <br />
