@@ -25,7 +25,7 @@ exports.read = async (req, res) => {
 };
 
 exports.update = async (req, res) => {
-  const { name } = req.body;
+  const { name,parent } = req.body;
   try {
     const updated = await Model.findOneAndUpdate(
       { slug: req.params.slug },
