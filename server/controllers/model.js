@@ -3,13 +3,13 @@ const slugify = require("slugify");
 
 exports.create = async (req, res) => {
   try {
-    const { name , pare} = req.body;
+    const { name , parent} = req.body;
     // const model = await new model({ name, slug: slugify(name) }).save();
     // res.json(model);
     ////Sort the result by name:
   //var sort = { name: 1 };
   //dbo.collection("customers").find().sort(sort).toArray(function(err, result)
-    res.json(await new Model({ name, slug: slugify(name) }).save());
+    res.json(await new Model({ name, parent,slug: slugify(name) }).save());
   } catch (err) {
      console.log("model create error" , err);
     res.status(400).send("Create model failed");
