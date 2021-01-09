@@ -25,7 +25,8 @@ const ModelCreate = () => {
 
   const [name, setName] = useState("");
   const [loading, setLoading] = useState(false);
-  const [brands, setBrands] = useState([]);
+  const [brands, setBrands] = useState([]);  //list of brands which shows in select option
+  const [brand,setBrand] = useState("");
 
 
   // step 1  for search
@@ -43,7 +44,7 @@ const [keyword,setKeyword] = useState("")
     e.preventDefault();
     // console.log(name);
     setLoading(true);
-    createModel({ name }, user.token)
+    createModel({ name , parent: brand }, user.token)
       .then((res) => {
         // console.log(res)
         setLoading(false);
@@ -96,6 +97,15 @@ const searched = (keyword) => (b) => b.name.toLowerCase().includes(keyword)
           ) : (
             <h4>Create Model</h4>
           )}
+
+            <div className="form-group">
+                <label>Choose Brand</label>
+                <select name ="Choose Brand" className="form-control" onChange={e => setBrand(e.target.value)}>
+                    <option>Select Brand</option>
+                    {brands.length > 0 && brands.map((b) => <option key = {b._id} value={b._id}>{b.name}</option>)}
+                </select>
+            </div>
+                    {JSON.stringify(brand)}
           <BrandForm handleSubmit ={handleSubmit} name ={name} setName= {setName} />
 
 
@@ -107,12 +117,12 @@ const searched = (keyword) => (b) => b.name.toLowerCase().includes(keyword)
           <br /> 
    {/* step 5    */}
 
-          {brands.filter(searched(keyword)).map((b) => (
+       {/*   {brands.filter(searched(keyword)).map((b) => (
               <div className="alert alert-primary" key={b._id}>{b.name}
               <span onClick ={() => handleRemove(b.slug)} className="btn btn-sm float-right" ><DeleteOutlined className="text-danger" /></span> <Link to={`/admin/brand/brand-update/${b.slug}`}><span className="btn btn-sm float-right" ><EditOutlined className="text-warning"/></span></Link>
               
               </div>
-          ))}
+       ))}  */}
         </div>
       </div>
     </div>
