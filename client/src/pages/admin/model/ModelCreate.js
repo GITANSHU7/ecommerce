@@ -27,6 +27,7 @@ const ModelCreate = () => {
   const [loading, setLoading] = useState(false);
   const [brands, setBrands] = useState([]);  //list of brands which shows in select option
   const [brand,setBrand] = useState("");
+  const [models,setModels] = useState([]);
 
 
   // step 1  for search
@@ -35,10 +36,15 @@ const [keyword,setKeyword] = useState("")
 
   useEffect(() => {
     loadBrands();
+    loadModels();
   }, []);
 
   const loadBrands = () =>
     getBrands().then((b) => setBrands(b.data));
+
+    const loadModels = () =>
+    getModels().then((m) => setModels(m.data));
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -50,6 +56,7 @@ const [keyword,setKeyword] = useState("")
         setLoading(false);
         setName("");
         toast.success(`"${res.data.name}" is created Successfully`);
+        loadModels();
         
     })
       .catch((err) => {
@@ -66,7 +73,7 @@ const handleRemove = async(slug) => {
         .then(res => {
             setLoading(false);
             toast.error(`${res.data.name} deleted successfully`)
-            
+            loadModels();
         })
         .catch((err) => {
             if (err.response.status === 400) 
@@ -105,24 +112,24 @@ const searched = (keyword) => (b) => b.name.toLowerCase().includes(keyword)
                     {brands.length > 0 && brands.map((b) => <option key = {b._id} value={b._id}>{b.name}</option>)}
                 </select>
             </div>
-                    {JSON.stringify(brand)}
+                    
           <BrandForm handleSubmit ={handleSubmit} name ={name} setName= {setName} />
 
 
 {/* step 2 & 3 */}
        <LocalSearch keyword = {keyword} setKeyword = {setKeyword} />
           <hr />
-         <button className="btn btn-outline-info"> {brands.length}</button>
+         <button className="btn btn-outline-info"> {models.length}</button>
           <br />
           <br /> 
    {/* step 5    */}
 
-       {/*   {brands.filter(searched(keyword)).map((b) => (
-              <div className="alert alert-primary" key={b._id}>{b.name}
-              <span onClick ={() => handleRemove(b.slug)} className="btn btn-sm float-right" ><DeleteOutlined className="text-danger" /></span> <Link to={`/admin/brand/brand-update/${b.slug}`}><span className="btn btn-sm float-right" ><EditOutlined className="text-warning"/></span></Link>
+          {models.filter(searched(keyword)).map((m) => (
+              <div className="alert alert-primary" key={m._id}>{m.name}
+              <span onClick ={() => handleRemove(m.slug)} className="btn btn-sm float-right" ><DeleteOutlined className="text-danger" /></span> <Link to={`/admin/model/model-update/${m.slug}`}><span className="btn btn-sm float-right" ><EditOutlined className="text-warning"/></span></Link>
               
               </div>
-       ))}  */}
+       ))}  
         </div>
       </div>
     </div>

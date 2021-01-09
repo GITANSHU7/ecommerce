@@ -29,7 +29,7 @@ exports.update = async (req, res) => {
   try {
     const updated = await Model.findOneAndUpdate(
       { slug: req.params.slug },
-      { name, slug: slugify(name) },
+      { name, parent,slug: slugify(name) },
       { new: true }
     );
     res.json(updated);

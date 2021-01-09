@@ -22,9 +22,10 @@ import AdminDashboard from "./pages/admin/AdminDashboard";
 import AdminRoute from "./components/routes/AdminRoute";
 import BrandCreate from "./pages/admin/brand/BrandCreate";
 import CategoryCreate from "./pages/admin/brand/CategoryCreate";
-import Brandupdate from "./pages/admin/brand/BrandUpdate";
+import BrandUpdate from "./pages/admin/brand/BrandUpdate";
 import CategoryUpdate from "./pages/admin/brand/CategoryUpdate";
 import ModelCreate from "./pages/admin/model/ModelCreate";
+import ModelUpdate from "./pages/admin/model/ModelUpdate";
 
 
 
@@ -80,9 +81,10 @@ const App = () => {
       <AdminRoute exact path="/admin/dashboard" component={AdminDashboard} />
       <AdminRoute exact path="/admin/brand" component={BrandCreate} />
       <AdminRoute exact path="/admin/category" component={CategoryCreate} />
-      <AdminRoute exact path="/admin/brand/brand-update/:slug" component={Brandupdate} />
+      <AdminRoute exact path="/admin/brand/brand-update/:slug" component={BrandUpdate} />
       <AdminRoute exact path="/admin/category/:slug" component={CategoryUpdate} />
       <AdminRoute exact path="/admin/model" component={ModelCreate} />
+      <AdminRoute exact path="/admin/model/model-update/:slug" component={ModelUpdate} />
     </Switch>
     </>
   );

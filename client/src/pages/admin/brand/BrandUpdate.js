@@ -58,12 +58,14 @@ loadBrand()
           ) : (
             <h4>Update brand</h4>
           )}
-          <BrandForm handleSubmit ={handleSubmit} name ={name} setName= {setName}/>
+          <BrandForm   handleSubmit={handleSubmit}
+            name={name}
+            setName={setName}/>
           <hr />
          </div>
       </div>
     </div>
   );
-};
+          }
 
-export default BrandUpdate;
+  export default BrandUpdate;
