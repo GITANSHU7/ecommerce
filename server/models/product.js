@@ -56,7 +56,7 @@ const productSchema = new mongoose.Schema(
     },
     transmission : {
         type: String,
-        
+        enum : []
      },
     brand: {
       type: String,
