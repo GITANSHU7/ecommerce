@@ -56,8 +56,14 @@ const productSchema = new mongoose.Schema(
     },
     transmission : {
         type: String,
-        enum : ["Automatic" , "Manual"]
+        enum : ["Automatic" , "Manual"],
      },
+     fuel:{
+         type:String,
+         enum: ["Petrol" , "Diesel" ,"CNG" , "Electric"]
+     },
+
+
     brand: {
       type: String,
       enum: ["Apple", "Samsung", "Microsoft", "Lenovo", "ASUS"],
