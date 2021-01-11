@@ -15,9 +15,7 @@ const productSchema = new mongoose.Schema(
         required: true,
         text:true
     },
-
-
-
+                        
     slug: {
       type: String,
       unique: true,
@@ -67,7 +65,7 @@ const productSchema = new mongoose.Schema(
          type:String,
          enum: ["Petrol" , "Diesel" ,"CNG" , "Electric"]
      },
-            
+
     year: {
       type: String,
       enum: [
