@@ -10,12 +10,12 @@ const productSchema = new mongoose.Schema(
       maxlength: 32,
       text: true,
     },
-    Manufacturer : {
+    manufacturer : {
         type: String,
         required: true,
-        text:true
+        text:true,
     },
-                        
+
     slug: {
       type: String,
       unique: true,
