@@ -67,10 +67,7 @@ const productSchema = new mongoose.Schema(
          type:String,
          enum: ["Petrol" , "Diesel" ,"CNG" , "Electric"]
      },
-
-
-
-
+            
     year: {
       type: String,
       enum: [
