@@ -15,6 +15,13 @@ const productSchema = new mongoose.Schema(
         required: true,
         text:true,
     },
+     type : {
+        type: String,
+        required: true,
+        maxlength: 100,
+        text: true,
+     },
+    
 
     slug: {
       type: String,
