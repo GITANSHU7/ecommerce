@@ -10,7 +10,11 @@ const productSchema = new mongoose.Schema(
       maxlength: 32,
       text: true,
     },
-
+    Manufacturer : {
+        type: String,
+        required: true,
+        text:true
+    },
 
 
 
