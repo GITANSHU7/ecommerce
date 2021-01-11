@@ -10,6 +10,10 @@ const productSchema = new mongoose.Schema(
       maxlength: 32,
       text: true,
     },
+
+
+
+
     slug: {
       type: String,
       unique: true,
@@ -19,7 +23,7 @@ const productSchema = new mongoose.Schema(
     description: {
       type: String,
       required: true,
-      maxlength: 2000,
+      maxlength: 3000,
       text: true,
     },
     price: {
