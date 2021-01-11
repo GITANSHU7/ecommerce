@@ -41,14 +41,14 @@ const productSchema = new mongoose.Schema(
       trim: true,
       maxlength: 32,
     },
-    category: {
+    brand: {
       type: ObjectId,
-      ref: "Category",
+      ref: "Brand",
     },
-    subs: [
+    model: [
       {
         type: ObjectId,
-        ref: "Sub",
+        ref: "Model",
       },
     ],
     quantity: Number,
