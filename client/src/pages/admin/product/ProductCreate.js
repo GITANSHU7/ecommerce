@@ -4,7 +4,29 @@ import { toast } from "react-toastify";
 import { useSelector } from "react-redux";
 import { createProduct } from "../../../functions/product";
 
+
+const initaialState = {
+    title: "",
+    manufacturer : "",
+    type : [],
+    slug : "",
+    description: "",
+    price : "",
+    brand: [],
+    model:[],
+    transmission: [],
+    fuel: [],
+    shipping:"",
+year: [],
+quantity: "",
+
+}
+
+
+
 const ProductCreate = () => {
+    const [values,setValues] = useState();
+
   return (
     <div className="container-fluid">
       <div className="row">
