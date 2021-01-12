@@ -44,7 +44,7 @@ const productSchema = new mongoose.Schema(
       type: ObjectId,
       ref: "Brand",
     },
-    model: [
+    models: [
       {
         type: ObjectId,
         ref: "Model",

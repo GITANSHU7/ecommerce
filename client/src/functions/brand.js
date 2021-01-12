@@ -26,9 +26,6 @@ export const createBrand = async (brand, authtoken) =>
       authtoken,
     },
   });
-  export const getBrands = async () =>
-  await axios.get(`${process.env.REACT_APP_API}/brands`);
 
-
-  export const getBrandModels = async () =>
-  await axios.get(`${process.env.REACT_APP_API}/brand/models/'${_id}`);
+  export const getBrandModels = async (_id) =>
+  await axios.get(`${process.env.REACT_APP_API}/brand/models/${_id}`);
