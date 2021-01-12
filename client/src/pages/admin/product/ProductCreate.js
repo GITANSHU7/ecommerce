@@ -25,7 +25,35 @@ quantity: "",
 
 
 const ProductCreate = () => {
-    const [values,setValues] = useState();
+    const [values,setValues] = useState(initaialState);
+
+    // destructure
+  const {
+    title,
+    manufacturer,
+    type ,
+    slug ,
+    description,
+    price ,
+    brand,
+    model,
+    transmission,
+    fuel,
+    shipping,
+year,
+quantity,
+images,
+  } = values;
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    //
+  };
+
+  const handleChange = (e) => {
+    //
+  };
+
 
   return (
     <div className="container-fluid">
