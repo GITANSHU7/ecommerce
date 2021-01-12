@@ -17,9 +17,8 @@ const productSchema = new mongoose.Schema(
     },
      type : {
         type: String,
-        required: true,
-        maxlength: 100,
-        text: true,
+        enum : ["Engine Oil" , "Air Filter", "Tyre","Oil Filter","Battery", "Spares and Maintainance Kit", "Accessories"],
+     
      },
     
 
