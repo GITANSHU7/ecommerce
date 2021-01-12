@@ -46,6 +46,7 @@ const [keyword,setKeyword] = useState("")
         setName("");
         toast.success(`"${res.data.name}" is created Successfully`);
         loadBrands();  
+        //window.location.reload(); to reload
     })
       .catch((err) => {
         console.log(err);
