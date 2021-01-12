@@ -17,7 +17,7 @@ const modelSchema = new mongoose.Schema(
     },
     parent: {type: ObjectId , ref: "Brand" , required:true},
   },
-  { timestamps: true }
+  { timestamps: true }          
 );
 
 module.exports = mongoose.model("Model", modelSchema);

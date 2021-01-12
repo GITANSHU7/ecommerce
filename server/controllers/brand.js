@@ -1,5 +1,6 @@
 const Brand = require("../models/brand");
 const slugify = require("slugify");
+const Model = require("../models/model")
 
 exports.create = async (req, res) => {
   try {
@@ -46,3 +47,11 @@ exports.remove = async (req, res) => {
     res.status(400).send("Create delete failed");
   }
 };
+
+
+exports.getModels = (req,res) => {
+  Model.find({ parent : req.params._id}).exec((err, models) => {
+    if (err) console.log(err);
+    res.json(models);
+  });
+}

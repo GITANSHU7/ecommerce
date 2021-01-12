@@ -11,6 +11,7 @@ const {
   update,
   remove,
   list,
+  getModels
 } = require("../controllers/brand");
 
 // routes
@@ -19,5 +20,6 @@ router.get("/brands", list);
 router.get("/brand/:slug", read);
 router.put("/brand/brand-update/:slug", authCheck, adminCheck, update);
 router.delete("/brand/:slug", authCheck, adminCheck, remove);
+router.get("/brand/models/:_id", getModels);
 
 module.exports = router;
