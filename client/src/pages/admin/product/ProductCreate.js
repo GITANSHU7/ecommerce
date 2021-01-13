@@ -8,8 +8,6 @@ import ProductCreateForm from "../../../components/forms/ProductCreateForm";
 import { getBrands, getBrandModels } from "../../../functions/brand";
 
 
-
-
 const initialState = {
     title: "",
     manufacturer : "",
