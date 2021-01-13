@@ -173,7 +173,6 @@ images,
             ))}
         </select>
       </div>
-
       
         <div>
           <label>Model Categories</label>
