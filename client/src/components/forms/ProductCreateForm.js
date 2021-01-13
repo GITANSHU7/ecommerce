@@ -144,6 +144,7 @@ images,
 
       <div className="form-group">
         <label>Product Type</label>
+        
         <select name="type" className="form-control" onChange={handleChange}>
           <option>Please select</option>
           {types.map((t) => (
