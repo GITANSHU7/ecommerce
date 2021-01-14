@@ -30,6 +30,7 @@ const ProductCreate = () => {
   const [values, setValues] = useState(initialState);
   const [modelOptions, setModelOptions] = useState([]);
   const [showModel, setShowModel] = useState(false);
+  const [brandOptions , setBrandOptions] = useState([]);
   
   
   
@@ -64,6 +65,7 @@ const ProductCreate = () => {
     // console.log(e.target.name, " ----- ", e.target.value);
   };
 
+
   const handleBrandChange = (e) => {
     e.preventDefault();
     console.log("CLICKED BRAND", e.target.value);
@@ -74,8 +76,6 @@ const ProductCreate = () => {
     });
     setShowModel(true);
   };
-
-
 
 
   return (
@@ -99,6 +99,7 @@ const ProductCreate = () => {
             handleBrandChange={handleBrandChange}
             modelOptions={modelOptions}
             showmodel={showModel}
+            loadBrands = {loadBrands}
           />
         </div>
       </div>
