@@ -150,23 +150,16 @@ images,
 
       <div className="form-group">
         <label>Product Type</label>
-        <Select
-            mode="multiple"
-            style={{ width: "100%" }}
-            placeholder="Please select"
-            value={values}
-            onChange={(value) => setValues({ ...values, types: value })}
-          >
-        
-        
-          <Option>Please select</Option>
+        <select name="type" className="form-control" onChange={handleChange}>
+          <option>Please select</option>
           {types.map((t) => (
             <option key={t} value={t}>
               {t}
             </option>
           ))}
-        </Select>
+        </select>
       </div>
+
 
 
 
