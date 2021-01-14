@@ -13,7 +13,7 @@ const ProductCreateForm = ({
   values,
   handleBrandChange,
   modelOptions,
-  showModel,
+
   
   
 }) => {
