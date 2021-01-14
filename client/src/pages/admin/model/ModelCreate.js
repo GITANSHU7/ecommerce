@@ -14,7 +14,9 @@ import {EditOutlined , DeleteOutlined} from '@ant-design/icons';
 import BrandForm from "../../../components/forms/BrandForm";
 import LocalSearch from "../../../components/forms/LocalSearch";
 
+import { Select } from "antd";
 
+const { Option } = Select;
 
 
 
@@ -105,7 +107,7 @@ const searched = (keyword) => (b) => b.name.toLowerCase().includes(keyword)
             <h4>Create Model</h4>
           )}
 
-            <div className="form-group">
+<div className="form-group">
                 <label>Choose Brand</label>
                 <select name ="Choose Brand" className="form-control" onChange={e => setBrand(e.target.value)}>
                     <option>Select Brand</option>
@@ -114,7 +116,6 @@ const searched = (keyword) => (b) => b.name.toLowerCase().includes(keyword)
             </div>
                     
           <BrandForm handleSubmit ={handleSubmit} name ={name} setName= {setName} />
-
 
 {/* step 2 & 3 */}
        <LocalSearch keyword = {keyword} setKeyword = {setKeyword} />
