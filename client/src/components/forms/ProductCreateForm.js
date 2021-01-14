@@ -14,7 +14,7 @@ const ProductCreateForm = ({
   handleBrandChange,
   modelOptions,
   showModel,
-  onSelect
+  
   
 }) => {
   // destructure
