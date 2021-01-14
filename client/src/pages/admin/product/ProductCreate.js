@@ -30,7 +30,7 @@ const ProductCreate = () => {
   const [values, setValues] = useState(initialState);
   const [modelOptions, setModelOptions] = useState([]);
   const [showModel, setShowModel] = useState(false);
-  const [brandOptions , setBrandOptions] = useState([]);
+  
   
   
   
@@ -97,9 +97,12 @@ const ProductCreate = () => {
             setValues={setValues}
             values={values}
             handleBrandChange={handleBrandChange}
+      
             modelOptions={modelOptions}
             showmodel={showModel}
-            loadBrands = {loadBrands}
+          
+        
+            
           />
         </div>
       </div>

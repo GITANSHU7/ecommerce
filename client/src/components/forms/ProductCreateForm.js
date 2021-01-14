@@ -1,16 +1,20 @@
 import React from "react";
 import { Select } from "antd";
+import {Multiselect} from 'multiselect-react-dropdown';
+
 
 const { Option } = Select;
 
 const ProductCreateForm = ({
   handleSubmit,
   handleChange,
+  handleChangee,
   setValues,
   values,
   handleBrandChange,
   modelOptions,
   showModel,
+  onSelect
   
 }) => {
   // destructure
@@ -34,6 +38,7 @@ year,
 years,
 quantity,
 images,
+
   } = values;
 
   return (
@@ -145,15 +150,22 @@ images,
 
       <div className="form-group">
         <label>Product Type</label>
+        <Select
+            mode="multiple"
+            style={{ width: "100%" }}
+            placeholder="Please select"
+            value={values}
+            onChange={(value) => setValues({ ...values, types: value })}
+          >
         
-        <select name="type" className="form-control" onChange={handleChange}>
-          <option>Please select</option>
+        
+          <Option>Please select</Option>
           {types.map((t) => (
             <option key={t} value={t}>
               {t}
             </option>
           ))}
-        </select>
+        </Select>
       </div>
 
 
