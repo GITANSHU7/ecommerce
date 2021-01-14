@@ -30,6 +30,9 @@ const ProductCreate = () => {
   const [values, setValues] = useState(initialState);
   const [modelOptions, setModelOptions] = useState([]);
   const [showModel, setShowModel] = useState(false);
+  
+  
+  
 
   // redux
   const { user } = useSelector((state) => ({ ...state }));
@@ -71,6 +74,9 @@ const ProductCreate = () => {
     });
     setShowModel(true);
   };
+
+
+
 
   return (
     <div className="container-fluid">
