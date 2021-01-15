@@ -13,7 +13,7 @@ const ProductCreateForm = ({
   values,
   handleBrandChange,
   modelOptions,
-
+  
   
   
 }) => {
@@ -187,6 +187,9 @@ images,
           </Select>
         </div>
       
+      
+  
+
 
       <br />
       <button className="btn btn-outline-info">Save</button>

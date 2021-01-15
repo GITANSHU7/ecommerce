@@ -29,7 +29,9 @@ const initialState = {
 const ProductCreate = () => {
   const [values, setValues] = useState(initialState);
   const [modelOptions, setModelOptions] = useState([]);
+  const [modOptions, setModOptions] = useState([]);
   const [showModel, setShowModel] = useState(false);
+  const [shModel, setShModel] = useState(false);
   
   
   
@@ -80,6 +82,8 @@ const ProductCreate = () => {
   };
 
 
+
+
   return (
     <div className="container-fluid">
       <div className="row">
@@ -99,9 +103,12 @@ const ProductCreate = () => {
             setValues={setValues}
             values={values}
             handleBrandChange={handleBrandChange}
+
             
             modelOptions={modelOptions}
+        
             showmodel={showModel}
+          
           
         
             
