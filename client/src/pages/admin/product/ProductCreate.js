@@ -6,6 +6,8 @@ import { createProduct } from "../../../functions/product";
 
 import ProductCreateForm from "../../../components/forms/ProductCreateForm";
 import { getBrands, getBrandModels } from "../../../functions/brand";
+import FileUpload from "../../../components/forms/FileUpload";
+
 
 
 const initialState = {
@@ -96,6 +98,10 @@ const ProductCreate = () => {
           <hr />
 
           {JSON.stringify(values.models)}
+
+            <div className="p-3">
+              <FileUpload />
+            </div>
 
           <ProductCreateForm
             handleSubmit={handleSubmit}
