@@ -17,6 +17,8 @@ exports.create = async (req, res) => {
   }
 };
 
+// to query product saved in data base
+
 exports.read = async(req,res) => {
   let products = await Product.find({});
   res.json(products);

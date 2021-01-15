@@ -8,7 +8,7 @@ const { Option } = Select;
 const ProductCreateForm = ({
   handleSubmit,
   handleChange,
-  handleChangee,
+  
   setValues,
   values,
   handleBrandChange,
@@ -160,26 +160,15 @@ images,
         </select>
       </div>
 
-
-
-
       <div className="form-group">
-        <label>Brand</label>
-        <select
-          name="brand"
-          className="form-control"
-          onChange={handleBrandChange}
-        >
-          <option>Please select</option>
-          {brands.length > 0 &&
-            brands.map((b) => (
-              <option key={b._id} value={b._id}>
-                {b.name}
-              </option>
-            ))}
-        </select>
-      </div>
-      
+                <label>Choose Brand</label>
+                <select name ="Choose Brand" className="form-control" onChange={handleBrandChange}>
+                    <option>Select Brand</option>
+                    {brands.length > 0 && brands.map((b) => <option key = {b._id} value={b._id}>{b.name}</option>)}
+                </select>
+            </div>
+
+
         <div>
           <label>Model Categories</label>
           <Select
