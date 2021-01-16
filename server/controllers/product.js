@@ -20,6 +20,10 @@ exports.create = async (req, res) => {
 // to query product saved in data base
 
 exports.listAll = async(req,res) => {
-  let products = await Product.find({});
+  let products = await Product.find({})
+  .populate("brand")
+  .populate("models")
+.sort([["createdAt" , "desc"]])
+  .exec();
   res.json(products);
 }
