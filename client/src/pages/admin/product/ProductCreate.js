@@ -26,6 +26,7 @@ const initialState = {
     quantity: "",
     years: [  "2000","2001","2002","2003","2004","2005","2006","2007","2008","2009","2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020"],
     year: "",
+    images: []
 }
 const ProductCreate = () => {
   const [values, setValues] = useState(initialState);
@@ -85,14 +86,14 @@ const ProductCreate = () => {
           <h4>Product create</h4>
           <hr />
 
-          {JSON.stringify(values.models)}
+          {JSON.stringify(values.images)}
 
 
              <div className="p-3">
+             <FileUpload  values = {values} setValues = {setValues}  setLoading = {setLoading} />
 
              </div>
-              <FileUpload  values = {values} setValues = {setValues}  setLoading = {setLoading} />
-
+            
           <ProductCreateForm
             handleSubmit={handleSubmit}
             handleChange={handleChange}
