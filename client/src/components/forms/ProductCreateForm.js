@@ -98,7 +98,7 @@ images,
         </select>
       </div>
 
-	<div className="form-group">
+      <div className="form-group">
         <label>Year</label>
         <select name="year" className="form-control" onChange={handleChange}>
           <option>Please select</option>
@@ -109,7 +109,6 @@ images,
           ))}
         </select>
       </div>
-
       <div className="form-group">
         <label>Quantity</label>
         <input
