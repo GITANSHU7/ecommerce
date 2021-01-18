@@ -40,3 +40,11 @@ exports.remove = async (req, res) => {
     return res.staus(400).send("Product delete failed");
   }
 };
+
+exports.read = async(req,res) => {
+  let products = await Product.find({slug: req.params.slug})
+  .populate("brand")
+  .populate("models")
+  .exec();
+  res.json(products);
+}
