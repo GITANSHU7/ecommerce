@@ -9,26 +9,30 @@ import { LoadingOutlined } from "@ant-design/icons";
 import ProductUpdateForm from "../../../components/forms/ProductUpdateForm";
 
 const initialState = {
-  title: "",
-  description: "",
-  price: "",
-  category: "",
-  subs: [],
-  shipping: "",
-  quantity: "",
-  images: [],
-  colors: ["Black", "Brown", "Silver", "White", "Blue"],
-  brands: ["Apple", "Samsung", "Microsoft", "Lenovo", "ASUS"],
-  color: "",
-  brand: "",
+    title: "",
+    manufacturer : "",
+    types : ["Engine Oil" , "Air Filter", "Tyre","Oil Filter","Battery", "Spares and Maintainance Kit", "Accessories"],
+    type : "",
+    description: "",
+    price : "",
+    brands: [],
+  models:[],
+ transmissions: ["Automatic" , "Manual"],
+        shipping:"",
+    fuels: ["Petrol" , "Diesel" ,"CNG" , "Electric"],
+    fuel: "",
+    quantity: "",
+    years: [  "2000","2001","2002","2003","2004","2005","2006","2007","2008","2009","2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020"],
+    year: "",
+    images: []
 };
 
 const ProductUpdate = ({ match }) => {
   // state
   const [values, setValues] = useState(initialState);
-  const [categories, setCategories] = useState([]);
-  const [subOptions, setSubOptions] = useState([]);
-  const [arrayOfSubs, setArrayOfSubs] = useState([]);
+  const [brands, setBrands] = useState([]);
+  const [modelOptions, setModelOptions] = useState([]);
+  const [arrayOfModels, setArrayOfModels] = useState([]);
 
   const { user } = useSelector((state) => ({ ...state }));
   // router
@@ -36,7 +40,7 @@ const ProductUpdate = ({ match }) => {
 
   useEffect(() => {
     loadProduct();
-    loadCategories();
+    loadBrands();
   }, []);
 
   const loadProduct = () => {
@@ -45,23 +49,23 @@ const ProductUpdate = ({ match }) => {
       // 1 load single proudct
       setValues({ ...values, ...p.data });
       // 2 load single product category subs
-      getCategorySubs(p.data.category._id).then((res) => {
-        setSubOptions(res.data); // on first load, show default subs
+      getBrandModels(p.data.brand._id).then((res) => {
+        setModelOptions(res.data); // on first load, show default subs
       });
       // 3 prepare array of sub ids to show as default sub values in antd Select
       let arr = [];
-      p.data.subs.map((s) => {
-        arr.push(s._id);
+      p.data.models.map((m) => {
+        arr.push(m._id);
       });
       console.log("ARR", arr);
-      setArrayOfSubs((prev) => arr); // required for ant design select to work
+      setArrayOfModels((prev) => arr); // required for ant design select to work
     });
   };
 
-  const loadCategories = () =>
-    getCategories().then((c) => {
-      console.log("GET CATEGORIES IN UPDATE PRODUCT", c.data);
-      setCategories(c.data);
+  const loadBrands = () =>
+    getBrands().then((b) => {
+      console.log("GET CATEGORIES IN UPDATE PRODUCT", b.data);
+      setBrands(b.data);
     });
 
   const handleSubmit = (e) => {
@@ -74,13 +78,13 @@ const ProductUpdate = ({ match }) => {
     // console.log(e.target.name, " ----- ", e.target.value);
   };
 
-  const handleCatagoryChange = (e) => {
+  const handleBrandChange = (e) => {
     e.preventDefault();
-    console.log("CLICKED CATEGORY", e.target.value);
-    setValues({ ...values, subs: [], category: e.target.value });
-    getCategorySubs(e.target.value).then((res) => {
-      console.log("SUB OPTIONS ON CATGORY CLICK", res);
-      setSubOptions(res.data);
+    console.log("CLICKED BRAND", e.target.value);
+    setValues({ ...values, models: [], brand: e.target.value });
+    getBrandModels(e.target.value).then((res) => {
+      console.log("Model OPTIONS ON BRAND CLICK", res);
+      setModelOptions(res.data);
     });
   };
 
@@ -96,11 +100,13 @@ const ProductUpdate = ({ match }) => {
           {JSON.stringify(values)}
 
           <ProductUpdateForm
-            handleSubmit={handleSubmit}
-            handleChange={handleChange}
-            setValues={setValues}
-            values={values}
-            handleCatagoryChange={handleCatagoryChange}
+              handleSubmit={handleSubmit}
+              handleChange={handleChange}
+              setValues={setValues}
+              values={values}
+              handleBrandChange={handleBrandChange}
+              brands={brands}
+              modelOptions={modelOptions}
             categories={categories}
             subOptions={subOptions}
             arrayOfSubs={arrayOfSubs}
