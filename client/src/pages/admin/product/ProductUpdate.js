@@ -107,10 +107,9 @@ const ProductUpdate = ({ match }) => {
               handleBrandChange={handleBrandChange}
               brands={brands}
               modelOptions={modelOptions}
-            categories={categories}
-            subOptions={subOptions}
-            arrayOfSubs={arrayOfSubs}
-            setArrayOfSubs={setArrayOfSubs}
+           
+            arrayOfModels={arrayOfModels}
+            setArrayOfModels={setArrayOfModels}
           />
           <hr />
         </div>
