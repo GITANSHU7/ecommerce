@@ -11,7 +11,6 @@ const { create , listAll , remove , read} = require("../controllers/product");
 router.post("/product/product-create", authCheck, adminCheck, create);
 router.get("/products/:count",  listAll );
 router.delete("/product/:slug",  authCheck , adminCheck , remove);
-router.get("/products/:count",  listAll );
 router.get("/product/:slug" , read);
 
 
