@@ -9,6 +9,11 @@ const ProductUpdateForm = ({
   handleChange,
   setValues,
   values,
+  handleBrandChange,
+  brands,
+  modelOptions,
+  arrayOfModels,
+  setArrayOfModelIds
 }) => {
   // destructure
   const {
@@ -20,7 +25,6 @@ const ProductUpdateForm = ({
     description,
     price ,
     brand,
-	brands,
     models,
     transmission,
 	  transmissions,
@@ -86,6 +90,7 @@ images,
         <select
           name="shipping"
           className="form-control"
+          value={shipping === "Yes" ? "Yes" : "No"}
           onChange={handleChange}
         >
           <option>Please select</option>
@@ -96,7 +101,7 @@ images,
 
       <div className="form-group">
         <label>Year</label>
-        <select name="year" className="form-control" onChange={handleChange}>
+        <select name="year" value={year} className="form-control" onChange={handleChange}>
           <option>Please select</option>
           {years.map((y) => (
             <option key={y} value={y}>
@@ -117,7 +122,7 @@ images,
       </div>
 	  <div className="form-group">
         <label>Fuel</label>
-        <select name="fuel" className="form-control" onChange={handleChange}>
+        <select name="fuel" value={fuel} className="form-control" onChange={handleChange}>
           <option>Please select</option>
           {fuels.map((f) => (
             <option key={f} value={f}>
@@ -128,7 +133,7 @@ images,
       </div>
 	<div className="form-group">
         <label>Transmission</label>
-        <select name="transmission" className="form-control" onChange={handleChange}>
+        <select name="transmission" value={transmission} className="form-control" onChange={handleChange}>
           <option>Please select</option>
           {transmissions.map((t) => (
             <option key={t} value={t}>
@@ -141,7 +146,7 @@ images,
 
       <div className="form-group">
         <label>Product Type</label>
-        <select name="type" className="form-control" onChange={handleChange}>
+        <select name="type" value={type} className="form-control" onChange={handleChange}>
           <option>Please select</option>
           {types.map((t) => (
             <option key={t} value={t}>
@@ -150,7 +155,41 @@ images,
           ))}
         </select>
       </div>
+      <div className="form-group">
+        <label>Brand</label>
+        <select
+          name="brand"
+          className="form-control"
+          onChange={handleBrandChange}
+        >
+          <option>{brand ? brand.name : "Please select"}</option>
+          {brands.length > 0 &&
+            brands.map((b) => (
+              <option key={b._id} value={b._id}>
+                {b.name}
+              </option>
+            ))}
+        </select>
+      </div>
 
+      
+      <div>
+          <label>Model Categories</label>
+          <Select
+            mode="multiple"
+            style={{ width: "100%" }}
+            placeholder="Please select"
+            //value={models}
+            onChange={(value) => setValues({ ...values, models: value })}
+          >
+            {modelOptions.length &&
+              modelOptions.map((m) => (
+                <Option key={m._id} value={m._id}>
+                  {m.name}
+                </Option>
+              ))}
+          </Select>
+        </div>
       
 
       <br />

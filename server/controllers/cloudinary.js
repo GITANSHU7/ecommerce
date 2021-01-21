@@ -19,6 +19,7 @@ exports.upload = async (req, res) => {
   });
 };
 
+
 exports.remove = (req, res) => {
   let image_id = req.body.public_id;
 

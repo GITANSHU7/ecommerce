@@ -6,6 +6,8 @@ import { getProduct } from "../../../functions/product";
 
 import {LoadingOutlined} from "@ant-design/icons";
 import ProductUpdateForm from "../../../components/forms/ProductUpdateForm";
+import { getBrandModels, getBrands } from "../../../functions/brand";
+import FileUpload from "../../../components/forms/FileUpload";
 
 
 
@@ -16,7 +18,7 @@ const initialState = {
   type : "",
   description: "",
   price : "",
-  brands: [],
+  brand:"",
 models:[],
 transmissions: ["Automatic" , "Manual"],
       shipping:"",
@@ -32,8 +34,11 @@ const ProductUpdate = ({match}) => {
  //state
  
  const [values, setValues] = useState(initialState);
- 
+ const [brands,setBrands] = useState([]);
+ const [modelOptions, setModelOptions] = useState([]);
+  const [arrayOfModels, setArrayOfModels]=useState([])
 
+  const [loading , setLoading] = useState(false)
 
 
   // redux
@@ -43,14 +48,35 @@ const { slug } = match.params;
 
 useEffect(() => {
   loadProduct();
-} , []);
+  loadBrands();
+  },[]);
 
 const loadProduct = () => {
   getProduct(slug).then((p) => {
     //console.log("single Product" ,p)
+    //load 1 product
     setValues({...values, ...p.data});
+    getBrandModels(p.data.brand._id).then((res) => {
+      setModelOptions(res.data) //on first load. show def
+    });
+    //array of models
+    let arr = []
+    p.data.models.map((m) => {
+      arr.push(m._id);
+    })
+    console.log("ARR" , arr);
+    setArrayOfModels((prev) => arr); // for ant design
   })
 }
+
+const loadBrands = () =>
+    getBrands().then((b) => {
+      console.log("Get brands" , b.data);
+      setBrands(b.data)
+    }
+    
+    );
+
 
 const handleSubmit = (e) => {
   e.preventDefault();
@@ -60,6 +86,16 @@ const handleSubmit = (e) => {
 const handleChange = (e) => {
   setValues({ ...values, [e.target.name]: e.target.value });
   // console.log(e.target.name, " ----- ", e.target.value);
+};
+const handleBrandChange = (e) => {
+  e.preventDefault();
+  console.log("CLICKED BRAND", e.target.value);
+  setValues({ ...values, models: [], brand: e.target.value });
+  getBrandModels(e.target.value).then((res) => {
+    console.log("Model OPTIONS ON BRAND CLICK", res);
+    setModelOptions(res.data);
+  });
+  
 };
 
 
@@ -74,12 +110,23 @@ const handleChange = (e) => {
         <div className="col-md-10">
         <h4>Product Update</h4>
          
-         {JSON.stringify(values)} 
+        
+        <div className="p-3">
+             <FileUpload  values = {values} setValues = {setValues}  setLoading = {setLoading} />
+
+             </div>
+
+
         <ProductUpdateForm 
 handleSubmit={handleSubmit}
 handleChange={handleChange}
 setValues={setValues}
 values={values}
+handleBrandChange={handleBrandChange}
+brands={brands}
+modelOptions={modelOptions}
+arrayOfModels={arrayOfModels}
+setArrayOfModels = {setArrayOfModels}
 
 
 
