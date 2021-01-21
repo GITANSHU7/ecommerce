@@ -13,7 +13,7 @@ const ProductUpdateForm = ({
   brands,
   modelOptions,
   arrayOfModels,
-  setArrayOfModelIds
+  setArrayOfModels
 }) => {
   // destructure
   const {
@@ -179,8 +179,8 @@ images,
             mode="multiple"
             style={{ width: "100%" }}
             placeholder="Please select"
-            //value={models}
-            onChange={(value) => setValues({ ...values, models: value })}
+            value={arrayOfModels}
+            onChange={(value) => setArrayOfModels(value)}
           >
             {modelOptions.length &&
               modelOptions.map((m) => (
