@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import AdminNav from "../../../components/nav/AdminNav";
 import { toast } from "react-toastify";
 import { useSelector } from "react-redux";
-import { getProduct } from "../../../functions/product";
-
+import { getProduct, updateProduct } from "../../../functions/product";
 import {LoadingOutlined} from "@ant-design/icons";
 import ProductUpdateForm from "../../../components/forms/ProductUpdateForm";
 import { getBrandModels, getBrands } from "../../../functions/brand";
 import FileUpload from "../../../components/forms/FileUpload";
+
 
 
 
@@ -30,14 +30,14 @@ transmissions: ["Automatic" , "Manual"],
   images: []
 }
 
-const ProductUpdate = ({match}) => {
+const ProductUpdate = ({match , history}) => {
  //state
  
  const [values, setValues] = useState(initialState);
- const [brands,setBrands] = useState([]);
- const [modelOptions, setModelOptions] = useState([]);
-  const [arrayOfModels, setArrayOfModels]=useState([])
-
+  const [brands, setBrands] = useState([]);
+  const [modelOptions, setModelOptions] = useState([]);
+  const [arrayOfModels, setArrayOfModels] = useState([]);
+  const [selectedBrand,setSelectedBrand] = useState("")
   const [loading , setLoading] = useState(false)
 
 
@@ -51,36 +51,49 @@ useEffect(() => {
   loadBrands();
   },[]);
 
-const loadProduct = () => {
-  getProduct(slug).then((p) => {
-    //console.log("single Product" ,p)
-    //load 1 product
-    setValues({...values, ...p.data});
-    getBrandModels(p.data.brand._id).then((res) => {
-      setModelOptions(res.data) //on first load. show def
+  const loadProduct = () => {
+    getProduct(slug).then((p) => {
+      // console.log("single product", p);
+      // 1 load single proudct
+      setValues({ ...values, ...p.data });
+      // 2 load single product category subs
+      getBrandModels(p.data.brand._id).then((res) => {
+        setModelOptions(res.data); // on first load, show default subs
+      });
+      // 3 prepare array of sub ids to show as default sub values in antd Select
+      let arr = [];
+      p.data.models.map((m) => {
+        arr.push(m._id);
+      });
+      console.log("ARR", arr);
+      setArrayOfModels((prev) => arr); // required for ant design select to work
     });
-    //array of models
-    let arr = []
-    p.data.models.map((m) => {
-      arr.push(m._id);
-    })
-    console.log("ARR" , arr);
-    setArrayOfModels((prev) => arr); // for ant design
-  })
-}
+  };
 
 const loadBrands = () =>
     getBrands().then((b) => {
       console.log("Get brands" , b.data);
       setBrands(b.data)
-    }
-    
-    );
+    });
 
 
 const handleSubmit = (e) => {
   e.preventDefault();
-  //
+  setLoading(true);
+  values.models = arrayOfModels;
+  values.brand = selectedBrand ? selectedBrand : values.brand;
+
+  updateProduct(slug,values,user.token)
+  .then((res) => {
+    setLoading(false);
+    toast.success(`"${res.data.title}" is updated`)
+    history.push("/admin/products");
+  })
+  .catch((err) => {
+    console.log(err);
+    setLoading(false);
+    toast.error(err.response.data.err);
+  })
 };
 
 const handleChange = (e) => {
@@ -91,11 +104,18 @@ const handleBrandChange = (e) => {
   e.preventDefault();
   console.log("CLICKED BRAND", e.target.value);
   setValues({ ...values, models: [], brand: e.target.value });
+  
+  setSelectedBrand(e.target.value);  //change
   getBrandModels(e.target.value).then((res) => {
     console.log("Model OPTIONS ON BRAND CLICK", res);
     setModelOptions(res.data);
   });
   
+  if (values.brand._id === e.target.value){
+    loadProduct();
+  }
+
+  setArrayOfModels([]);
 };
 
 
@@ -127,8 +147,7 @@ brands={brands}
 modelOptions={modelOptions}
 arrayOfModels={arrayOfModels}
 setArrayOfModels = {setArrayOfModels}
-
-
+selectedBrand={selectedBrand}
 
 />
           <hr />

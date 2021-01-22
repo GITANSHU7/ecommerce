@@ -13,7 +13,8 @@ const ProductUpdateForm = ({
   brands,
   modelOptions,
   arrayOfModels,
-  setArrayOfModels
+  setArrayOfModels,
+  selectedBrand
 }) => {
   // destructure
   const {
@@ -161,8 +162,9 @@ images,
           name="brand"
           className="form-control"
           onChange={handleBrandChange}
+          value={selectedBrand ? selectedBrand : brand._id}
         >
-          <option>{brand ? brand.name : "Please select"}</option>
+          <option>Please select</option>
           {brands.length > 0 &&
             brands.map((b) => (
               <option key={b._id} value={b._id}>
@@ -179,9 +181,11 @@ images,
             mode="multiple"
             style={{ width: "100%" }}
             placeholder="Please select"
-            value={arrayOfModels}
-            onChange={(value) => setArrayOfModels(value)}
-          >
+            //value={arrayOfModels}
+          //onChange={(value) => setArrayOfModels(value)}>
+          //value={models}
+          onChange={(value) => setValues({ ...values, models: value })}
+       >
             {modelOptions.length &&
               modelOptions.map((m) => (
                 <Option key={m._id} value={m._id}>
