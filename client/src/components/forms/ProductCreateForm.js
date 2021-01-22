@@ -1,7 +1,6 @@
 import React from "react";
 import { Select } from "antd";
-import { MDBSelect, MDBSelectInput, MDBSelectOptions, MDBSelectOption} from "mdbreact";
-
+import { Multiselect } from "multiselect-react-dropdown"
 
 const { Option } = Select;
 

@@ -181,11 +181,10 @@ images,
             mode="multiple"
             style={{ width: "100%" }}
             placeholder="Please select"
-            //value={arrayOfModels}
-          //onChange={(value) => setArrayOfModels(value)}>
-          //value={models}
-          onChange={(value) => setValues({ ...values, models: value })}
-       >
+            value={arrayOfModels}
+          onChange={(value) => setArrayOfModels(value)}>
+         
+       
             {modelOptions.length &&
               modelOptions.map((m) => (
                 <Option key={m._id} value={m._id}>
