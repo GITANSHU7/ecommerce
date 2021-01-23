@@ -1,6 +1,6 @@
 import React from "react";
 import { Select } from "antd";
-import { Multiselect } from "multiselect-react-dropdown"
+
 
 const { Option } = Select;
 

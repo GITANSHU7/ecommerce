@@ -103,7 +103,7 @@ const FileUpload = ({ values, setValues, setLoading }) => {
           ))}
       </div>
       <div className="row">
-        <label className="btn aqua-gradient">
+        <label className="btn btn-success">
           Choose File
           <input
             type="file"
