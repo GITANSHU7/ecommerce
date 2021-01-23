@@ -175,7 +175,7 @@ images,
 
       
         <div>
-          <label>Model Categories</label>
+          <label>Model </label>
           <Select
             mode="multiple"
             style={{ width: "100%" }}
