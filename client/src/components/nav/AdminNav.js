@@ -6,6 +6,7 @@ import { IoIosCreate } from 'react-icons/io';
 import { BsFillCollectionFill } from 'react-icons/bs';
 import { SiBrandfolder } from 'react-icons/si';
 import { IoLogoModelS } from 'react-icons/io';
+import { RiCoupon2Fill } from 'react-icons/ri';
 
 const AdminNav = () => (
   <nav>
@@ -48,7 +49,7 @@ const AdminNav = () => (
 
       <li className="nav-item">
         <Link to="/admin/coupon" className="nav-link">
-        <button className="btn btn-warning btn-raised pr-5 ">Coupon</button>
+        <button className="btn btn-warning btn-raised pr-5 "><RiCoupon2Fill /> Coupon</button>
         </Link>
       </li>
       <li className="nav-item">
