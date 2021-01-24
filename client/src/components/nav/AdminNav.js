@@ -4,6 +4,8 @@ import { Button } from 'reactstrap';
 import { RiDashboardLine } from 'react-icons/ri';
 import { IoIosCreate } from 'react-icons/io';
 import { BsFillCollectionFill } from 'react-icons/bs';
+import { SiBrandfolder } from 'react-icons/si';
+import { IoLogoModelS } from 'react-icons/io';
 
 const AdminNav = () => (
   <nav>
@@ -22,18 +24,18 @@ const AdminNav = () => (
 
       <li className="nav-item">
         <Link to="/admin/products" className="nav-link">
-        <button className="btn btn-warning btn-raised pr-4 "> <BsFillCollectionFill style={{paddingRight: "1px", marginRight: "2px"}} />Products</button>
+        <button className="btn btn-warning btn-raised pr-5 "> <BsFillCollectionFill style={{paddingRight: "1px", marginRight: "2px"}} />Products</button>
         </Link>
       </li>
 
       <li className="nav-item">
         <Link to="/admin/brand" className="nav-link">
-        <button className="btn btn-warning btn-raised pr-5 "> Brand</button>
+        <button className="btn btn-warning btn-raised pr-5 "><SiBrandfolder style={{marginRight: "2px"}} /> Brand</button>
         </Link>
       </li>
       <li className="nav-item">
         <Link to="/admin/model" className="nav-link">
-        <button className="btn btn-warning btn-raised pr-5 ">Model</button>
+        <button className="btn btn-warning btn-raised pr-5 "><IoLogoModelS  style={{fontSize : "20px" , paddingTop: "2.5px"}}/>  Model</button>
         </Link>
       </li>
 
