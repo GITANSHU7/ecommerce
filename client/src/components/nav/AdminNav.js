@@ -1,13 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from 'reactstrap';
+import { RiDashboardLine } from 'react-icons/ri';
 
 const AdminNav = () => (
   <nav>
     <ul className="nav flex-column">
       <li className="nav-item">
         <Link to="/admin/dashboard" className="nav-link">
-        <button className="btn btn-warning btn-raised  pr-4"> Dashboard </button>
+        <button className="btn btn-warning btn-raised  pr-4"> <RiDashboardLine style={{fontSize : "20px" , paddingTop : "5px"}}/>Dashboard </button>
         </Link>
       </li>
 
