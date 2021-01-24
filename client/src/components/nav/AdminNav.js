@@ -7,54 +7,54 @@ const AdminNav = () => (
     <ul className="nav flex-column">
       <li className="nav-item">
         <Link to="/admin/dashboard" className="nav-link">
-        <Button color="success"> Dashboard </Button>
+        <button className="btn btn-warning btn-raised  pr-4"> Dashboard </button>
         </Link>
       </li>
 
       <li className="nav-item">
         <Link to="/admin/product/product-create" className="nav-link">
-        <Button color="success"> Product</Button>
+        <button className="btn btn-warning btn-raised  pr-5"> Product</button>
         </Link>
       </li>
 
       <li className="nav-item">
         <Link to="/admin/products" className="nav-link">
-        <Button color="success"> Products</Button>
+        <button className="btn btn-warning btn-raised pr-4 ">Products</button>
         </Link>
       </li>
 
       <li className="nav-item">
         <Link to="/admin/brand" className="nav-link">
-        <Button color="success"> Brand</Button>
+        <button className="btn btn-warning btn-raised pr-5 "> Brand</button>
         </Link>
       </li>
       <li className="nav-item">
         <Link to="/admin/model" className="nav-link">
-        <Button color="success">Model</Button>
+        <button className="btn btn-warning btn-raised pr-5 ">Model</button>
         </Link>
       </li>
 
 
       <li className="nav-item">
         <Link to="/admin/sub" className="nav-link">
-        <Button color="success"> Sub Category</Button>
+        <button className="btn btn-warning btn-raised pr-3 ">Sub Category</button>
         </Link>
       </li>
 
       <li className="nav-item">
         <Link to="/admin/coupon" className="nav-link">
-        <Button color="success"> Coupon</Button>
+        <button className="btn btn-warning btn-raised pr-5 ">Coupon</button>
         </Link>
       </li>
       <li className="nav-item">
         <Link to="/admin/category" className="nav-link">
-        <Button color="success"> Category</Button>
+        <button className="btn btn-warning btn-raised pr-4 ">Category</button>
         </Link>
       </li>
 
       <li className="nav-item">
         <Link to="/user/password" className="nav-link">
-        <Button color="success"> Password</Button>
+        <button className="btn btn-warning btn-raised "> Password</button>
         </Link>
       </li>
     </ul>
