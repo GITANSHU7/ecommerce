@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from 'reactstrap';
 import { RiDashboardLine } from 'react-icons/ri';
+import { IoIosCreate } from 'react-icons/io';
+import { BsFillCollectionFill } from 'react-icons/bs';
 
 const AdminNav = () => (
   <nav>
@@ -14,13 +16,13 @@ const AdminNav = () => (
 
       <li className="nav-item">
         <Link to="/admin/product/product-create" className="nav-link">
-        <button className="btn btn-warning btn-raised  pr-5"> Product</button>
+        <button className="btn btn-warning btn-raised  pr-5"> <IoIosCreate  style={{fontSize : "15px" , paddingRight: "0px"}} />Product</button>
         </Link>
       </li>
 
       <li className="nav-item">
         <Link to="/admin/products" className="nav-link">
-        <button className="btn btn-warning btn-raised pr-4 ">Products</button>
+        <button className="btn btn-warning btn-raised pr-4 "> <BsFillCollectionFill style={{paddingRight: "1px", marginRight: "2px"}} />Products</button>
         </Link>
       </li>
 
