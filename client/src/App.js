@@ -6,7 +6,7 @@ import Home from "./pages/Home";
 import Header from "./components/nav/Header";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
-import logo from "./logo"
+//import logo from "./logo";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import RegisterComplete from "./pages/auth/RegisterComplete";
