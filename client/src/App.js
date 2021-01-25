@@ -1,5 +1,5 @@
 import React , {useEffect, useState} from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Link } from "react-router-dom";
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
 import Home from "./pages/Home";
@@ -29,9 +29,7 @@ import ModelUpdate from "./pages/admin/model/ModelUpdate";
 import ProductCreate from "./pages/admin/product/ProductCreate";
 import AllProducts from "./pages/admin/product/AllProducts";
 import ProductUpdate from "./pages/admin/product/ProductUpdate";
-
-
-
+import logo from "./components/logo.png";
 
 
 const App = () => {
@@ -66,7 +64,7 @@ const App = () => {
 
   return (
     <>
-    {logo()}
+    <Link to = "/"><img src = {logo} style={{display: "block", marginLeft: "auto" ,marginRight: "auto"}} /></Link>
     <Header />
     <ToastContainer />
     <Switch>
