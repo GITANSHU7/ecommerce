@@ -7,6 +7,7 @@ import { BsFillCollectionFill } from 'react-icons/bs';
 import { SiBrandfolder } from 'react-icons/si';
 import { IoLogoModelS } from 'react-icons/io';
 import { RiCoupon2Fill } from 'react-icons/ri';
+import { RiLockPasswordFill } from 'react-icons/ri';
 
 const AdminNav = () => (
   <nav>
@@ -60,7 +61,7 @@ const AdminNav = () => (
 
       <li className="nav-item">
         <Link to="/user/password" className="nav-link">
-        <button className="btn btn-warning btn-raised "> Password</button>
+        <button className="btn btn-warning btn-raised "><RiLockPasswordFill /> Password</button>
         </Link>
       </li>
     </ul>
