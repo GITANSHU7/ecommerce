@@ -12,13 +12,13 @@ const UserNav = () => (
 
       <li className="nav-item">
         <Link to="/user/password" className="nav-link">
-          Password
+        <button className="btn btn-warning btn-raised pr-3 "> Password </button>
         </Link>
       </li>
 
       <li className="nav-item">
         <Link to="/user/wishlist" className="nav-link">
-          Wishlist
+        <button className="btn btn-warning btn-raised pr-3 "> Wishlist </button>
         </Link>
       </li>
     </ul>
