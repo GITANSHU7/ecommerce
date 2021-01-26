@@ -12,7 +12,7 @@ const UserNav = () => (
 
       <li className="nav-item">
         <Link to="/user/password" className="nav-link">
-        <button className="btn btn-warning btn-raised pr-3 "> Password </button>
+        <button className="btn btn-danger btn-raised pr-3 "> Password </button>
         </Link>
       </li>
 
