@@ -1,37 +1,13 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export default class Home extends Component {
-    constructor(props) {
-        super(props)
+ function Home() {
+    
 
-        this.state = {
-                 
-        }
-
-        this.handleEvent = this.handleEvent.bind(this)
-    }
-
-    componentDidMount() {
-        
-    }
-
-    componentDidUpdate(prevProps, prevState, snapshot) { if (prevState.name !== this.state.name) { this.handler() } }
-
-    componentWillUnmount() {
-        
-    }
-
-    // Prototype methods, Bind in Constructor (ES2015)
-    handleEvent() {}
-
-    // Class Properties (Stage 3 Proposal)
-    handler = () => { this.setState() }
-
-    render() {
-        return (
-            <div>
-                <h2>home page</h2>
-            </div>
-        )
-    }
+    return (
+        <div>
+            <h1>home</h1>
+        </div>
+    )
 }
+
+export default Home;
