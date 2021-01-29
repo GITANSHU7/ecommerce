@@ -40,7 +40,7 @@ const Header = () => {
 
   return (
     <Menu onClick={handleClick} selectedKeys={[current]} mode="horizontal">
-      <Item key="home" icon={<AppstoreOutlined />}>
+     {/*} <Item key="home" icon={<AppstoreOutlined />}>
         <Link to="/">Home</Link>
       </Item>
 	 <Item key="About Us" icon={<InfoCircleTwoTone />}>
@@ -49,7 +49,7 @@ const Header = () => {
       <Item key="Contact Us" icon={<ContactsTwoTone />}>
         <Link to="/contact">Contact Us</Link>
       </Item>
-
+  */}
 
       {!user && (
         <Item key="register" icon={<UserAddOutlined />} className="float-right">

@@ -64,6 +64,7 @@ const App = () => {
 
   return (
     <>
+    <Header />
     <Link to = "/"><img src = {logo} style={{display: "block", marginLeft: "auto" ,marginRight: "auto"}} /></Link>
     <Header />
     <ToastContainer />
