@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Button } from './Button';
+
 import { Link } from 'react-router-dom';
 import firebase from "firebase";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-
+import logo from "../../components/logo.png"
 import './Navbar.css';
+import { Button } from '../buttons/Button';
 
 function Navbar() {
   const [click, setClick] = useState(false);
@@ -48,8 +49,8 @@ function Navbar() {
       <nav className='navbar'>
         <div className='navbar-container'>
           <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
-            HYPEKAR
-            <i class='fab fa-typo3' />
+          <img src = {logo}  />
+            
           </Link>
           <div className='menu-icon' onClick={handleClick}>
             <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
@@ -60,7 +61,7 @@ function Navbar() {
                 Home
               </Link>
             </li>
-            <li className='nav-item'>
+           <li className='nav-item'>
               <Link
                 to='/about'
                 className='nav-links'
@@ -77,9 +78,9 @@ function Navbar() {
               >
                 contact us
               </Link>
-            </li>
+  </li> 
             
-		{!user && (
+	{/*	{!user && (
             <li>
               <Link
                 to='/register'
@@ -99,10 +100,10 @@ function Navbar() {
               >
                 Login
               </Link>
-            </li> )}
+            </li> )} */}
           </ul>
-         {/* {button && <Button buttonStyle='btn--outline'>SIGN UP</Button>}    */}
-        </div>
+       {/*  {button && <Button buttonStyle='btn--outline'>Register</Button>} */}   
+         </div>
       </nav>
     </>
   );

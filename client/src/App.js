@@ -30,6 +30,10 @@ import ProductCreate from "./pages/admin/product/ProductCreate";
 import AllProducts from "./pages/admin/product/AllProducts";
 import ProductUpdate from "./pages/admin/product/ProductUpdate";
 import logo from "./components/logo.png";
+import Navbar from "./components/nav/Navbar";
+
+
+
 
 
 const App = () => {
@@ -64,9 +68,10 @@ const App = () => {
 
   return (
     <>
+    {/*<Header />
+    <Link to = "/"><img src = {logo} style={{display: "block", marginLeft: "auto" ,marginRight: "auto"}} /></Link> */}
     <Header />
-    <Link to = "/"><img src = {logo} style={{display: "block", marginLeft: "auto" ,marginRight: "auto"}} /></Link>
-    <Header />
+    <Navbar />
     <ToastContainer />
     <Switch>
       <Route exact path="/" component={Home} />
