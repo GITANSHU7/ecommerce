@@ -13,7 +13,7 @@ function Navbar() {
   
   let dispatch = useDispatch();
   let { user } = useSelector((state) => ({ ...state }));
-
+  let history = useHistory();
 
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
