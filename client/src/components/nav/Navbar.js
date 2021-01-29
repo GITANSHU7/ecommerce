@@ -31,7 +31,7 @@ function Navbar() {
 
 
   const showButton = () => {
-    if (window.innerWidth <= 960) {
+    if (window.innerWidth <= 700) {
       setButton(false);
     } else {
       setButton(true);
@@ -49,7 +49,7 @@ function Navbar() {
       <nav className='navbar'>
         <div className='navbar-container'>
           <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
-          <img src = {logo}  />
+         <img src = {logo} style={{ display: "block" ,  marginRight: "auto"  , marginLeft:"auto"}} /> 
             
           </Link>
           <div className='menu-icon' onClick={handleClick}>
@@ -62,6 +62,15 @@ function Navbar() {
               </Link>
             </li>
            <li className='nav-item'>
+              <Link
+                to='/about'
+                className='nav-links'
+                onClick={closeMobileMenu}
+              >
+                About
+              </Link>
+            </li>
+            <li className='nav-item'>
               <Link
                 to='/about'
                 className='nav-links'
