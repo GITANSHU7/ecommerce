@@ -5,7 +5,7 @@ import React from 'react'
 
     return (
         <div>
-            <h1>home <i className = "fab fa-typo3" /> </h1>
+            <h1>home  sweet home<i className = "fab fa-typo3" /> </h1>
         </div>
     )
 }

@@ -39,7 +39,7 @@ const Header = () => {
   };
 
   return (
-    <Menu onClick={handleClick} selectedKeys={[current]} mode="horizontal">
+    <Menu onClick={handleClick} selectedKeys={[current]} mode="horizontal" style={{backgroundColor : 'black'}}>
      {/*} <Item key="home" icon={<AppstoreOutlined />}>
         <Link to="/">Home</Link>
       </Item>
@@ -52,22 +52,23 @@ const Header = () => {
   */}
 
       {!user && (
-        <Item key="register" icon={<UserAddOutlined />} className="float-left">
-          <Link to="/register">Register</Link>
+        <Item key="register" icon={<UserAddOutlined style={{fontSize : '1.7rem' ,color:'white'}} />} className="float-left text-white">
+          <Link to="/register"><strong className="text-white">Register</strong></Link>
         </Item>
       )}
 
       {!user && (
-        <Item key="login" icon={<UserOutlined />} className="float-right">
-          <Link to="/login">Login</Link>
+        <Item key="login" icon={<UserOutlined style={{fontSize : '1.7rem' ,color: 'white'}} />} className="float-right">
+          <Link to="/login"><strong className="text-white">Login</strong></Link>
         </Item>
       )}
 
       {user && (
         <SubMenu
-          icon={<SettingOutlined />}
+          icon={<UserOutlined style = {{fontSize : '1.7rem' , color: 'white'}} /> }
           title={user.email && user.email}
-          className="float-right"
+          className="float-right text-white"
+          
         >
           {user && user.role === "subscriber" && (
             <Item><Link to = "/user/history">Dashboard</Link></Item>
