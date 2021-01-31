@@ -1,7 +1,11 @@
 import React from 'react';
-import '../App.css';
-import { Button } from './Button';
+import '../../App.css' ;
+import { Button } from '../buttons/Button';
+
 import './HeroSection.css';
+
+
+
 
 function HeroSection() {
   return (
