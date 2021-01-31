@@ -1,12 +1,14 @@
 import React from 'react'
-
+import HeroSection from '../components/hero/HeroSection';
+import '../App.css'
  function Home() {
     
 
+
     return (
-        <div>
-            <h1>home  sweet home<i className = "fab fa-typo3" /> </h1>
-        </div>
+        <>
+            <HeroSection />
+            </>
     )
 }
 
