@@ -1,6 +1,12 @@
 import React from 'react'
 import HeroSection from '../components/hero/HeroSection';
 import '../App.css'
+import Cards from '../components/HomeCard/Cards';
+
+
+
+
+
  function Home() {
     
 
@@ -8,7 +14,7 @@ import '../App.css'
     return (
         <>
             <HeroSection />
-            <HeroSection />
+            <Cards />
             
             </>
     )
