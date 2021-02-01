@@ -8,6 +8,8 @@ import '../App.css'
     return (
         <>
             <HeroSection />
+            <HeroSection />
+            
             </>
     )
 }

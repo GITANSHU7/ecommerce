@@ -61,16 +61,8 @@ function Navbar() {
                 Home
               </Link>
             </li>
-           <li className='nav-item'>
-              <Link
-                to='/about'
-                className='nav-links'
-                onClick={closeMobileMenu}
-              >
-                About
-              </Link>
-            </li>
-            <li className='nav-item'>
+          
+          {/*  <li className='nav-item'>
               <Link
                 to='/about'
                 className='nav-links'
@@ -88,15 +80,18 @@ function Navbar() {
                 contact us
               </Link>
   </li> 
-            
-	{/*	{!user && (
-            <li>
+*/}
+       
+
+
+		{!user && (
+            <li className='nav-item'>
               <Link
                 to='/register'
-                className='nav-links-mobile'
+                className='nav-links'
                 onClick={closeMobileMenu}
               >
-                Register
+                <button className= "btn btn-success">Register</button>
               </Link>
             </li> )}
 			
@@ -104,12 +99,12 @@ function Navbar() {
             <li>
               <Link
                 to='/login'
-                className='nav-links-mobile'
+                className='nav-links'
                 onClick={closeMobileMenu}
               >
-                Login
+                <button className = "btn btn-danger">Login</button>
               </Link>
-            </li> )} */}
+            </li> )} 
           </ul>
        {/*  {button && <Button buttonStyle='btn--outline'>Register</Button>} */}   
          </div>
