@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Jumbotron from '../components/cards/Jumbotron'
 
 export default class About extends Component {
     constructor(props) {
@@ -30,7 +31,7 @@ export default class About extends Component {
     render() {
         return (
             <div>
-               About 
+                <Jumbotron text={["Latest Products", "New Arrivals", "Best Sellers"]} />
             </div>
         )
     }
