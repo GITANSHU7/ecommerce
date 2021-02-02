@@ -1,4 +1,8 @@
 import React, { Component } from 'react'
+import Jumbotron from '../components/cards/Jumbotron'
+
+
+
 
 export default class Contact extends Component {
     constructor(props) {
@@ -29,9 +33,10 @@ export default class Contact extends Component {
 
     render() {
         return (
-            <div>
-              Contact  
-            </div>
+            <div className = "jumbotron text-danger h1 font-weight-bold text-center">
+          <Jumbotron text={["24x7 Support", "Hassle free service", "Genuine Products"]} />
+      
+              </div>  
         )
     }
 }
