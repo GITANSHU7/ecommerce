@@ -1,13 +1,21 @@
 import React from "react";
 import { Element } from "react-scroll";
 import styled from "styled-components";
-import { Marginer } from "../../components/marginer";
+
 import { OurSerivce } from "../../components/ourService";
 import { SectionTitle } from "../../components/sectionTitle";
 
+
+
+i
+import Delivery from "./Delivery.png";
+import Login from "./Login.png";
+import Payment from "./Payment.png";
+import Select from "./Select.png";
 import Service1Img from "../../assets/illustrations/web_development_.png";
 import Service2Img from "../../assets/illustrations/mobile_phone.png";
 import Service3Img from "../../assets/illustrations/bug_fixed.png";
+import { Marginer } from "./marginer";
 
 const ServicesContainer = styled(Element)`
   width: 100%;
@@ -28,14 +36,14 @@ export function ServicesSection(props) {
         description="We build and deliver fully integrated webapps
           with customized control panels that fit your 
           compnay needs"
-        imgUrl={Service1Img}
+        imgUrl={Delivery}
       />
       <OurSerivce
         title="Mobile optimized"
         description="We build and deliver fully integrated webapps
           with customized control panels that fit your 
           compnay needs"
-        imgUrl={Service2Img}
+        imgUrl={Login}
         isReversed
       />
       <OurSerivce
@@ -43,7 +51,15 @@ export function ServicesSection(props) {
         description="We have teams of professional developers, designers
         and managers that ensures delivering the best 
         software quality for your company"
-        imgUrl={Service3Img}
+        imgUrl={Payment}
+      />
+       <OurSerivce
+        title="Mobile optimized"
+        description="We build and deliver fully integrated webapps
+          with customized control panels that fit your 
+          compnay needs"
+        imgUrl={Select}
+        isReversed
       />
     </ServicesContainer>
   );
