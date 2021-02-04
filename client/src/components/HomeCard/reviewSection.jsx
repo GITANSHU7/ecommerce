@@ -2,10 +2,7 @@ import { CarouselProvider, DotGroup, Slide, Slider } from "pure-react-carousel";
 import React from "react";
 import { Element } from "react-scroll";
 import styled from "styled-components";
-import User1Img from "../../assets/pictures/profile_picture_1.jpg";
-import User2Img from "../../assets/pictures/profile_picture_2.jpg";
-import User3Img from "../../assets/pictures/profile_picture_3.jpg";
-import User4Img from "../../assets/pictures/profile_picture_4.jpeg"
+import User1Img from "./profile_picture_1.jpeg";
 
 
 import { useMediaQuery } from "react-responsive";
@@ -23,6 +20,7 @@ const ReviewsContainer = styled(Element)`
   display: flex;
   flex-direction: column;
   align-items: center;
+  background: #fff;
 `;
 
 const StyledCarouselProvider = styled(CarouselProvider)`
@@ -85,21 +83,21 @@ export function ReviewsSection(props) {
             <ReviewCard
               reviewText=" I very much enjoyed working with Beema and the team - they have an excellent grasp of their subject, and have created something great for us."
               username="John coner"
-              userImgUrl={User2Img}
+              userImgUrl={User1Img}
             />
           </StyledSlide>
           <StyledSlide index={2}>
             <ReviewCard
               reviewText=" I very much enjoyed working with Beema and the team - they have an excellent grasp of their subject, and have created something great for us."
               username="John coner"
-              userImgUrl={User3Img}
+              userImgUrl={User1Img}
             />
           </StyledSlide>
           <StyledSlide index={3}>
             <ReviewCard
               reviewText=" I very much enjoyed working with Beema and the team - they have an excellent grasp of their subject, and have created something great for us."
               username="John coner"
-              userImgUrl={User4Img}
+              userImgUrl={User1Img}
             />
           </StyledSlide>
         </Slider>
