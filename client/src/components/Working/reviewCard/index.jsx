@@ -1,5 +1,4 @@
 import { faQuoteLeft } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import styled from "styled-components";
 import { Marginer } from "../marginer";
@@ -62,7 +61,7 @@ export function ReviewCard(props) {
   return (
     <CardContainer>
       <QuoteIcon>
-        <FontAwesomeIcon icon={faQuoteLeft} />
+        <faQuoteLeft />
       </QuoteIcon>
       <Marginer direction="vertical" margin="6em" />
       <ReviewText>{reviewText}</ReviewText>

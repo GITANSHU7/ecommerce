@@ -2,7 +2,10 @@ import { CarouselProvider, DotGroup, Slide, Slider } from "pure-react-carousel";
 import React from "react";
 import { Element } from "react-scroll";
 import styled from "styled-components";
-
+import User1Img from "../../assets/pictures/profile_picture_1.jpg";
+import User2Img from "../../assets/pictures/profile_picture_2.jpg";
+import User3Img from "../../assets/pictures/profile_picture_3.jpg";
+import User4Img from "../../assets/pictures/profile_picture_4.jpeg"
 
 
 import { useMediaQuery } from "react-responsive";
@@ -10,10 +13,7 @@ import { useMediaQuery } from "react-responsive";
 import "pure-react-carousel/dist/react-carousel.es.css";
 
 
-import User1Img from "../../assets/pictures/profile_picture_1.jpg";
-import User2Img from "../../assets/pictures/profile_picture_2.jpg";
-import User3Img from "../../assets/pictures/profile_picture_3.jpg";
-import User4Img from "../../assets/pictures/profile_picture_4.jpeg";
+
 import { Marginer } from "../Working/marginer";
 import { ReviewCard } from "../Working/reviewCard";
 import { SectionTitle } from "../Working/sectionTitle";
