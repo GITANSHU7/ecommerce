@@ -2,7 +2,9 @@ import React from "react";
 import { Element } from "react-scroll";
 import styled from "styled-components";
 
-import AboutImgUrl from "../../assets/illustrations/rocket_launch_.png";
+
+import AboutImgUrl from "../../pages/aboutus.png";
+
 import { SectionTitle } from "../Working/sectionTitle";
 
 const MoreAboutContainer = styled(Element)`
