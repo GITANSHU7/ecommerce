@@ -1,5 +1,6 @@
 import React from 'react'
 import Jumbotron from "../components/cards/Jumbotron";
+import { MoreAboutSection } from '../components/HomeCard/moreAboutSection';
 
 
 
@@ -12,6 +13,7 @@ function About() {
           <Jumbotron text={["Latest Products", "New Arrivals", "Best Sellers"]} />
       
               </div>  
+              <MoreAboutSection />
         </>
     )
 }
