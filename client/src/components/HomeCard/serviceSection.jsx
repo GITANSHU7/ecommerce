@@ -20,6 +20,7 @@ const ServicesContainer = styled(Element)`
   align-items: center;
   padding: 10px 0;
   background: #fff;
+  
 `;
 
 export function ServicesSection(props) {

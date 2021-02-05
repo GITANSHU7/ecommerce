@@ -1,17 +1,18 @@
-import { faQuoteLeft } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
 import styled from "styled-components";
 import { Marginer } from "../marginer";
 
+
 const CardContainer = styled.div`
   width: 350px;
-  height: 430px;
+  height: 400px;
   background-color: #fff;
   box-shadow: 0px 0px 7px rgba(17, 17, 17, 0.2);
-  border-radius: 3px;
-  margin: 5px 0;
+  border-radius: 5px;
+  margin: 2px 0;
   position: relative;
   padding: 10px 1.2em;
+  margin-right: 5px;
 `;
 
 const QuoteIcon = styled.div`
@@ -61,11 +62,11 @@ export function ReviewCard(props) {
   return (
     <CardContainer>
       <QuoteIcon>
-        <faQuoteLeft />
+      <i className="fas fa-quote-left"></i>
       </QuoteIcon>
-      <Marginer direction="vertical" margin="6em" />
+      <Marginer direction="vertical" margin="3em" />
       <ReviewText>{reviewText}</ReviewText>
-      <Marginer direction="vertical" margin="7em" />
+      <Marginer direction="vertical" margin="5em" />
       <Line />
       <UserDetails>
         <UserImg src={userImgUrl} />
