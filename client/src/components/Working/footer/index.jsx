@@ -1,10 +1,12 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import styled from "styled-components";
-import { Button } from "../button";
-import { Logo } from "../logo";
-import { Marginer } from "../marginer";
+import Logo  from "../../../logo";
+
 import { faTwitter, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { Marginer } from "../marginer";
+
+
 
 const FooterContainer = styled.div`
   width: 100%;
@@ -114,7 +116,7 @@ export function Footer(props) {
         </PrivacyContainer>
         <SocialContainer>
           <SocialIcon>
-            <FontAwesomeIcon icon={faTwitter} />
+          <i className="fab fa-twitter"></i>
           </SocialIcon>
           <SocialIcon>
             <FontAwesomeIcon icon={faLinkedin} />
