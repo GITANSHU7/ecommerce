@@ -32,6 +32,7 @@ import ProductUpdate from "./pages/admin/product/ProductUpdate";
 import logo from "./components/logo.png";
 import Navbar from "./components/nav/Navbar";
 import "./App.css"
+import { Footer } from "./components/Working/footer";
 
 
 
@@ -72,6 +73,7 @@ const App = () => {
     <Link to = "/"><img src = {logo} style={{display: "block" ,marginRight: "auto"}} /></Link> */}
     <Header />
     <Navbar />
+    
     <ToastContainer />
     <Switch>
       <Route exact path="/" component={Home} />
@@ -98,6 +100,7 @@ const App = () => {
           path="/admin/product/:slug"
           component={ProductUpdate}
         />
+        
     </Switch>
     </>
   );
