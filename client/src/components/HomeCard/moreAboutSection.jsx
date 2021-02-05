@@ -47,7 +47,7 @@ const AboutImg = styled.img`
 export function MoreAboutSection(props) {
   return (
     <MoreAboutContainer>
-      <SectionTitle>More About Beema</SectionTitle>
+      <SectionTitle>More About Hypekar</SectionTitle>
       <AboutContainer>
         <AboutText>
           Beema is about designing, building and deliverying best quality
