@@ -5,6 +5,7 @@ import Cards from '../components/HomeCard/Cards';
 import Jumbotron from '../components/cards/Jumbotron';
 import { ServicesSection } from "../components/HomeCard/serviceSection";
 import { ReviewsSection } from "../components/HomeCard/reviewSection";
+import { Footer } from "../components/Working/footer";
 
 
  function Home() {
@@ -18,6 +19,7 @@ import { ReviewsSection } from "../components/HomeCard/reviewSection";
             
     <ServicesSection />
     <ReviewsSection />
+    <Footer />
         
             
             </>
