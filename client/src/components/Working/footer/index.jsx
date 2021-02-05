@@ -1,9 +1,9 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import React from "react";
 import styled from "styled-components";
 import Logo  from "../../../logo";
 
-import { faTwitter, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+
 import { Marginer } from "../marginer";
 
 
@@ -14,7 +14,7 @@ const FooterContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #1f1f1f;
+  background-color: #03506f;
   position: relative;
 `;
 
@@ -103,10 +103,9 @@ export function Footer(props) {
       <Marginer direction="vertical" margin="5em" />
       <Logo small />
       <Marginer direction="vertical" margin="1em" />
-      <MotivationalText>Just say the magical word</MotivationalText>
-      <MotivationalText>and we will do the rest</MotivationalText>
+      <MotivationalText>One stop for</MotivationalText>
+      <MotivationalText>All Your Need</MotivationalText>
       <Marginer direction="vertical" margin="1em" />
-      <Button>Start your Project</Button>
       <Marginer direction="vertical" margin="5em" />
       <AccessibilityContainer>
         <PrivacyContainer>
@@ -119,11 +118,11 @@ export function Footer(props) {
           <i className="fab fa-twitter"></i>
           </SocialIcon>
           <SocialIcon>
-            <FontAwesomeIcon icon={faLinkedin} />
+          <i className="fab fa-linkedin-in"></i>
           </SocialIcon>
         </SocialContainer>
       </AccessibilityContainer>
-      <RightsReserved>&copy; 2020 Beema All rights reserved</RightsReserved>
+      <RightsReserved>&copy; 2021 Hypekar All rights reserved</RightsReserved>
     </FooterContainer>
   );
 }
