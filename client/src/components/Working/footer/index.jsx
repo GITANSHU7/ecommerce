@@ -101,7 +101,7 @@ export function Footer(props) {
   return (
     <FooterContainer>
       <Marginer direction="vertical" margin="5em" />
-      <Logo small />
+      <Link to = "/conatct"><Logo  /></Link>
       <Marginer direction="vertical" margin="1em" />
       <MotivationalText>One stop for</MotivationalText>
       <MotivationalText>All Your Need</MotivationalText>
