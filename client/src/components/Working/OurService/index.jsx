@@ -5,7 +5,7 @@ const ServiceContainer = styled.div`
   display: flex;
   align-items: center;
   flex-direction: ${({ isReversed }) => isReversed && "row-reverse"};
-  margin-bottom: 4em;
+  margin-bottom: 1em;
   flex-wrap: wrap-reverse;
   @media screen and (max-width: 480px) {
     justify-content: center;
