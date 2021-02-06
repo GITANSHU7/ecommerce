@@ -52,7 +52,7 @@ export function MoreAboutSection(props) {
         <AboutText>
         <i className="fas fa-quote-left"></i> <br />At hypekar we believe in quality for all. We aim for providing best user experience in automobile industry {<br />}
           {<br />} With our platform you get excess to OEM products and essential services for your vehicle.{" "}
-         
+          {<br />}With our platform you get excess to OEM products and essential services for your vehicle such as wheel-care , batteries, and insurance and much more all at one place
         </AboutText>
         <AboutImg src={AboutImgUrl} />
       </AboutContainer>
