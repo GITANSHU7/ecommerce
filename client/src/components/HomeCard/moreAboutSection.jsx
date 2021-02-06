@@ -3,7 +3,7 @@ import { Element } from "react-scroll";
 import styled from "styled-components";
 
 
-import AboutImgUrl from "../../pages/aboutus.png";
+import AboutImgUrl from "../../pages/h.png";
 
 import { SectionTitle } from "../Working/sectionTitle";
 
@@ -47,16 +47,12 @@ const AboutImg = styled.img`
 export function MoreAboutSection(props) {
   return (
     <MoreAboutContainer>
-      <SectionTitle>More About Hypekar</SectionTitle>
+      <SectionTitle>About Hypekar</SectionTitle>
       <AboutContainer>
         <AboutText>
-          Beema is about designing, building and deliverying best quality
-          software for your company. {<br />}
-          {<br />} We make sure that you get the best software inferstracture
-          and set of applications to ensure the best experience of your clients.{" "}
-          {<br />}
-          {<br />} So wether you are handling thousands of payment transactions
-          or you’re just starting out, you are in the right place.
+        <i className="fas fa-quote-left"></i> <br />At hypekar we believe in quality for all. We aim for providing best user experience in automobile industry {<br />}
+          {<br />} With our platform you get excess to OEM products and essential services for your vehicle.{" "}
+         
         </AboutText>
         <AboutImg src={AboutImgUrl} />
       </AboutContainer>
