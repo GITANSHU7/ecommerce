@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Jumbotron from '../components/cards/Jumbotron'
+import AppContact from './contactForm'
 
 
 
@@ -33,10 +34,14 @@ export default class Contact extends Component {
 
     render() {
         return (
+            <>
             <div className = "jumbotron text-danger h1 font-weight-bold text-center">
           <Jumbotron text={["24x7 Support", "Hassle free service", "Genuine Products"]} />
       
               </div>  
+
+              <AppContact />
+              </>
         )
     }
 }
