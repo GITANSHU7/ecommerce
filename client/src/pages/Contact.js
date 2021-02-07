@@ -1,6 +1,8 @@
+
 import React, { Component } from 'react'
 import Jumbotron from '../components/cards/Jumbotron'
 import AppContact from './contactForm'
+import { Footer } from '../components/Working/footer';
 
 
 
@@ -41,6 +43,7 @@ export default class Contact extends Component {
               </div>  
 
               <AppContact />
+    <Footer />
               </>
         )
     }
