@@ -6,9 +6,9 @@ const { Panel } = Collapse;
 
 function AppFaq() {
   return(
-    <div id="faq" className="block faqBlock">
+    <div id="faq" className="block faqBlock" style={{backgroundColor : "#75cfb8"}}>
       <div className="container-fluid">
-        <div className="titleHolder">
+        <div className="titleHolder" style={{textAlign: "center" , paddingTop:"20px"}}>
           <h2>Frequently Asked Questions</h2>
           <p>Quidem reiciendis iure, aperiam blanditiis. Alias esse, nam, ea quam</p>
         </div>
@@ -32,13 +32,18 @@ function AppFaq() {
             <p>Erant vitae alterum in mel, viris rationibus argumentum eu sea. Per ei diceret constituto, ei qui simul intellegam, ut eos dolor ceteros. Altera contentiones et eam. Discere alienum intellegat te duo. Erat dissentiet ei sed, eius dicat ne eum. Id tation everti nam, quo cu magna possit patrioque.</p>
           </Panel>
         </Collapse>
+        <br />
+        <br />
+
         <div className="quickSupport">
           <h3>Want quick support?</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur velit necessitatibus praesentium aliquid eos in neque recusandae, incidunt esse dolore voluptatum nesciunt quod soluta consequuntur voluptatibus ab excepturi nobis! Porro!</p>
           <Button type="primary" size="large"><i className="fas fa-envelope"></i> Email your question</Button>
+        <br />
         </div>
       </div>
-    </div>  
+    </div> 
+     
   );
 }
 

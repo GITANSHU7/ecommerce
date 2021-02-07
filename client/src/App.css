@@ -18,11 +18,12 @@
 }
 
 
-
-
+/*  faq  */
 
 .faqBlock .ant-collapse {
   margin: 0 0 40px;
+  max-width: 1080px;
+  margin: auto;
 }
 
 .faqBlock .quickSupport {
