@@ -47,7 +47,7 @@ const AboutImg = styled.img`
 export function MoreAboutSection(props) {
   return (
     <MoreAboutContainer>
-      <SectionTitle>About Hypekar</SectionTitle>
+      <div className="titleHolder"><SectionTitle>About Hypekar</SectionTitle></div>
       <AboutContainer>
         <AboutText>
         <i className="fas fa-quote-left"></i> <br />At hypekar we believe in quality for all. We aim for providing best user experience in automobile industry {<br />}

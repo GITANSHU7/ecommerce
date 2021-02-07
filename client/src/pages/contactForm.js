@@ -6,8 +6,8 @@ const { TextArea } = Input;
 function AppContact() {
   return (
     <div id="contact" className="block contactBlock">
-      <div className="container-fluid">
-        <div className="titleHolder" style={{textAlign: "center"}}>
+      <div className="container-fluid titleHolder">
+        <div  style={{textAlign: "center"}}>
           <h2>Get in Touch</h2>
           <p>We are here to help You<i className="fas fa-grin-hearts" style={{color:'red' , margin : '5px', fontSize:'15px'}}></i></p>
         </div>

@@ -11,8 +11,11 @@ function HeroSection() {
   return (
     <div className='hero-container'>
       <video src='/videos/speed.mp4' autoPlay loop muted />
-      <h1>QUALITY OF ALL YOUR NEEDS</h1>
+     
+     <h1 >QUALITY OF ALL YOUR NEEDS</h1>
       <p>CHOOSE FROM</p>
+     
+      
       <div className='hero-btns'>
         <Button
           className='btns'

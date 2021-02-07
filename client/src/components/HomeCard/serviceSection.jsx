@@ -26,7 +26,7 @@ const ServicesContainer = styled(Element)`
 export function ServicesSection(props) {
   return (
     <ServicesContainer name="servicesSection">
-      <SectionTitle>Working of HYPEKAR</SectionTitle>
+     <div className="titleHolder"><SectionTitle>Working of HYPEKAR</SectionTitle></div> 
       <Marginer direction="vertical" margin="3em" />
       <OurSerivce
         title="Account"
