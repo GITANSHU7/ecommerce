@@ -110,7 +110,7 @@ export function Footer(props) {
         <PrivacyContainer>
           <Link>Privacy Policy</Link>
           <Link>Terms of Service</Link>
-          <Link>Contact</Link>
+          <Link to = "/contact">Contact</Link>
         </PrivacyContainer>
         <SocialContainer>
           <SocialIcon>
