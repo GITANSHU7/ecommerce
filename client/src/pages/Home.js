@@ -6,6 +6,7 @@ import Jumbotron from '../components/cards/Jumbotron';
 import { ServicesSection } from "../components/HomeCard/serviceSection";
 import { ReviewsSection } from "../components/HomeCard/reviewSection";
 import { Footer } from "../components/Working/footer";
+import AppFaq from "./faq";
 
 
  function Home() {
@@ -19,6 +20,7 @@ import { Footer } from "../components/Working/footer";
             
     <ServicesSection />
     <ReviewsSection />
+    <AppFaq />
     <Footer />
         
             
