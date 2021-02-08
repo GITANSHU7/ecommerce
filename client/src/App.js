@@ -34,6 +34,7 @@ import logo from "./components/logo.png";
 import Navbar from "./components/nav/Navbar";
 import "./App.css"
 import { Footer } from "./components/Working/footer";
+import Product from "./pages/Product";
 
 
 
@@ -103,6 +104,7 @@ const App = () => {
           component={ProductUpdate}
         />
         
+        <Route exact path="/product/:slug" component={Product} />
     </Switch>
     </>
   );
