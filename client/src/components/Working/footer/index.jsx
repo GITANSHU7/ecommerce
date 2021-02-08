@@ -119,6 +119,10 @@ export function Footer(props) {
           <SocialIcon>
           <i className="fab fa-linkedin-in"></i>
           </SocialIcon>
+          <SocialIcon>
+          <i className="fab fa-instagram"></i>
+          </SocialIcon>
+
         </SocialContainer>
       </AccessibilityContainer>
       <RightsReserved>&copy; 2021 Hypekar All rights reserved</RightsReserved>
