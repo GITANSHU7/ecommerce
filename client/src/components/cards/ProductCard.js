@@ -1,7 +1,7 @@
 import React from "react";
 import { Card } from "antd";
 import { EyeOutlined, ShoppingCartOutlined } from "@ant-design/icons";
-import laptop from "../../images/laptop.png";
+
 import { Link } from "react-router-dom";
 
 const { Meta } = Card;
@@ -13,7 +13,7 @@ const ProductCard = ({ product }) => {
     <Card
       cover={
         <img
-          src={images && images.length ? images[0].url : laptop}
+          src={images && images.length ? images[0].url : ""}
           style={{ height: "150px", objectFit: "cover" }}
           className="p-1"
         />
