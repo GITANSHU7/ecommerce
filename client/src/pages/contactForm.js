@@ -5,7 +5,7 @@ const { TextArea } = Input;
 
 function AppContact() {
   return (
-    <div id="contact" className="block contactBlock">
+    <div id="contact" className="block contactBlock" >
       <div className="container-fluid titleHolder">
         <div  style={{textAlign: "center"}}>
           <h2>Get in Touch</h2>

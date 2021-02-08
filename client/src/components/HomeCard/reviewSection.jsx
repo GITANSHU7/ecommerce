@@ -23,6 +23,9 @@ const StyledCarouselProvider = styled(CarouselProvider)`
   @media screen and (max-width: 1360px) {
     width: 100%;
   }
+  @media screen and (width: 1280px) {
+    width: 100%;
+  }
   @media screen and (max-width: 680px) {
     width: 100%;
   }
@@ -84,6 +87,8 @@ export function ReviewsSection(props) {
   
   const isMobile = useMediaQuery({ query: "(max-width: 480px)" });
   const areMobile = useMediaQuery({ query: "(max-width: 607px)" });
+  const reMobile = useMediaQuery({ query: "(width: 1280px)" });
+  
   
   return (
     <ReviewsContainer>
@@ -95,6 +100,7 @@ export function ReviewsSection(props) {
         
         naturalSlideHeight={isMobile ? 250 : 200}
         naturalSlideHeight={areMobile ? 250 : 200}
+        naturalSlideHeight={reMobile ? 150 : 200}
   
         
     
