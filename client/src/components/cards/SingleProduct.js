@@ -1,5 +1,5 @@
 import React from "react";
-import { Card } from "antd";
+import { Card  , Tabs} from "antd";
 import { Link } from "react-router-dom";
 import { HeartOutlined, ShoppingCartOutlined } from "@ant-design/icons";
 import { Carousel } from "react-responsive-carousel";
@@ -9,7 +9,7 @@ import ProductListItems from "./ProductListItems";
 
 
 
-const { Meta } = Card;
+const { TabPane } = Tabs;
 
 const SingleProduct = ({ product }) => {
   const { title, description, images, slug , brand, model} = product;
@@ -20,6 +20,16 @@ const SingleProduct = ({ product }) => {
         <Carousel showArrows={true} autoPlay infiniteLoop>
           {images && images.map((i) => <img src={i.url} key={i.public_id} />)}
         </Carousel>
+
+    <Tabs type= "card">
+        <TabPane tab = "Description" key="1">
+            {description && description}
+        </TabPane>
+        <TabPane tab = "Warrenty" key="2">
+            {description && description}
+        </TabPane>
+    </Tabs>
+
       </div>
 
       <div className="col-md-5">

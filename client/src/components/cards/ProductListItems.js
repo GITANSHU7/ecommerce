@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 
 const ProductListItems = ({product , match , params}) => {
-    const {price , brand,manufacturer, description,shipping,year,fuel,transmission,type ,  model} = product;
+    const {price , brand,manufacturer, description,shipping,year,fuel,transmission,type ,  models} = product;
     
   
     return (
@@ -11,17 +11,30 @@ const ProductListItems = ({product , match , params}) => {
             <li className = "list-group-item">
                 Price
     <span className = "lable lable-default lable-pill pull-xs-right">
-        {price}
+        Rs {price}
         </span>            
             </li>
           {brand && (
                  <li className = "list-group-item">
-                 Manufacturer
+                 Brand
      <Link to = {`/brand/${brand.slug}`} className = "lable lable-default lable-pill pull-xs-right">
          {brand.name}
          </Link>            
              </li>
           )}
+           
+           
+           {models &&  (
+                <li className = "list-group-item">
+                Model
+                {models.map((m => (
+    <Link key = {m._id} to = {`/model/${m.slug}`}  className = "lable lable-default lable-pill pull-xs-right">
+        {m.name}
+        </Link>
+        )))}            
+            </li>
+           )}
+           
             <li className = "list-group-item">
                 type
     <span className = "lable lable-default lable-pill pull-xs-right">
