@@ -10,7 +10,7 @@ import { getProducts, getProductsCount } from "../functions/product";
 
 
 
-const NewArrivals = () => {
+const Testing = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [productsCount, setProductsCount] = useState(0);
@@ -62,4 +62,4 @@ const NewArrivals = () => {
   );
 };
 
-export default NewArrivals;
+export default Testing;

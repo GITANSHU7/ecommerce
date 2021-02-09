@@ -1,10 +1,10 @@
-import React from 'react'
+import React , {useEffect} from 'react'
 import { Link } from 'react-router-dom'
 
 
-const ProductListItems = ({product , match}) => {
+const ProductListItems = ({product , match , params}) => {
     const {price , brand,manufacturer, description,shipping,year,fuel,transmission,type ,  model} = product;
-   
+    
   
     return (
         <ul className = "list-group">
@@ -14,12 +14,14 @@ const ProductListItems = ({product , match}) => {
         {price}
         </span>            
             </li>
-            <li className = "list-group-item">
-                Manufacturer
-    <Link to = {`/brand/${brand.slug}`} className = "lable lable-default lable-pill pull-xs-right">
-        {brand.name}
-        </Link>            
-            </li>
+          {brand && (
+                 <li className = "list-group-item">
+                 Manufacturer
+     <Link to = {`/brand/${brand.slug}`} className = "lable lable-default lable-pill pull-xs-right">
+         {brand.name}
+         </Link>            
+             </li>
+          )}
             <li className = "list-group-item">
                 type
     <span className = "lable lable-default lable-pill pull-xs-right">
