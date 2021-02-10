@@ -80,7 +80,15 @@ function Navbar() {
                 contact us
               </Link>
   </li> 
-
+  <li className='nav-item'>
+              <Link
+                to='/testing'
+                className='nav-links'
+                onClick={closeMobileMenu}
+              >
+                Testing
+              </Link>
+  </li> 
        
 
 
