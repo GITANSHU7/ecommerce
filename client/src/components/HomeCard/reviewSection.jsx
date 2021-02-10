@@ -3,11 +3,13 @@ import React from "react";
 import { Element } from "react-scroll";
 import styled from "styled-components";
 import User1Img from "./profile_picture_1.jpeg";
+import User2Img from "./profile.jpg";
 import { useMediaQuery } from "react-responsive";
 import "pure-react-carousel/dist/react-carousel.es.css";
 import { Marginer } from "../Working/marginer";
 import { ReviewCard } from "../Working/reviewCard";
 import { SectionTitle } from "../Working/sectionTitle";
+
 
 const ReviewsContainer = styled(Element)`
   height: 600px;
@@ -123,7 +125,7 @@ export function ReviewsSection(props) {
             <ReviewCard
               reviewText=" I very much enjoyed working with Beema and the team - they have an excellent grasp of their subject, and have created something great for us."
               username="John coner"
-              userImgUrl={User1Img}
+              userImgUrl={User2Img}
             />
           </StyledSlide>
           <StyledSlide index={2}>
