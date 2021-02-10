@@ -48,6 +48,12 @@ const ProductListItems = ({product , match , params}) => {
         </span>            
             </li>
             <li className = "list-group-item">
+                Manufacturer
+    <span className = "lable lable-default lable-pill pull-xs-right">
+        {manufacturer}
+        </span>            
+            </li>
+            <li className = "list-group-item">
                 Transmission
     <span className = "lable lable-default lable-pill pull-xs-right">
         {transmission}
