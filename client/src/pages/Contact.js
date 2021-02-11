@@ -4,6 +4,7 @@ import Jumbotron from '../components/cards/Jumbotron'
 import AppContact from './contactForm'
 import { Footer } from '../components/Working/footer';
 import { ReviewsSection } from '../components/HomeCard/reviewSection';
+import BrandList from '../components/brand/BrandList';
 
 
 
@@ -49,6 +50,7 @@ export default class Contact extends Component {
 
               <AppContact />
               <ReviewsSection />
+              <BrandList />
     <Footer />
               </>
         )

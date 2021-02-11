@@ -7,6 +7,7 @@ import { ServicesSection } from "../components/HomeCard/serviceSection";
 import { ReviewsSection } from "../components/HomeCard/reviewSection";
 import { Footer } from "../components/Working/footer";
 import AppFaq from "./faq";
+import BrandList from "../components/brand/BrandList";
 
 
  function Home() {
@@ -21,6 +22,11 @@ import AppFaq from "./faq";
     <ServicesSection />
     <ReviewsSection />
     <AppFaq />
+    
+    <div style={{backgroundColor : "white"}}>
+
+        <BrandList />
+    </div>
     <Footer />
         
             
