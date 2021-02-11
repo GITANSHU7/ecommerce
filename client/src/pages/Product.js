@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { getProduct } from "../functions/product";
+import { getProduct, getRelated } from "../functions/product";
 import SingleProduct from "../components/cards/SingleProduct";
+
+
+
+
 
 const Product = ({ match }) => {
   const [product, setProduct] = useState({});
+  const [related , setRelated] = useState([]);
 
   const { slug } = match.params;
 
@@ -12,7 +17,12 @@ const Product = ({ match }) => {
   }, [slug]);
 
   const loadSingleProduct = () =>
-    getProduct(slug).then((res) => setProduct(res.data));
+    getProduct(slug).then((res) => {
+      setProduct(res.data);
+      // load related
+      getRelated(res.data._id).then(res => setRelated(res.data)
+        )
+    });
 
   return (
     <div className="container-fluid">
@@ -21,7 +31,9 @@ const Product = ({ match }) => {
       </div>
 
       <div className="row ">
-        <div className="col text-center pt-5 pb-5"> <hr /><h4>Related products</h4> <hr /></div>
+        <div className="col text-center pt-5 pb-5"> <hr /><h4>Related products</h4> <hr />
+        {JSON.stringify(related)}
+        </div>
       </div>
     </div>
   );
