@@ -1,4 +1,5 @@
 const Brand = require("../models/brand");
+const Product = require("../models/product");
 const slugify = require("slugify");
 const Model = require("../models/model")
 
@@ -22,7 +23,15 @@ exports.list = async (req, res) =>
 
 exports.read = async (req, res) => {
   let brand = await Brand.findOne({ slug: req.params.slug }).exec();
-  res.json(brand);
+  //res.json(brand);
+  const products = await Product.find({brand })
+  .populate("brand")
+  
+  .exec();
+  res.json({
+    brand,
+    products,
+  })
 };
 
 exports.update = async (req, res) => {
