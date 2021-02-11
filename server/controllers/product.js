@@ -96,7 +96,7 @@ exports.list = async (req, res) => {
     // createdAt/updatedAt, desc/asc, 3
     const { sort, order, page } = req.body;
     const currentPage = page || 1;
-    const perPage = 3; // 3
+    const perPage = 6; // 3
 
     const products = await Product.find({})
       .skip((currentPage - 1) * perPage)
@@ -124,7 +124,7 @@ exports.listRelated = async (req, res) => {
     _id: { $ne: product._id },
     brand: product.brand,
   })
-    .limit(3)
+    .limit(5)
     .populate("brand")
     .populate("models")
     .populate("postedBy")
