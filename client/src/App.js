@@ -36,7 +36,7 @@ import Navbar from "./components/nav/Navbar";
 import "./App.css"
 import { Footer } from "./components/Working/footer";
 import Product from "./pages/Product";
-
+import BrandHome from "./pages/brand/BrandHome";
 
 
 
@@ -106,6 +106,7 @@ const App = () => {
         />
         
         <Route exact path="/product/:slug" component={Product} />
+        <Route exact path="/brand/:slug" component={BrandHome} />
     </Switch>
     </>
   );
