@@ -101,7 +101,7 @@ exports.list = async (req, res) => {
     const products = await Product.find({})
       .skip((currentPage - 1) * perPage)
       .populate("brand")
-      .populate("model")
+      .populate("models")
       .sort([[sort, order]])
       .limit(perPage)
       .exec();
@@ -115,4 +115,20 @@ exports.list = async (req, res) => {
 exports.productsCount = async (req, res) => {
   let total = await Product.find({}).estimatedDocumentCount().exec();
   res.json(total);
+};
+
+exports.listRelated = async (req, res) => {
+  const product = await Product.findById(req.params.productId).exec();
+
+  const related = await Product.find({
+    _id: { $ne: product._id },
+    brand: product.brand,
+  })
+    .limit(3)
+    .populate("brand")
+    .populate("models")
+    .populate("postedBy")
+    .exec();
+
+  res.json(related);
 };
