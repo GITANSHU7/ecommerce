@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { getBrand } from "../../functions/brand";
+import { getModel } from "../../functions/model";
 import { Link } from "react-router-dom";
 import ProductCard from "../../components/cards/ProductCard";
-import BrandList from "../../components/brand/BrandList";
+import ModelList from "../../components/model/ModelList";
 
-const BrandHome = ({ match }) => {
-  const [brand, setBrand] = useState({});
+const ModelHome = ({ match }) => {
+  const [model, setModel] = useState({});
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -13,9 +13,9 @@ const BrandHome = ({ match }) => {
 
   useEffect(() => {
     setLoading(true);
-    getBrand(slug).then((res) => {
+    getModel(slug).then((res) => {
       console.log(JSON.stringify(res.data, null, 4));
-      setBrand(res.data.brand);
+      setModel(res.data.model);
       setProducts(res.data.products);
       setLoading(false);
     });
@@ -31,7 +31,7 @@ const BrandHome = ({ match }) => {
           </h4>
         ) : (
           <h4 className="text-center p-3 mt-5 mb-5 display-4 jumbotron">
-            {products.length} Products in "{brand.name}" brand
+            {products.length} Products in "{model.name}" model
           </h4>
         )}
       </div>
@@ -49,4 +49,4 @@ const BrandHome = ({ match }) => {
 };
 
 
-export default BrandHome;
+export default ModelHome;

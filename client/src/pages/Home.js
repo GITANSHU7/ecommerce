@@ -8,6 +8,7 @@ import { ReviewsSection } from "../components/HomeCard/reviewSection";
 import { Footer } from "../components/Working/footer";
 import AppFaq from "./faq";
 import BrandList from "../components/brand/BrandList";
+import ModelList from "../components/model/ModelList";
 
 
  function Home() {
@@ -26,6 +27,10 @@ import BrandList from "../components/brand/BrandList";
     <div style={{backgroundColor : "white"}}>
 
         <BrandList />
+    </div>
+    <div style={{backgroundColor : "white"}}>
+
+        <ModelList />
     </div>
     <Footer />
         

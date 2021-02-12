@@ -25,7 +25,7 @@ exports.read = async (req, res) => {
   let model = await Model.findOne({ slug: req.params.slug }).exec();
   const products = await Product.find({models : model })
   .populate("brand").exec();
-  res.json(model ,products);
+  res.json({model ,products});
 };
 
 exports.update = async (req, res) => {
