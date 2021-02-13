@@ -38,6 +38,7 @@ import { Footer } from "./components/Working/footer";
 import Product from "./pages/Product";
 import BrandHome from "./pages/brand/BrandHome";
 import ModelHome from "./pages/model/ModelHome";
+import Shop from "./pages/Shop";
 
 
 
@@ -109,6 +110,7 @@ const App = () => {
         <Route exact path="/product/:slug" component={Product} />
         <Route exact path="/brand/:slug" component={BrandHome} />
         <Route exact path="/model/:slug" component={ModelHome} />
+        <Route exact path="/shop" component={Shop} />
     </Switch>
     
     </>
