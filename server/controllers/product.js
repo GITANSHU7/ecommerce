@@ -1,5 +1,6 @@
 const Product = require("../models/product");
 const slugify = require("slugify");
+const { query } = require("express");
 
 exports.create = async (req, res) => {
   try {
@@ -124,7 +125,7 @@ exports.listRelated = async (req, res) => {
     _id: { $ne: product._id },
     brand: product.brand,
   })
-    .limit(5)
+    .limit(4)
     .populate("brand")
     .populate("models")
     .populate("postedBy")
@@ -134,6 +135,15 @@ exports.listRelated = async (req, res) => {
 };
 
 //Search Filter
+
+exports.handleQuery = async(req,res,query) => {
+  const products = await Product.find({ $text : {$search : query}})
+.populate("brand" , "_id name")
+.populate("models" , "_id name")
+.populate("postedBy" , "_id name")
+.exec()
+res.json(products)
+} 
 
 exports.searchFilters = async(req,res) => {
   const {query} = req.body;
