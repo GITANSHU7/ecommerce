@@ -23,7 +23,7 @@ const Search = () => {
   };
 
   return (
-    <form className="form-inline my-2 my-lg-0" onSubmit={handleSubmit}>
+    <form className="form-inline" onSubmit={handleSubmit} style={{color:'white', backgroundColor:'white'}}> 
       <input
         onChange={handleChange}
         type="search"

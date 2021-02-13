@@ -14,6 +14,7 @@ import firebase from "firebase";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import {GoSignOut} from "react-icons/go"
+import Search from "../forms/Search";
 const { SubMenu, Item } = Menu;
 
 const Header = () => {
@@ -81,6 +82,9 @@ const Header = () => {
           </Item>
         </SubMenu>
       )}
+      <span className="float-right" style= {{color:'white'}}>
+        <Search/>
+      </span>
     </Menu>
   );
 };

@@ -7,6 +7,7 @@ import { useHistory } from "react-router-dom";
 import logo from "../../components/logo.png"
 import './Navbar.css';
 import { Button } from '../buttons/Button';
+import Search from '../forms/Search';
 
 function Navbar() {
   const [click, setClick] = useState(false);
@@ -57,9 +58,9 @@ function Navbar() {
           </div>
           <ul className={click ? 'nav-menu active' : 'nav-menu'}>
             <li className='nav-item'>
-              <Link to='/' className='nav-links' onClick={closeMobileMenu}>
-                Home
-              </Link>
+            <span className="float-right " style= {{color:'white'}}>
+        <Search/>
+      </span>
             </li>
           
             <li className='nav-item'>
@@ -115,6 +116,7 @@ function Navbar() {
             </li> )} 
           </ul>
        {/*  {button && <Button buttonStyle='btn--outline'>Register</Button>} */}   
+      
          </div>
       </nav>
     </>
