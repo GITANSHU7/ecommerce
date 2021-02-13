@@ -132,3 +132,14 @@ exports.listRelated = async (req, res) => {
 
   res.json(related);
 };
+
+//Search Filter
+
+exports.searchFilters = async(req,res) => {
+  const {query} = req.body;
+
+  if (query) {
+    console.log('query' , query)
+    await handleQuery(req,res,query);
+  }
+}

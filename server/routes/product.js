@@ -5,7 +5,7 @@ const router = express.Router();
 const { authCheck, adminCheck } = require("../middlewares/auth");
 
 // controller
-const { create , listAll , remove , read , update , productsCount , list,listRelated} = require("../controllers/product");
+const { create , listAll , remove , read , update , productsCount , list,listRelated , searchFilters} = require("../controllers/product");
 
 // routes
 router.post("/product/product-create", authCheck, adminCheck, create);
@@ -18,6 +18,6 @@ router.get("/products/total", productsCount);
 router.post("/products", list);
 // related
 router.get("/product/related/:productId", listRelated);
-
+router.post("/search/filters" , searchFilters)
 
 module.exports = router;
