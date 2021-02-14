@@ -74,20 +74,21 @@ const Shop = () => {
             <SubMenu
               key="1"
               title={
-                <span className="h6">
-                  <DollarOutlined /> Price
+                <span className="h6 ">
+                  <i className="fas fa-rupee-sign"></i> Price
                 </span>
               }
             >
               <div>
                 <Slider
                   className="ml-4 mr-4"
-                  tipFormatter={(v) => `$${v}`}
+                  tipFormatter={(v) => `₹${v}`}
                   range
                   value={price}
                   onChange={handleSlider}
-                  max="4999"
-                />
+                  max="50000"
+                style = {{color : "yellow"}}/>
+          <h6 className = "text-center">₹{price[0]} to ₹{price[1]}</h6>       
               </div>
             </SubMenu>
           </Menu>
