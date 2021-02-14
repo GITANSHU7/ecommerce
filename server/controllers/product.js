@@ -136,7 +136,7 @@ exports.listRelated = async (req, res) => {
 
 //Search Filter
 
-exports.handleQuery = async(req,res,query) => {
+const handleQuery = async(req,res,query) => {
   const products = await Product.find({ $text : {$search : query}})
 .populate("brand" , "_id name")
 .populate("models" , "_id name")
