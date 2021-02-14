@@ -1,6 +1,6 @@
 const Product = require("../models/product");
 const slugify = require("slugify");
-const { query } = require("express");
+
 
 exports.create = async (req, res) => {
   try {

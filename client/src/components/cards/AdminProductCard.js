@@ -4,12 +4,11 @@ import {EditOutlined , DeleteOutlined} from "@ant-design/icons"
 import { Link } from "react-router-dom";
 
 
-
 const { Meta } = Card;
 
 const AdminProductCard = ({ product , handleRemove }) => {
   // destructure
-  const { title, description, images , slug } = product;
+  const { title, description, type,images , slug , transmission} = product;
 
   return (
     <Card
@@ -27,7 +26,10 @@ const AdminProductCard = ({ product , handleRemove }) => {
         <DeleteOutlined  onClick= {() =>handleRemove(slug) } className="text-danger" />,
       ]}
     > 
-      <Meta title={title} description={`${description && description.substring(0,40)}...`} />  
+      <Meta title={title}
+      transmission  = {transmission}
+      type = {type}
+      description = {`${description && description.substring(0,40)}...`} />  
     </Card>
   );
 };

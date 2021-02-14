@@ -37,7 +37,7 @@ const Testing = () => {
     <>
       <div className="container">
         {loading ? (
-          <LoadingCard count={3} />
+          <LoadingCard count={6} />
         ) : (
           <div className="row">
             {products.map((product) => (
@@ -53,7 +53,7 @@ const Testing = () => {
         <nav className="col-md-4 offset-md-4 text-center pt-5 p-3">
           <Pagination
             current={page}
-            total={(productsCount / 3) * 10}
+            total={(productsCount / 6) * 10}
             onChange={(value) => setPage(value)}
           />
         </nav>
