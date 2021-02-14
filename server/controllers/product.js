@@ -134,7 +134,7 @@ exports.listRelated = async (req, res) => {
   res.json(related);
 };
 
-//Search Filter
+//Search Filter   ,   price
 
 const handleQuery = async(req,res,query) => {
   const products = await Product.find({ $text : {$search : query}})
@@ -146,10 +146,40 @@ res.json(products)
 } 
 
 exports.searchFilters = async(req,res) => {
-  const {query} = req.body;
+  const {query , price} = req.body;
 
   if (query) {
     console.log('query' , query)
     await handleQuery(req,res,query);
   }
+
+    //price [20,2000]
+if(price !==undefined){
+  console.log("price --->" , price);
+  await handlePrice(req,res,price)
 }
+
+}
+
+
+//price filter
+
+const handlePrice = async(req,res,price) => {
+try {
+  let products = await Product.find({
+    price : {
+      $gte : price[0],
+      $lte: price[1],
+    },
+  })
+  .populate("brand" , "_id name")
+  .populate("models" , "_id name")
+  .populate("postedBy" , "_id name")
+  .exec()
+
+  res.json(products)
+} catch (err) {
+  console.log(err);
+}
+
+};
