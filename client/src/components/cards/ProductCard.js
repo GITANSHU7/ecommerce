@@ -29,10 +29,8 @@ const ProductCard = ({ product }) => {
       ]}
     >
       <Meta
-        title={title}
-        price = {price}
-        type= {type}
-        price = {price}
+        title={`${title} - ₹${price}`}
+       
         description={`${description && description.substring(0, 40)}...`}
         
       />
