@@ -92,20 +92,14 @@ const Shop = () => {
       </div>
 // handle check for brands
 const handleCheck = (e) => {
-  //console.log(e.target.value)
-  let inTheState = [...brandIds];
-  let justChecked = e.target.value;
-  let foundInTheState = inTheState.indexOf(justChecked);
-
-  if(foundInTheState === -1){
-    inTheState.push(justChecked);
-  } else {
-    inTheState.splice(foundInTheState , 1)
-  }
-  setBrandIds(inTheState);
-  //console.log(inTheState);
-fetchProducts({brand : inTheState})
-
+  dispatch({
+    type: "SEARCH_QUERY",
+    payload: { text: "" },
+  });
+  setPrice([0,0])
+  setBrands(e.target.value)
+ 
+ 
 }
 
 
