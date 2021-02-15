@@ -146,7 +146,7 @@ res.json(products)
 } 
 
 exports.searchFilters = async(req,res) => {
-  const {query , price} = req.body;
+  const {query , price , brand} = req.body;
 
   if (query) {
     console.log('query' , query)
@@ -158,6 +158,13 @@ if(price !==undefined){
   console.log("price --->" , price);
   await handlePrice(req,res,price)
 }
+// brand filter
+
+if (brand) {
+  console.log("brand --->" , brand);
+  await handleBrand(res,req,brand);
+}
+
 
 }
 
