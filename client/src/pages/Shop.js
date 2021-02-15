@@ -5,8 +5,16 @@ import {
 } from "../functions/product";
 import { useSelector, useDispatch } from "react-redux";
 import ProductCard from "../components/cards/ProductCard";
-import { Menu, Slider } from "antd";
-import { DollarOutlined } from "@ant-design/icons";
+
+import { getBrands } from "../functions/brand";
+import { Menu, Slider, Checkbox } from "antd";
+import { DollarOutlined, DownSquareOutlined } from "@ant-design/icons";
+import { Select } from "antd";
+
+
+const { Option } = Select;
+
+
 
 const { SubMenu, ItemGroup } = Menu;
 
@@ -15,13 +23,18 @@ const Shop = () => {
   const [loading, setLoading] = useState(false);
   const [price, setPrice] = useState([0, 0]);
   const [ok, setOk] = useState(false);
-
+  const [brands , setBrands] = useState([])
+  const [brandIds, setBrandIds] = useState([])
+  
   let dispatch = useDispatch();
   let { search } = useSelector((state) => ({ ...state }));
   const { text } = search;
 
   useEffect(() => {
     loadAllProducts();
+    getBrands().then((res) => {
+      setBrands(res.data)
+    })
   }, []);
 
   const fetchProducts = (arg) => {
@@ -63,6 +76,41 @@ const Shop = () => {
     }, 300);
   };
 
+// 4. load products based on category
+  // show categories in a list of checkbox
+  const showBrands = () =>
+  <div className="form-group">
+        <label>Product Type</label>
+        <select name="type" className="form-control" onChange={handleCheck} >
+          
+          {brands.map((b) => (
+            <option key={b._id}>
+            {b.name}
+            </option>
+          ))}
+        </select>
+      </div>
+// handle check for brands
+const handleCheck = (e) => {
+  //console.log(e.target.value)
+  let inTheState = [...brandIds];
+  let justChecked = e.target.value;
+  let foundInTheState = inTheState.indexOf(justChecked);
+
+  if(foundInTheState === -1){
+    inTheState.push(justChecked);
+  } else {
+    inTheState.splice(foundInTheState , 1)
+  }
+  setBrandIds(inTheState);
+  //console.log(inTheState);
+fetchProducts({brand : inTheState})
+
+}
+
+
+
+
   return (
     <div className="container-fluid">
       <div className="row">
@@ -90,6 +138,16 @@ const Shop = () => {
                 style = {{color : "yellow"}}/>
           <h6 className = "text-center">₹{price[0]} to ₹{price[1]}</h6>       
               </div>
+            </SubMenu>
+            <SubMenu
+              key="2"
+              title={
+                <span className="h6">
+                  <DownSquareOutlined /> Categories
+                </span>
+              }
+            >
+              <div style={{ maringTop: "-10px" }}>{showBrands()}</div>
             </SubMenu>
           </Menu>
         </div>
