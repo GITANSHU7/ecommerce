@@ -168,6 +168,22 @@ if (brand) {
 
 }
 
+//brand
+
+const handleBrand = async (req,res,brand) => {
+try{
+  let products = await Product.find({ brand })
+  .populate("brand" , "_id name")
+  .populate("models" , "_id name")
+  .populate("postedBy" , "_id name")
+  .exec()
+  res.json(products)
+} catch (err) {
+  console.log(err);
+}
+}
+
+
 
 //price filter
 
