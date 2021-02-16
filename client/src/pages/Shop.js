@@ -209,7 +209,7 @@ const showTypes = () =>
               key="2"
               title={
                 <span className="h6">
-                  <DownSquareOutlined /> Categories
+                  <DownSquareOutlined /> Choose Brand
                 </span>
               }
             >
@@ -219,7 +219,7 @@ const showTypes = () =>
               key="3"
               title={
                 <span className="h6">
-                  <DownSquareOutlined /> Sub Categories
+                  <DownSquareOutlined /> Choose Model
                 </span>
               }
             >
