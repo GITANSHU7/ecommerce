@@ -213,7 +213,7 @@ const showTypes = () =>
                 </span>
               }
             >
-              <div style={{ maringTop: "-10px" }}>{showBrands()}</div>
+              <div style={{ maringTop: "-10px" }} className="pl-4 pr-4">{showBrands()}</div>
             </SubMenu> 
             <SubMenu
               key="3"
