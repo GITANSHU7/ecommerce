@@ -79,10 +79,9 @@ const Shop = () => {
       payload: { text: "" },
     });
     //rest
-    setBrand([]);
-    setModel("")
+    
     setPrice(value);
-    setType("")
+  
     setTimeout(() => {
       setOk(!ok);
     }, 300);
@@ -171,7 +170,7 @@ const showTypes = () =>
         payload: { text: "" },
       });
       setPrice([0, 0]);
-      setBrand('');
+      setBrand('')
       
       setType(e.target.value);
       fetchProducts({ type: e.target.value });
@@ -184,7 +183,7 @@ const showTypes = () =>
           <h4>Search/Filter</h4>
           <hr />
 
-          <Menu defaultOpenKeys={["1", "2" , "3" , "4"]} mode="inline">
+          <Menu defaultOpenKeys={["1","2","3","4"]} mode="inline">
             <SubMenu
               key="1"
               title={
