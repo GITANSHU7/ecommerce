@@ -146,7 +146,7 @@ res.json(products)
 } 
 
 exports.searchFilters = async(req,res) => {
-  const {query , price , brand} = req.body;
+  const {query , price , brand , model ,type } = req.body;
 
   if (query) {
     console.log('query' , query)
@@ -162,28 +162,33 @@ if(price !==undefined){
 
 if (brand) {
   console.log("brand --->" , brand);
-  await handleBrand(res,req,brand);
+  await handleBrand(req,res,brand);
 }
-
+   if (model) {
+  console.log("model ---> ", model);
+  await handleModel(req, res, model);
+}
+}
+if (type) {
+console.log("type ---> ", type);
+await handleType(req, res, type);
+}
 
 }
 
 //brand
+{/*
+const handleBrand = async (req, res ,brand) => {
 
-const handleBrand = async (req,res,brand) => {
-try{
-  let products = await Product.find({ brand })
+  const products = await Product.find({ brands : brand })
   .populate("brand" , "_id name")
   .populate("models" , "_id name")
   .populate("postedBy" , "_id name")
   .exec()
   res.json(products)
-} catch (err) {
-  console.log(err);
-}
-}
+};
 
-
+*/}
 
 //price filter
 
@@ -205,4 +210,44 @@ try {
   console.log(err);
 }
 
+};
+
+
+
+ 
+const handleModel = async (req, res, model) => {
+  const products = await Product.find({ models: model })
+    .populate("brand", "_id name")
+    .populate("models", "_id name")
+    .populate("postedBy", "_id name")
+    .exec();
+
+  res.json(products);
+};
+
+const handleType = async (req, res, type) => {
+  const products = await Product.find({ models: model })
+    .populate("brand", "_id name")
+    .populate("models", "_id name")
+    .populate("postedBy", "_id name")
+    .exec();
+
+  res.json(products);
+};
+
+
+
+
+const handleBrand = async (req, res, brand) => {
+  try {
+    let products = await Product.find({ brand })
+      .populate("brand", "_id name")
+      .populate("models", "_id name")
+      .populate("postedBy", "_id name")
+      .exec();
+
+    res.json(products);
+  } catch (err) {
+    console.log(err);
+  }
 };

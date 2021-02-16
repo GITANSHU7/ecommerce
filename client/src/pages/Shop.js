@@ -6,10 +6,12 @@ import {
 import { useSelector, useDispatch } from "react-redux";
 import ProductCard from "../components/cards/ProductCard";
 
-import { getBrands } from "../functions/brand";
+import { getBrandModels, getBrands } from "../functions/brand";
 import { Menu, Slider, Checkbox } from "antd";
 import { DollarOutlined, DownSquareOutlined } from "@ant-design/icons";
 import { Select } from "antd";
+import { getModels } from "../functions/model"
+
 
 
 const { Option } = Select;
@@ -24,7 +26,9 @@ const Shop = () => {
   const [price, setPrice] = useState([0, 0]);
   const [ok, setOk] = useState(false);
   const [brands , setBrands] = useState([])
-  const [brandIds, setBrandIds] = useState([])
+  const [brand, setBrand] = useState('')
+  const [models , setModels] = useState([])
+  const [model,setModel] = useState('')
   
   let dispatch = useDispatch();
   let { search } = useSelector((state) => ({ ...state }));
@@ -34,6 +38,8 @@ const Shop = () => {
     loadAllProducts();
     getBrands().then((res) => {
       setBrands(res.data)
+
+    getModels().then((res) => setModels(res.data));
     })
   }, []);
 
@@ -63,44 +69,83 @@ const Shop = () => {
   useEffect(() => {
     console.log("ok to request");
     fetchProducts({ price });
-  }, [ok]);
+  }, [ok]); 
 
-  const handleSlider = (value) => {
+ const handleSlider = (value) => {
     dispatch({
       type: "SEARCH_QUERY",
       payload: { text: "" },
     });
+    //rest
+    setBrand([]);
+    setModel("")
     setPrice(value);
     setTimeout(() => {
       setOk(!ok);
     }, 300);
-  };
+  };   
 
 // 4. load products based on category
   // show categories in a list of checkbox
-  const showBrands = () =>
-  <div className="form-group">
-        <label>Product Type</label>
-        <select name="type" className="form-control" onChange={handleCheck} >
-          
-          {brands.map((b) => (
-            <option key={b._id}>
-            {b.name}
-            </option>
-          ))}
-        </select>
-      </div>
+    const showBrands = () =>
+ brands.map((b) => (
+   <div 
+   key={b._id}
+   onClick={() => handleBrand(b)}
+   className ="p-1 m-1 badge badge-secondary"
+   style={{cursor : "pointer"}}
+   >
+     {b.name}
+     </div>
+ ))    
+ 
+ {/*
+const showBrands = () =>
+brands.map((b) => (
+  
+    <option key={b._id} onClick={() => handleBrand(b)} className="form-control">{b.name}</option>
+
+
+)) */}
+
+
+ 
 // handle check for brands
-const handleCheck = (e) => {
-  dispatch({
-    type: "SEARCH_QUERY",
-    payload: { text: "" },
-  });
-  setPrice([0,0])
-  setBrands(e.target.value)
- 
- 
+const handleBrand = (brand) => {
+  console.log(brand)
+ setBrand(brand)
+ dispatch({
+  type: "SEARCH_QUERY",
+  payload: { text: "" },
+});
+setPrice([0,0]);
+fetchProducts({ brand })
 }
+
+// for models
+const showModels = () =>
+models.map((m) => (
+  <div
+    key={m._id}
+    onClick={() => handleModel(m)}
+    className="p-1 m-1 badge badge-secondary"
+    style={{ cursor: "pointer" }}
+  >
+    {m.name}
+  </div>
+));
+
+const handleModel = (model) => {
+// console.log("SUB", sub);
+setModel(model);
+dispatch({
+  type: "SEARCH_QUERY",
+  payload: { text: "" },
+});
+setPrice([0, 0]);
+fetchProducts({ model });
+};
+
 
 
 
@@ -112,7 +157,7 @@ const handleCheck = (e) => {
           <h4>Search/Filter</h4>
           <hr />
 
-          <Menu defaultOpenKeys={["1", "2"]} mode="inline">
+          <Menu defaultOpenKeys={["1", "2" , "3"]} mode="inline">
             <SubMenu
               key="1"
               title={
@@ -142,6 +187,18 @@ const handleCheck = (e) => {
               }
             >
               <div style={{ maringTop: "-10px" }}>{showBrands()}</div>
+            </SubMenu> 
+            <SubMenu
+              key="3"
+              title={
+                <span className="h6">
+                  <DownSquareOutlined /> Sub Categories
+                </span>
+              }
+            >
+              <div style={{ maringTop: "-10px" }} className="pl-4 pr-4">
+                {showModels()}
+              </div>
             </SubMenu>
           </Menu>
         </div>
