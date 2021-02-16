@@ -7,7 +7,7 @@ import { useSelector, useDispatch } from "react-redux";
 import ProductCard from "../components/cards/ProductCard";
 
 import { getBrandModels, getBrands } from "../functions/brand";
-import { Menu, Slider, Checkbox } from "antd";
+import { Menu, Slider, Checkbox , Radio} from "antd";
 import { DollarOutlined, DownSquareOutlined } from "@ant-design/icons";
 import { Select } from "antd";
 import { getModels } from "../functions/model"
@@ -29,6 +29,8 @@ const Shop = () => {
   const [brand, setBrand] = useState('')
   const [models , setModels] = useState([])
   const [model,setModel] = useState('')
+  const [types , setTypes] = useState( ["Engine Oil" , "Air Filter", "Tyre","Oil Filter","Battery", "Spares and Maintainance Kit", "Accessories"]);
+  const [type,setType] = useState('')
   
   let dispatch = useDispatch();
   let { search } = useSelector((state) => ({ ...state }));
@@ -80,6 +82,7 @@ const Shop = () => {
     setBrand([]);
     setModel("")
     setPrice(value);
+    setType("")
     setTimeout(() => {
       setOk(!ok);
     }, 300);
@@ -147,8 +150,32 @@ fetchProducts({ model });
 };
 
 
+// show product types
+const showTypes = () =>
+    types.map((t) => (
+      <Radio
+        value={t}
+        name={t}
+        checked={t === type}
+        onChange={handleType}
+        className="pb-1 pl-4 pr-4"
+      >
+        {t}
+      </Radio>
+    ));
 
-
+    const handleType = (e) => {
+      setModel("");
+      dispatch({
+        type: "SEARCH_QUERY",
+        payload: { text: "" },
+      });
+      setPrice([0, 0]);
+      setBrand('');
+      
+      setType(e.target.value);
+      fetchProducts({ type: e.target.value });
+    };
 
   return (
     <div className="container-fluid">
@@ -157,7 +184,7 @@ fetchProducts({ model });
           <h4>Search/Filter</h4>
           <hr />
 
-          <Menu defaultOpenKeys={["1", "2" , "3"]} mode="inline">
+          <Menu defaultOpenKeys={["1", "2" , "3" , "4"]} mode="inline">
             <SubMenu
               key="1"
               title={
@@ -200,6 +227,19 @@ fetchProducts({ model });
                 {showModels()}
               </div>
             </SubMenu>
+            <SubMenu
+              key="4"
+              title={
+                <span className="h6">
+                  <DownSquareOutlined /> Product Type
+                </span>
+              }
+            >
+              <div style={{ maringTop: "-10px" }} className="pr-5">
+                {showTypes()}
+              </div>
+            </SubMenu>
+
           </Menu>
         </div>
 

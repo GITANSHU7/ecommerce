@@ -168,7 +168,7 @@ if (brand) {
   console.log("model ---> ", model);
   await handleModel(req, res, model);
 }
-}
+
 if (type) {
 console.log("type ---> ", type);
 await handleType(req, res, type);
@@ -226,7 +226,7 @@ const handleModel = async (req, res, model) => {
 };
 
 const handleType = async (req, res, type) => {
-  const products = await Product.find({ models: model })
+  const products = await Product.find({  type })
     .populate("brand", "_id name")
     .populate("models", "_id name")
     .populate("postedBy", "_id name")
