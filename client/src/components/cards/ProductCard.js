@@ -39,7 +39,7 @@ const [tooltip, setTooltip] = useState('Click to add')
       //show tooltip
       setTooltip("Added");
         // add to reeux state
-        dispatch({
+        dispatch({ 
           type: "ADD_TO_CART",
           payload: unique,
         });
