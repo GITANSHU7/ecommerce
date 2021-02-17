@@ -4,11 +4,19 @@ import { EyeOutlined, ShoppingCartOutlined } from "@ant-design/icons";
 import _ from "lodash";
 import { Link } from "react-router-dom";
 
+import { useSelector, useDispatch } from "react-redux";
+
 const { Meta } = Card;
 
 const ProductCard = ({ product }) => {
 
 const [tooltip, setTooltip] = useState('Click to add')
+
+  // redux
+  const { user, cart } = useSelector((state) => ({ ...state }));
+  const dispatch = useDispatch();
+
+
 
   const handleAddToCart = () => {
     // create cart array
@@ -30,8 +38,15 @@ const [tooltip, setTooltip] = useState('Click to add')
       localStorage.setItem("cart", JSON.stringify(unique));
       //show tooltip
       setTooltip("Added");
-    }
-  };
+        // add to reeux state
+        dispatch({
+          type: "ADD_TO_CART",
+          payload: unique,
+        });
+      }
+    };
+  
+  
 
   // destructure
   const { images,type ,title, description, slug } = product;
