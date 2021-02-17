@@ -82,9 +82,7 @@ const Header = () => {
           </Item>
         </SubMenu>
       )}
-      <span className="float-right" style= {{color:'white'}}>
-        <Search/>
-      </span>
+      
     </Menu>
   );
 };

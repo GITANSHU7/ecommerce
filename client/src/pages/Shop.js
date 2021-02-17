@@ -29,7 +29,7 @@ const Shop = () => {
   const [brand, setBrand] = useState('')
   const [models , setModels] = useState([])
   const [model,setModel] = useState('')
-  const [types , setTypes] = useState( ["Engine Oil" , "Air Filter", "Tyre","Oil Filter","Battery", "Spares and Maintainance Kit", "Accessories"]);
+  const [types , setTypes] = useState(["Engine Oil" , "Air Filter", "Tyre","Oil Filter","Battery", "Spares and Maintainance Kit", "Accessories"]);
   const [type,setType] = useState('')
   
   let dispatch = useDispatch();
@@ -67,21 +67,24 @@ const Shop = () => {
     return () => clearTimeout(delayed);
   }, [text]);
 
+
   // 3. load products based on price range
   useEffect(() => {
     console.log("ok to request");
     fetchProducts({ price });
-  }, [ok]); 
+  }, [ok]);
 
  const handleSlider = (value) => {
     dispatch({
       type: "SEARCH_QUERY",
       payload: { text: "" },
     });
-    //rest
+    //reset
     
     setPrice(value);
-  
+  setBrand("")
+  setType("")
+  setModel("")
     setTimeout(() => {
       setOk(!ok);
     }, 300);
@@ -101,15 +104,6 @@ const Shop = () => {
      </div>
  ))    
  
- {/*
-const showBrands = () =>
-brands.map((b) => (
-  
-    <option key={b._id} onClick={() => handleBrand(b)} className="form-control">{b.name}</option>
-
-
-)) */}
-
 
  
 // handle check for brands
@@ -120,6 +114,8 @@ const handleBrand = (brand) => {
   type: "SEARCH_QUERY",
   payload: { text: "" },
 });
+  setModel("");
+  setType("");
 setPrice([0,0]);
 fetchProducts({ brand })
 }
@@ -138,12 +134,13 @@ models.map((m) => (
 ));
 
 const handleModel = (model) => {
-// console.log("SUB", sub);
 setModel(model);
 dispatch({
   type: "SEARCH_QUERY",
   payload: { text: "" },
 });
+setType("");
+setBrand("");
 setPrice([0, 0]);
 fetchProducts({ model });
 };
@@ -152,7 +149,7 @@ fetchProducts({ model });
 // show product types
 const showTypes = () =>
     types.map((t) => (
-      <Radio
+      <Checkbox
         value={t}
         name={t}
         checked={t === type}
@@ -160,18 +157,18 @@ const showTypes = () =>
         className="pb-1 pl-4 pr-4"
       >
         {t}
-      </Radio>
+      </Checkbox>
     ));
 
     const handleType = (e) => {
-      setModel("");
+    
       dispatch({
         type: "SEARCH_QUERY",
         payload: { text: "" },
       });
       setPrice([0, 0]);
-      setBrand('')
-      
+      setBrand("");
+      setModel("");
       setType(e.target.value);
       fetchProducts({ type: e.target.value });
     };
@@ -183,9 +180,9 @@ const showTypes = () =>
           <h4>Search/Filter</h4>
           <hr />
 
-          <Menu defaultOpenKeys={["1","2","3","4"]} mode="inline">
+          <Menu defaultOpenKeys={[ "1" , "2" , "3" , "4"]} mode="inline">
             <SubMenu
-              key="1"
+              Key = "1"
               title={
                 <span className="h6 ">
                   <i className="fas fa-rupee-sign"></i> Price
@@ -205,7 +202,7 @@ const showTypes = () =>
               </div>
             </SubMenu>
             <SubMenu
-              key="2"
+              Key = "2"
               title={
                 <span className="h6">
                   <DownSquareOutlined /> Choose Brand
@@ -215,7 +212,7 @@ const showTypes = () =>
               <div style={{ maringTop: "-10px" }} className="pl-4 pr-4">{showBrands()}</div>
             </SubMenu> 
             <SubMenu
-              key="3"
+               Key = "3"
               title={
                 <span className="h6">
                   <DownSquareOutlined /> Choose Model
@@ -227,7 +224,7 @@ const showTypes = () =>
               </div>
             </SubMenu>
             <SubMenu
-              key="4"
+             Key = "4"
               title={
                 <span className="h6">
                   <DownSquareOutlined /> Product Type
@@ -249,11 +246,11 @@ const showTypes = () =>
             <h4 className="text-danger">Products</h4>
           )}
 
-          {products.length < 1 && <p>No products found</p>}
+          {products.length < 1 && <p>Filter product</p>}
 
           <div className="row pb-5">
             {products.map((p) => (
-              <div key={p._id} className="col-md-4 mt-3">
+              <div key = {p._id} className="col-md-4 mt-3">
                 <ProductCard product={p} />
               </div>
             ))}

@@ -12,6 +12,7 @@
     "antd": "^4.9.3",
     "axios": "^0.21.1",
     "firebase": "^8.2.0",
+    "lodash": "^4.17.20",
     "mdbreact": "^5.0.1",
     "multiselect-react-dropdown": "^1.6.3",
     "pure-react-carousel": "^1.27.6",
