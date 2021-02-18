@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Menu } from "antd";
+import { Menu , Badge} from "antd";
 import {
   AppstoreOutlined,
   SettingOutlined,
@@ -7,7 +7,8 @@ import {
   UserAddOutlined,
   LogoutOutlined,
 InfoCircleTwoTone,
-	ContactsTwoTone 
+	ContactsTwoTone ,
+  ShoppingCartOutlined,
 } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 import firebase from "firebase";
@@ -21,7 +22,7 @@ const Header = () => {
   const [current, setCurrent] = useState("home");
 
   let dispatch = useDispatch();
-  let { user } = useSelector((state) => ({ ...state }));
+  let { user , cart } = useSelector((state) => ({ ...state }));
 
   let history = useHistory();
 
@@ -47,10 +48,16 @@ const Header = () => {
 	 <Item key="About Us" icon={<InfoCircleTwoTone />}>
         <Link to="/about">About Us</Link>
       </Item>
-      <Item key="Contact Us" icon={<ContactsTwoTone />}>
-        <Link to="/contact">Contact Us</Link>
-      </Item>
+      
   */}
+ <Item key="Cart" icon={<ShoppingCartOutlined style = {{fontSize : '1rem' ,color:'white'}} />}>
+        <Link to="/cart"> <Badge count = {cart.length} offset={[9,0]}><strong className="text-white">
+          
+          Cart
+          
+        </strong></Badge> </Link>
+      </Item>
+  
 
       {!user && (
         <Item key="register" icon={<UserAddOutlined style={{fontSize : '1.7rem' ,color:'white'}} />} className="float-left text-white">
