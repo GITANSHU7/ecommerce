@@ -39,6 +39,7 @@ import Product from "./pages/Product";
 import BrandHome from "./pages/brand/BrandHome";
 import ModelHome from "./pages/model/ModelHome";
 import Shop from "./pages/Shop";
+import Cart from "./pages/Cart";
 
 
 
@@ -111,6 +112,8 @@ const App = () => {
         <Route exact path="/brand/:slug" component={BrandHome} />
         <Route exact path="/model/:slug" component={ModelHome} />
         <Route exact path="/shop" component={Shop} />
+        <Route exact path="/cart" component={Cart} />
+
     </Switch>
     
     </>
