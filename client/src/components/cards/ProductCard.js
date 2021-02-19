@@ -43,6 +43,11 @@ const [tooltip, setTooltip] = useState('Click to add')
           type: "ADD_TO_CART",
           payload: unique,
         });
+        //show item in cart drawer
+        dispatch({ 
+          type: "SET_VISIBLE",
+          payload: true,
+        });
       }
     };
   

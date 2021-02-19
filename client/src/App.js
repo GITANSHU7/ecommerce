@@ -40,7 +40,7 @@ import BrandHome from "./pages/brand/BrandHome";
 import ModelHome from "./pages/model/ModelHome";
 import Shop from "./pages/Shop";
 import Cart from "./pages/Cart";
-
+import SideDrawer from "./components/drawer/SideDrawer";
 
 
 const App = () => {
@@ -78,6 +78,7 @@ const App = () => {
     {/*<Header /> 
     <Link to = "/"><img src = {logo} style={{display: "block" ,marginRight: "auto"}} /></Link> */}
     <Header />
+    <SideDrawer />
     <Navbar />
     
     <ToastContainer />
