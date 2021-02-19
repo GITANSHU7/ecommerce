@@ -180,7 +180,7 @@ const showTypes = () =>
           <h4>Search/Filter</h4>
           <hr />
 
-          <Menu defaultOpenKeys={[ "1" , "2" , "3" , "4"]} mode="inline">
+          <Menu defaultOpenKeys = {[ "1" , "2" , "3" , "4"]} mode="inline">
             <SubMenu
               Key = "1"
               title={

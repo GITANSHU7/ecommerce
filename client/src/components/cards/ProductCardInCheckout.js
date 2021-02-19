@@ -14,8 +14,9 @@ const ProductCardInCheckout = ({ p }) => {
       //console.log("available Quantity" , p.quantity)
       
       
+    // maximum allowed product for customers  
       let count = e.target.value < 1 ? 1: e.target.value;
-      if(count > 9 ) {
+      if(count > 10 ) {
         toast.error("Maximum purchase quantity");
         return;
     }
@@ -79,7 +80,7 @@ const ProductCardInCheckout = ({ p }) => {
             </td>
       
         <td>Shipping Icon</td>
-        <td><i className="fas fa-trash-alt text-danger pointer" onClick = {handleRemove} > </i></td>
+        <td><i className="fas fa-trash-alt text-danger pointer" style={{fontSize:"1.5rem"}} onClick = {handleRemove} > </i></td>
       </tr>
     </tbody>
   );
