@@ -10,3 +10,15 @@ await axios.post(
         }
     }
 );
+
+
+export const getUserCart = async (authtoken) => 
+await axios.get(
+    `${process.env.REACT_APP_API}/user/cart`,
+    
+    {
+        header: {
+            authtoken,
+        }
+    }
+);
