@@ -10,7 +10,7 @@ const { authCheck } = require("../middlewares/auth");
 const { userCart } = require("../controllers/user") ;
 
 
-router.post("/cart" , authCheck, userCart)// save to cart
+router.post("/user/cart" , authCheck, userCart)// save to cart
 
 
 
