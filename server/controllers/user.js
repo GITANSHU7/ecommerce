@@ -23,7 +23,7 @@ exports.userCart = async (req, res) => {
 
     object.product = cart[i]._id;
     object.count = cart[i].count;
-    object.color = cart[i].color;
+    object.type = cart[i].type;
     // get price for creating total
     let { price } = await Product.findById(cart[i]._id).select("price").exec();
     object.price = price;
