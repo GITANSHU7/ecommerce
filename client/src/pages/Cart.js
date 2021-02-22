@@ -4,11 +4,7 @@ import { Link } from "react-router-dom";
 import ProductCardInCheckout from "../components/cards/ProductCardInCheckout";
 import { userCart } from "../functions/user";
 
-
-
-
-
-const Cart = ({history}) => {
+const Cart = ({ history }) => {
   const { cart, user } = useSelector((state) => ({ ...state }));
   const dispatch = useDispatch();
 
@@ -19,12 +15,12 @@ const Cart = ({history}) => {
   };
 
   const saveOrderToDb = () => {
-    userCart(cart , user.token)
-    .then(res => {
-      console.log('Cart post res' , res);
-      if(res.data.ok) history.push("/checkout")
-    })
-    .catch((err) => console.log("cart save err" , err));
+  userCart(cart,user.token)
+  .then((res) => {
+    console.log("CART POST" ,res);
+    if(res.data.ok) history.push("/checkout")
+  }) 
+  .catch((err) => console.log("save err" , err))
   };
 
   const showCartItems = () => (
@@ -35,7 +31,7 @@ const Cart = ({history}) => {
           <th scope="col">Title</th>
           <th scope="col">Price</th>
           <th scope="col">Brand</th>
-          <th scope="col">Type</th>
+          <th scope="col">Color</th>
           <th scope="col">Count</th>
           <th scope="col">Shipping</th>
           <th scope="col">Remove</th>
@@ -69,12 +65,12 @@ const Cart = ({history}) => {
           {cart.map((c, i) => (
             <div key={i}>
               <p>
-                {c.title} x {c.count} = ₹{c.price * c.count}
+                {c.title} x {c.count} = ${c.price * c.count}
               </p>
             </div>
           ))}
           <hr />
-          Total: <b>₹{getTotal()}</b>
+          Total: <b>${getTotal()}</b>
           <hr />
           {user ? (
             <button
