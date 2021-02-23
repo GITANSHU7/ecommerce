@@ -46,7 +46,7 @@ const Checkout = () => {
         <hr />
         <p>List of products</p>
         <hr />
-        <p>Cart Total: $x</p>
+        <p>Cart Total: ₹x</p>
 
         <div className="row">
           <div className="col-md-6">
