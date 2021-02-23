@@ -30,6 +30,7 @@ exports.userCart = async (req, res) => {
 
     products.push(object);
   }
+  
 
   // console.log('products', products)
 
