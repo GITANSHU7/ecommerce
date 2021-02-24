@@ -27,8 +27,8 @@ exports.userCart = async (req, res) => {
     //object.manufacturer = cart[i].manufacturer;
     //object.year = cart[i].year;
     // get price for creating total
-    let { price } = await Product.findById(cart[i]._id).select("price").exec();
-    object.price = price;
+    let productFromDb = await Product.findById(cart[i]._id).select("price").exec();
+    object.price = productFromDb.price;
 
     products.push(object);
   }
