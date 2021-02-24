@@ -17,7 +17,9 @@ await axios.get(`${process.env.REACT_APP_API}/all/cart`, {
 
 
 export const emptyUserCart = async (authtoken) =>
-await axios.put(`${process.env.REACT_APP_API}/all/cart`,{}, {
+await axios.put(`${process.env.REACT_APP_API}/all/cart`,
+{}, 
+{
   headers: {
     authtoken,
   },

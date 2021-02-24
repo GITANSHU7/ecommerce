@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { toast } from "react-toastify";
-import { getUserCart , emptyUserCart } from "../functions/user";
+import { getUserCart, emptyUserCart } from "../functions/user";
 
 const Checkout = () => {
   const [products, setProducts] = useState([]);
@@ -19,11 +19,10 @@ const Checkout = () => {
   }, []);
 
   const emptyCart = () => {
-    //remove from local storage
-    if(typeof window !== "undefined"){
+    // remove from local storage
+    if (typeof window !== "undefined") {
       localStorage.removeItem("cart");
     }
-
     // remove from redux
     dispatch({
       type: "ADD_TO_CART",
@@ -33,13 +32,13 @@ const Checkout = () => {
     emptyUserCart(user.token).then((res) => {
       setProducts([]);
       setTotal(0);
-      toast.success("cart is empty DO shopping")
-    })
+      toast.success("Cart is emapty. Contniue shopping.");
+    });
   };
 
-  const saveAddressToDb = {
+  const saveAddressToDb = () => {
     //
-  }
+  };
 
 
   return (
@@ -66,7 +65,7 @@ const Checkout = () => {
         {products.map((p, i) => (
           <div key={i}>
             <p>
-              {p.product.title} {p.type} x {p.count} =
+              {p.product.title} {p.manufacturer } {p.year} {p.type} x {p.count} =
               {p.product.price * p.count}
             </p>
           </div>

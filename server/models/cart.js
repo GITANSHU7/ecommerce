@@ -12,8 +12,11 @@ const cartSchema = new mongoose.Schema(
         count: Number,
         //color: String,
         //types: String,
-        //type: String,
+        
         price: Number,
+        //manufacturer : String,
+        //year : String,
+        
       },
     ],
     cartTotal: Number,
