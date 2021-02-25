@@ -81,4 +81,12 @@ exports.getUserCart = async (req, res) => {
           {address : req.body.address}
       ).exec();
       res.json({ok:true});
-  }
+  };
+
+  exports.savePincode = async (req,res) => {
+    const userPincode = await User.findOneAndUpdate(
+        { email : req.user.email},
+        {pincode : req.body.pincode}
+    ).exec();
+    res.json({ok:true});
+};
