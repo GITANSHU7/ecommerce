@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import { getUserCart, emptyUserCart , saveUserAddress } from "../functions/user";
 import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css";
+import "react-quill/dist/quill.bubble.css";
 
 const Checkout = () => {
   const [products, setProducts] = useState([]);
@@ -68,7 +68,10 @@ const Checkout = () => {
         <h4>Delivery Address</h4>
         <br />
         <br />
-        <ReactQuill theme="snow" value={address} onChange={setAddress} />
+        <ReactQuill theme="bubble" value={address} onChange={setAddress} placeholder="Enter Address"
+        style={{border : "3px solid #ccc" , borderRadius:"0.5rem"}}
+        
+        />
            
         <button className="btn btn-primary mt-2" onClick={saveAddressToDb}>
           Save
