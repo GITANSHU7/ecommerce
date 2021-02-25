@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import { getUserCart, emptyUserCart , saveUserAddress } from "../functions/user";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
 
 const Checkout = () => {
   const [products, setProducts] = useState([]);
@@ -39,13 +41,16 @@ const Checkout = () => {
   };
 
   const saveAddressToDb = () => {
-    saveUserAddress(user.token,address).then((res) => {
-      if(res.data.ok) {
+    // console.log(address);
+    saveUserAddress(user.token, address).then((res) => {
+      if (res.data.ok) {
         setAddressSaved(true);
-        toast.success("Address save")
+        toast.success("Address saved");
       }
-    })
+    });
   };
+    
+  
 
   const AddressForm = () => {
     <form>
@@ -63,13 +68,8 @@ const Checkout = () => {
         <h4>Delivery Address</h4>
         <br />
         <br />
-        <form>
-      <div className="form-group" style={{marginLeft:"50px"}}>
-    <label>Address</label>
-    <textarea className="form-control" value={address} onChange={setAddress}   ></textarea>
-  </div>
-    </form>
-        
+        <ReactQuill theme="snow" value={address} onChange={setAddress} />
+           
         <button className="btn btn-primary mt-2" onClick={saveAddressToDb}>
           Save
         </button>
