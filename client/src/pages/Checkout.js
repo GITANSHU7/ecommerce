@@ -6,6 +6,8 @@ import { getUserCart, emptyUserCart , saveUserAddress } from "../functions/user"
 const Checkout = () => {
   const [products, setProducts] = useState([]);
   const [total, setTotal] = useState(0);
+  const [address, setAddress] = useState("");
+  const [addressSaved, setAddressSaved] = useState(false);
 
   const dispatch = useDispatch();
   const { user } = useSelector((state) => ({ ...state }));
@@ -32,13 +34,27 @@ const Checkout = () => {
     emptyUserCart(user.token).then((res) => {
       setProducts([]);
       setTotal(0);
-      toast.success("Cart is emapty. Contniue shopping.");
+      toast.success("Cart is empty. Contniue shopping.");
     });
   };
 
   const saveAddressToDb = () => {
-    //
+    saveUserAddress(user.token,address).then((res) => {
+      if(res.data.ok) {
+        setAddressSaved(true);
+        toast.success("Address save")
+      }
+    })
   };
+
+  const AddressForm = () => {
+    <form>
+      <div className="form-group">
+    <label>Address</label>
+    <textarea className="form-control" ></textarea>
+  </div>
+    </form>
+  }
 
 
   return (
@@ -47,7 +63,13 @@ const Checkout = () => {
         <h4>Delivery Address</h4>
         <br />
         <br />
-        textarea
+        <form>
+      <div className="form-group" style={{marginLeft:"50px"}}>
+    <label>Address</label>
+    <textarea className="form-control" value={address} onChange={setAddress}   ></textarea>
+  </div>
+    </form>
+        
         <button className="btn btn-primary mt-2" onClick={saveAddressToDb}>
           Save
         </button>
@@ -77,7 +99,7 @@ const Checkout = () => {
           <div className="col-md-6">
             <button className="btn btn-primary">Place Order</button>
           </div>
-
+          
           <div className="col-md-6">
             <button 
             disabled={!products.length}
