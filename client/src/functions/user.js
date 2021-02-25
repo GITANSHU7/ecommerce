@@ -32,3 +32,10 @@ export const saveUserAddress = async (authtoken, address) => await axios.post(`$
   },
 }
 );
+
+export const saveUserPincode = async (authtoken, pincode) => await axios.post(`${process.env.REACT_APP_API}/user/pincode`,{ pincode }, {
+  headers: {
+    authtoken,
+  },
+}
+);

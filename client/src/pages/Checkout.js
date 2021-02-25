@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { toast } from "react-toastify";
-import { getUserCart, emptyUserCart , saveUserAddress } from "../functions/user";
+import { getUserCart, emptyUserCart , saveUserAddress , saveUserPincode } from "../functions/user";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.bubble.css";
 
@@ -10,6 +10,8 @@ const Checkout = () => {
   const [total, setTotal] = useState(0);
   const [address, setAddress] = useState("");
   const [addressSaved, setAddressSaved] = useState(false);
+  const [pincode, setPincode] = useState("");
+  const [pincodeSaved, setPincodeSaved]= useState(false);
 
   const dispatch = useDispatch();
   const { user } = useSelector((state) => ({ ...state }));
@@ -50,7 +52,16 @@ const Checkout = () => {
     });
   };
     
-  
+  const savePincodeToDb = () => {
+    // console.log(address);
+    saveUserPincode(user.token, pincode).then((res) => {
+      if (res.data.ok) {
+        setPincodeSaved(true);
+        toast.success("Address saved");
+      }
+    });
+  };
+    
 
   const AddressForm = () => {
     <form>
@@ -68,12 +79,16 @@ const Checkout = () => {
         <h4>Delivery Address</h4>
         <br />
         <br />
-        <ReactQuill theme="bubble" value={address} onChange={setAddress} placeholder="Enter Address"
+        <ReactQuill theme="bubble" value={address} onChange={setAddress} placeholder="Enter Address" 
         style={{border : "3px solid #ccc" , borderRadius:"0.5rem"}}
         
         />
-           
-        <button className="btn btn-primary mt-2" onClick={saveAddressToDb}>
+           <br />
+           <ReactQuill theme="bubble" value={pincode} onChange={setPincode} placeholder="Enter Address"
+        style={{border : "3px solid #ccc" , borderRadius:"0.5rem"}}
+        
+        />
+        <button className="btn btn-primary mt-2" onClick={saveAddressToDb} onClick = {savePincodeToDb} >
           Save
         </button>
         <hr />
