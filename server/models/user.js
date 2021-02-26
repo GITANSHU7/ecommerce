@@ -26,7 +26,7 @@ contact:{
 },
 pincode:{
     require: true,
-    type:Number,
+    type:String,
     length:6
 },
 role:{

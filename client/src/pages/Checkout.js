@@ -84,11 +84,15 @@ const Checkout = () => {
         
         />
            <br />
-           <ReactQuill theme="bubble" value={pincode} onChange={setPincode} placeholder="Enter Address"
+           <ReactQuill theme="bubble" value={pincode} onChange={setPincode} placeholder="Enter pin"
         style={{border : "3px solid #ccc" , borderRadius:"0.5rem"}}
         
         />
-        <button className="btn btn-primary mt-2" onClick={saveAddressToDb} onClick = {savePincodeToDb} >
+        <button className="btn btn-primary mt-2" onClick={() => {
+          savePincodeToDb(); saveAddressToDb();
+        }} 
+        disabled = {!address.length || !pincode.length}
+        >
           Save
         </button>
         <hr />
