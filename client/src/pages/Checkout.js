@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { toast } from "react-toastify";
-import { getUserCart, emptyUserCart , saveUserAddress , saveUserPincode } from "../functions/user";
+import { getUserCart, emptyUserCart , saveUserAddress , saveUserPincode , applyCoupon} from "../functions/user";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.bubble.css";
 
@@ -13,6 +13,8 @@ const Checkout = () => {
   const [pincode, setPincode] = useState("");
   const [pincodeSaved, setPincodeSaved]= useState(false);
   const [coupon , setCoupon] = useState('');
+  const [totalAfterDiscount , setTotalAfterDiscount] = useState(0);
+  const [discountError, setDiscountError] = useState("");
 
   const dispatch = useDispatch();
   const { user } = useSelector((state) => ({ ...state }));
@@ -39,6 +41,8 @@ const Checkout = () => {
     emptyUserCart(user.token).then((res) => {
       setProducts([]);
       setTotal(0);
+      setTotalAfterDiscount("");
+      setCoupon("");
       toast.success("Cart is empty. Contniue shopping.");
     });
   };
@@ -66,7 +70,11 @@ const Checkout = () => {
   const showApplyCoupon = () => (
     <>
     <input 
-    onChange = {(e) => setCoupon(e.target.value)}
+    onChange = {(e) => {
+      setCoupon(e.target.value)
+    setDiscountError("")
+    }
+    }
     value= {coupon}
     type= "text"
     className= "form-control" />
@@ -107,8 +115,21 @@ const Checkout = () => {
           </div>
         ));
       
-          const applyDiscountCoupon = () => {
-            console.log('send coupon' , coupon)
+        
+        const applyDiscountCoupon = () => {
+          console.log("send coupon to backend", coupon);
+          applyCoupon(user.token, coupon).then((res) => {
+            console.log("RES ON COUPON APPLIED", res.data);
+            if (res.data) {
+              setTotalAfterDiscount(res.data);
+              // update redux coupon applied
+            }
+            // error
+            if (res.data.err) {
+              setDiscountError(res.data.err);
+              // update redux coupon applied
+            }
+          });
           }
 
 
@@ -122,6 +143,9 @@ const Checkout = () => {
         <h4>Got Coupon?</h4>
         <br />
         {showApplyCoupon()}
+        <br />
+{discountError && <p className="text-danger p-2">{discountError}</p>}
+
       </div>
 
       <div className="col-md-6">
@@ -132,6 +156,10 @@ const Checkout = () => {
        {showProductSummary()}
         <hr />
         <p>Cart Total: {total}</p>
+
+        {totalAfterDiscount > 0 && (
+          <p className= "text-success p-2">After Discount Price ₹{totalAfterDiscount}</p>
+        )}
 
         <div className="row">
           <div className="col-md-6">
