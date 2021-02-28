@@ -62,6 +62,17 @@ const Checkout = () => {
     });
   };
     
+  const showApplyCoupon = () => (
+    <>
+    <input 
+    onChange = {(e) => setCoupon(e.target.value)}
+    type= "text"
+    className= "form-control" />
+</>
+  )
+
+
+
 
   const AddressForm = () => {
     <form>
