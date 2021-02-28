@@ -72,13 +72,9 @@ const Checkout = () => {
     </form>
   }
 
-
-  return (
-    <div className="row">
-      <div className="col-md-6">
-        <h4>Delivery Address</h4>
-        <br />
-        <br />
+  const showAddress = () => (
+    <>
+      <br />
         <ReactQuill theme="bubble" value={address} onChange={setAddress} placeholder="Enter Address" 
         style={{border : "3px solid #ccc" , borderRadius:"0.5rem"}}
         
@@ -95,6 +91,28 @@ const Checkout = () => {
         >
           Save
         </button>
+    </>
+  );
+
+      const showProductSummary = () => 
+        products.map((p, i) => (
+          <div key={i}>
+            <p>
+              {p.product.title} {p.manufacturer } {p.year} {p.type} x {p.count} =
+              {p.product.price * p.count}
+            </p>
+          </div>
+        ));
+      
+
+
+
+  return (
+    <div className="row">
+      <div className="col-md-6">
+        <h4>Delivery Address</h4>
+        <br />
+        {showAddress()}
         <hr />
         <h4>Got Coupon?</h4>
         <br />
@@ -106,14 +124,7 @@ const Checkout = () => {
         <hr />
         <p>Products {products.length}</p>
         <hr />
-        {products.map((p, i) => (
-          <div key={i}>
-            <p>
-              {p.product.title} {p.manufacturer } {p.year} {p.type} x {p.count} =
-              {p.product.price * p.count}
-            </p>
-          </div>
-        ))}
+       {showProductSummary()}
         <hr />
         <p>Cart Total: {total}</p>
 
