@@ -12,6 +12,7 @@ const Checkout = () => {
   const [addressSaved, setAddressSaved] = useState(false);
   const [pincode, setPincode] = useState("");
   const [pincodeSaved, setPincodeSaved]= useState(false);
+  const [coupon , setCoupon] = useState('');
 
   const dispatch = useDispatch();
   const { user } = useSelector((state) => ({ ...state }));
@@ -66,22 +67,13 @@ const Checkout = () => {
     <>
     <input 
     onChange = {(e) => setCoupon(e.target.value)}
+    value= {coupon}
     type= "text"
     className= "form-control" />
+    <button onClick={applyDiscountCoupon} className="btn btn-primary mt-2">Apply</button>
 </>
-  )
+  );
 
-
-
-
-  const AddressForm = () => {
-    <form>
-      <div className="form-group">
-    <label>Address</label>
-    <textarea className="form-control" ></textarea>
-  </div>
-    </form>
-  }
 
   const showAddress = () => (
     <>
@@ -115,7 +107,9 @@ const Checkout = () => {
           </div>
         ));
       
-
+          const applyDiscountCoupon = () => {
+            console.log('send coupon' , coupon)
+          }
 
 
   return (
@@ -127,7 +121,7 @@ const Checkout = () => {
         <hr />
         <h4>Got Coupon?</h4>
         <br />
-        coupon input and apply button
+        {showApplyCoupon()}
       </div>
 
       <div className="col-md-6">
