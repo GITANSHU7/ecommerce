@@ -5,7 +5,7 @@ import { getUserCart, emptyUserCart , saveUserAddress , saveUserPincode , applyC
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.bubble.css";
 
-const Checkout = () => {
+const Checkout = ({history}) => {
   const [products, setProducts] = useState([]);
   const [total, setTotal] = useState(0);
   const [address, setAddress] = useState("");
@@ -17,7 +17,7 @@ const Checkout = () => {
   const [discountError, setDiscountError] = useState("");
 
   const dispatch = useDispatch();
-  const { user } = useSelector((state) => ({ ...state }));
+  const { user  } = useSelector((state) => ({ ...state }));
 
   useEffect(() => {
     getUserCart(user.token).then((res) => {
@@ -123,12 +123,22 @@ const Checkout = () => {
             console.log("RES ON COUPON APPLIED", res.data);
             if (res.data) {
               setTotalAfterDiscount(res.data);
-              // update redux coupon applied
+              // update redux coupon applied true/false
+              dispatch({
+                type : "COUPON_APPLIED",
+                payload: "true",
+              })
+
             }
             // error
             if (res.data.err) {
               setDiscountError(res.data.err);
               // update redux coupon applied
+              dispatch({
+                type : "COUPON_APPLIED",
+                payload: "false",
+              })
+
             }
           });
           }
@@ -164,7 +174,11 @@ const Checkout = () => {
 
         <div className="row">
           <div className="col-md-6">
-            <button className="btn btn-primary">Place Order</button>
+            <button className="btn btn-primary"   
+            disabled = {!address.length || !pincode.length || !products.length} 
+            onClick = {() => history.push("/payment")}
+            >
+              Place Order</button>
           </div>
           
           <div className="col-md-6">
