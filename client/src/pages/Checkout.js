@@ -75,6 +75,7 @@ const Checkout = () => {
     setDiscountError("")
     }
     }
+    placeholder = "Enter Coupon"
     value= {coupon}
     type= "text"
     className= "form-control" />
