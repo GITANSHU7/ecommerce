@@ -22,12 +22,13 @@ address:{
 contact:{
     type: Number,
     require: true,
-    length:10,
+    
+    
 },
 pincode:{
     require: true,
     type:String,
-    length:6
+   
 },
 role:{
     type:String, 

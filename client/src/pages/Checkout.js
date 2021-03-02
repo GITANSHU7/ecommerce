@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { toast } from "react-toastify";
-import { getUserCart, emptyUserCart , saveUserAddress , saveUserPincode , applyCoupon } from "../functions/user";
+import { getUserCart, emptyUserCart , saveUserAddress , saveUserPincode , applyCoupon  , saveUserLocality , saveUserContact, saveUserName} from "../functions/user";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.bubble.css";
 
@@ -15,6 +15,12 @@ const Checkout = ({history}) => {
   const [coupon , setCoupon] = useState('');
   const [totalAfterDiscount , setTotalAfterDiscount] = useState(0);
   const [discountError, setDiscountError] = useState("");
+  const [contact , setContact] = useState("");
+  const [contactSaved , setContactSaved] = useState("");
+  const [locality, setLocality] = useState("");
+  const [localitySaved , setLocalitySaved] = useState("");
+  const [name , setName] = useState("");
+  const [nameSaved , setNameSaved] = useState("");
 
   const dispatch = useDispatch();
   const { user  } = useSelector((state) => ({ ...state }));
@@ -66,7 +72,36 @@ const Checkout = ({history}) => {
       }
     });
   };
-    
+  const saveContactToDb = () => {
+    // console.log(address);
+    saveUserContact(user.token, contact).then((res) => {
+      if (res.data.ok) {
+        setContactSaved(true);
+        toast.success("Address saved");
+      }
+    });
+  };
+  
+  const saveNameToDb = () => {
+    // console.log(address);
+    saveUserName(user.token, name).then((res) => {
+      if (res.data.ok) {
+        setNameSaved(true);
+        toast.success("Address saved");
+      }
+    });
+  };
+  
+  const saveLocalityToDb = () => {
+    // console.log(address);
+    saveUserLocality(user.token, locality).then((res) => {
+      if (res.data.ok) {
+        setLocalitySaved(true);
+        toast.success("Address saved");
+      }
+    });
+  };
+
   const showApplyCoupon = () => (
     <>
     <input 
@@ -97,6 +132,21 @@ const Checkout = ({history}) => {
         style={{border : "3px solid #ccc" , borderRadius:"0.5rem"}}
   /> */}
 
+<form onSubmit={setName}>
+        <div className="form-group">
+          <label className="text-muted">/nmae</label>
+          <input
+            type="text"
+            className="form-control"
+            onChange={(e) => setName(e.target.value)}
+            value={name}
+            autoFocus
+            required
+          />
+        </div>
+        </form>
+<br />
+
 <form onSubmit={setAddress}>
         <div className="form-group">
           <label className="text-muted">Addrress</label>
@@ -124,10 +174,40 @@ const Checkout = ({history}) => {
           />
         </div>
         </form>
+        <br />
+<form onSubmit={setLocality}>
+        <div className="form-group">
+          <label className="text-muted">Locality</label>
+          <input
+            type="text"
+            className="form-control"
+            onChange={(e) => setLocality(e.target.value)}
+            value={locality}
+            autoFocus
+            required
+          />
+        </div>
+        </form>
+        <form onSubmit={setContact}>
+        <div className="form-group">
+          <label className="text-muted">muconta</label>
+          <input
+            type="number"
+            className="form-control"
+            onChange={(e) => setContact(e.target.value)}
+            value={contact}
+        
+            max="10"
+            autoFocus
+            required
+          />
+        </div>
+        </form>
+        
         <button className="btn btn-primary mt-2" onClick={() => {
-          savePincodeToDb(); saveAddressToDb();
+          savePincodeToDb(); saveAddressToDb(); saveLocalityToDb(); saveContactToDb() ; saveNameToDb();
         }} 
-        disabled = {!address.length || !pincode.length}
+        disabled = {!address.length || !pincode.length} 
         >
           Save
         </button>

@@ -109,7 +109,7 @@ exports.saveLocality = async (req,res) => {
 };
 
 exports.userName = async (req,res) => {
-  const userName = await User.findOneAndUpdate(
+  const saveName = await User.findOneAndUpdate(
       { email : req.user.email},
       {name : req.body.name}
   ).exec();
