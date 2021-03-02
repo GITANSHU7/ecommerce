@@ -192,10 +192,11 @@ const Checkout = ({history}) => {
         <div className="form-group">
           <label className="text-muted">Contact No.</label>
           <input
-            type="number"
+            type="text"
             className="form-control"
             onChange={(e) => setContact(e.target.value)}
             value={contact}
+            maxlength="10"
             autoFocus
             required
           />
@@ -205,7 +206,7 @@ const Checkout = ({history}) => {
         <button className="btn btn-primary mt-2" onClick={() => {
           savePincodeToDb(); saveAddressToDb(); saveLocalityToDb(); saveContactToDb() ; saveNameToDb();
         }} 
-        disabled = {!address.length || !pincode.length} 
+        disabled = {!address.length || !pincode.length ||!name.length ||!locality.length ||!contact.length} 
         >
           Save
         </button>
@@ -281,7 +282,7 @@ const Checkout = ({history}) => {
         <div className="row">
           <div className="col-md-6">
             <button className="btn btn-primary"   
-            disabled = {!address.length || !pincode.length || !products.length} 
+            disabled = {!address.length || !pincode.length || !products.length ||!name.length ||!locality.length ||!contact.length} 
             onClick = {() => history.push("/payment")}
             >
               Place Order</button>
