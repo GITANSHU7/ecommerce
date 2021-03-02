@@ -134,7 +134,7 @@ const Checkout = ({history}) => {
 
 <form onSubmit={setName}>
         <div className="form-group">
-          <label className="text-muted">/nmae</label>
+          <label className="text-muted">Name</label>
           <input
             type="text"
             className="form-control"
@@ -163,7 +163,7 @@ const Checkout = ({history}) => {
 <br />
 <form onSubmit={setPincode}>
         <div className="form-group">
-          <label className="text-muted">Name</label>
+          <label className="text-muted">Pincode</label>
           <input
             type="text"
             className="form-control"
@@ -190,7 +190,7 @@ const Checkout = ({history}) => {
         </form>
         <form onSubmit={setContact}>
         <div className="form-group">
-          <label className="text-muted">muconta</label>
+          <label className="text-muted">Contact No.</label>
           <input
             type="number"
             className="form-control"
