@@ -9,8 +9,11 @@ import { GoMail } from "react-icons/go";
 import { createOrUpdateUser } from "../../functions/auth";
 
 
+
 const Register = ({history}) => {
   const [email, setEmail] = useState("mayank95866@gmail.com");
+ 
+
   const {user} =useSelector((state) => ({...state}))
   useEffect(() => {
     if(user &&user.token) history.push('/')
@@ -68,6 +71,7 @@ const Register = ({history}) => {
       });
   };
 
+ 
   const registerForm = () => (
     <form onSubmit={handleSubmit}>
       <input
@@ -78,8 +82,9 @@ const Register = ({history}) => {
         onChange={(e) => setEmail(e.target.value)}
         autoFocus
       />
+
         
-      <button type="submit" className="btn btn-raised">
+      <button type="submit" className="btn btn-raised" >
         Register
       </button>
     </form>
