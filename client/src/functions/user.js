@@ -40,6 +40,31 @@ export const saveUserPincode = async (authtoken, pincode) => await axios.post(`$
 }
 );
 
+
+export const saveUserContact = async (authtoken, contact) => await axios.post(`${process.env.REACT_APP_API}/user/contact`,{ contact }, {
+  headers: {
+    authtoken,
+  },
+}
+);
+
+
+export const saveUserName = async (authtoken, name) => await axios.post(`${process.env.REACT_APP_API}/user/name`,{ name }, {
+  headers: {
+    authtoken,
+  },
+}
+);
+
+
+export const saveUserLocality = async (authtoken, locality) => await axios.post(`${process.env.REACT_APP_API}/user/locality`,{ locality }, {
+  headers: {
+    authtoken,
+  },
+}
+);
+
+
 export const applyCoupon = async (authtoken, coupon) => await axios.post(`${process.env.REACT_APP_API}/user/cart/coupon`,{ coupon }, {
   headers: {
     authtoken,

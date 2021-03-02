@@ -92,14 +92,33 @@ exports.getUserCart = async (req, res) => {
     res.json({ok:true});
 };
 
-exports.contactNo = async(req,res) => {
-  try {
-    const {contact , locality} = req.body.user;
-    res.json(await new User({contact , locality}).save());
-  } catch (err) {
-    console.log(err);
-  }
-}
+exports.contactNo = async (req,res) => {
+  const userContact = await User.findOneAndUpdate(
+      { email : req.user.email},
+      {contact : req.body.contact}
+  ).exec();
+  res.json({ok:true});
+};
+
+exports.saveLocality = async (req,res) => {
+  const userLocality = await User.findOneAndUpdate(
+      { email : req.user.email},
+      {locality : req.body.locality}
+  ).exec();
+  res.json({ok:true});
+};
+
+exports.userName = async (req,res) => {
+  const userName = await User.findOneAndUpdate(
+      { email : req.user.email},
+      {name : req.body.name}
+  ).exec();
+  res.json({ok:true});
+};
+
+
+
+
 
 exports.applyCouponToUserCart = async (req, res) => {
   const { coupon } = req.body;

@@ -88,15 +88,29 @@ const Checkout = ({history}) => {
   const showAddress = () => (
     <>
       <br />
-        <ReactQuill theme="bubble" value={address} onChange={setAddress} placeholder="Enter Address" 
+      {/*/  <ReactQuill theme="bubble" value={address} onChange={setAddress} placeholder="Enter Address" 
         style={{border : "3px solid #ccc" , borderRadius:"0.5rem"}}
         
-        />
+  /> */}
            <br />
            {/* <ReactQuill theme="bubble" value={pincode} onChange={setPincode} placeholder="Enter pin"
         style={{border : "3px solid #ccc" , borderRadius:"0.5rem"}}
   /> */}
 
+<form onSubmit={setAddress}>
+        <div className="form-group">
+          <label className="text-muted">Addrress</label>
+          <input
+            type="text"
+            className="form-control"
+            onChange={(e) => setAddress(e.target.value)}
+            value={address}
+            autoFocus
+            required
+          />
+        </div>
+        </form>
+<br />
 <form onSubmit={setPincode}>
         <div className="form-group">
           <label className="text-muted">Name</label>
