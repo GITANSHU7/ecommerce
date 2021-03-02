@@ -46,3 +46,16 @@ export const applyCoupon = async (authtoken, coupon) => await axios.post(`${proc
   },
 }
 );
+
+
+export const createContact = async (contact, authtoken) =>
+  await axios.post(
+    `${process.env.REACT_APP_API}/addresscontact`,
+    { contact },
+    {
+      headers: {
+        authtoken,
+      },
+    }
+  );
+

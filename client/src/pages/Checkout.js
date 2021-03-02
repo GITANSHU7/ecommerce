@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { toast } from "react-toastify";
-import { getUserCart, emptyUserCart , saveUserAddress , saveUserPincode , applyCoupon} from "../functions/user";
+import { getUserCart, emptyUserCart , saveUserAddress , saveUserPincode , applyCoupon } from "../functions/user";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.bubble.css";
 
@@ -83,6 +83,7 @@ const Checkout = ({history}) => {
 </>
   );
 
+  
 
   const showAddress = () => (
     <>
@@ -92,10 +93,23 @@ const Checkout = ({history}) => {
         
         />
            <br />
-           <ReactQuill theme="bubble" value={pincode} onChange={setPincode} placeholder="Enter pin"
+           {/* <ReactQuill theme="bubble" value={pincode} onChange={setPincode} placeholder="Enter pin"
         style={{border : "3px solid #ccc" , borderRadius:"0.5rem"}}
-        
-        />
+  /> */}
+
+<form onSubmit={setPincode}>
+        <div className="form-group">
+          <label className="text-muted">Name</label>
+          <input
+            type="text"
+            className="form-control"
+            onChange={(e) => setPincode(e.target.value)}
+            value={pincode}
+            autoFocus
+            required
+          />
+        </div>
+        </form>
         <button className="btn btn-primary mt-2" onClick={() => {
           savePincodeToDb(); saveAddressToDb();
         }} 

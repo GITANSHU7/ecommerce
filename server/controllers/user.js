@@ -92,7 +92,14 @@ exports.getUserCart = async (req, res) => {
     res.json({ok:true});
 };
 
-
+exports.contactNo = async(req,res) => {
+  try {
+    const {contact , locality} = req.body.user;
+    res.json(await new User({contact , locality}).save());
+  } catch (err) {
+    console.log(err);
+  }
+}
 
 exports.applyCouponToUserCart = async (req, res) => {
   const { coupon } = req.body;

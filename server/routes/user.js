@@ -12,7 +12,7 @@ router.get("/all/cart", authCheck, getUserCart); // save cart
 router.put("/all/cart", authCheck, emptyCart); // delete cart
 router.post("/user/address" , authCheck , saveAddress);
 router.post("/user/pincode", authCheck , savePincode);
-router.post("/all/cart", authCheck, contactNo);
+router.post("/addresscontact", authCheck, contactNo);
 
 //coupon 
 router.post("/user/cart/coupon" , authCheck,applyCouponToUserCart);
