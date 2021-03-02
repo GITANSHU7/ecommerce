@@ -196,8 +196,6 @@ const Checkout = ({history}) => {
             className="form-control"
             onChange={(e) => setContact(e.target.value)}
             value={contact}
-        
-            max="10"
             autoFocus
             required
           />
