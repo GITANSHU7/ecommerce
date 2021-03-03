@@ -58,7 +58,7 @@ const Checkout = ({history}) => {
     saveUserAddress(user.token, address).then((res) => {
       if (res.data.ok) {
         setAddressSaved(true);
-        toast.success("Address saved");
+        
       }
     });
   };
@@ -68,7 +68,7 @@ const Checkout = ({history}) => {
     saveUserPincode(user.token, pincode).then((res) => {
       if (res.data.ok) {
         setPincodeSaved(true);
-        toast.success("Address saved");
+        
       }
     });
   };
@@ -77,7 +77,7 @@ const Checkout = ({history}) => {
     saveUserContact(user.token, contact).then((res) => {
       if (res.data.ok) {
         setContactSaved(true);
-        toast.success("Address saved");
+       
       }
     });
   };
@@ -87,7 +87,7 @@ const Checkout = ({history}) => {
     saveUserName(user.token, name).then((res) => {
       if (res.data.ok) {
         setNameSaved(true);
-        toast.success("Address saved");
+
       }
     });
   };
@@ -123,14 +123,7 @@ const Checkout = ({history}) => {
   const showAddress = () => (
     <>
       <br />
-      {/*/  <ReactQuill theme="bubble" value={address} onChange={setAddress} placeholder="Enter Address" 
-        style={{border : "3px solid #ccc" , borderRadius:"0.5rem"}}
-        
-  /> */}
-           <br />
-           {/* <ReactQuill theme="bubble" value={pincode} onChange={setPincode} placeholder="Enter pin"
-        style={{border : "3px solid #ccc" , borderRadius:"0.5rem"}}
-  /> */}
+     
 
 <form onSubmit={setName}>
         <div className="form-group">
