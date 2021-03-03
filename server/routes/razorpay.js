@@ -1,7 +1,7 @@
 const express= require("express");
 const router = express.Router();
 
-const { createPaymentIntent } = require("../controllers/stripe");
+const { createPaymentIntent } = require("../controllers/razorpay");
 
 // middleware
 
