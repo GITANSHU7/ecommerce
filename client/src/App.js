@@ -43,7 +43,7 @@ import Cart from "./pages/Cart";
 import SideDrawer from "./components/drawer/SideDrawer";
 import Checkout from "./pages/Checkout";
 import CreateCouponPage from "./pages/coupon/CreateCouponPage";
-import Payment from "./pages/Payment";
+//import Payment from "./pages/Payment";
 
 
 
@@ -120,7 +120,7 @@ const App = () => {
         <Route exact path="/cart" component={Cart} />
         <Route exact path="/checkout" component={Checkout} />
         <AdminRoute exact path="/admin/coupon" component={CreateCouponPage} />
-        <UserRoute exact path="/payment" component={Payment} />
+        {/*<UserRoute exact path="/payment" component={Payment} />*/}
 
     </Switch>
     
