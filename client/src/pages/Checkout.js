@@ -351,7 +351,7 @@ const Checkout = ({history}) => {
           <div className="col-md-6">
             <button className="btn btn-primary"   
             disabled = {!address.length || !pincode.length || !products.length ||!name.length ||!locality.length ||!contact.length} 
-            onClick = {() => {displayRazorpay}}
+            onClick = {() => {displayRazorpay();}}
             >
               Place Order</button>
           </div>
