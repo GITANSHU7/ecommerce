@@ -272,7 +272,7 @@ const Checkout = ({history}) => {
       }
 
       // creating a new order
-      const result = await axios.post("http://localhost:5000/payment/orders");
+      const result = await axios.post("http://localhost:3000/payment/orders");
 
       if (!result) {
           alert("Server error. Are you online?");
@@ -298,7 +298,7 @@ const Checkout = ({history}) => {
                   razorpaySignature: response.razorpay_signature,
               };
 
-              const result = await axios.post("http://localhost:8000/payment/success", data);
+              const result = await axios.post("http://localhost:3000/payment/success", data);
 
               alert(result.data.msg);
           },
@@ -351,7 +351,7 @@ const Checkout = ({history}) => {
           <div className="col-md-6">
             <button className="btn btn-primary"   
             disabled = {!address.length || !pincode.length || !products.length ||!name.length ||!locality.length ||!contact.length} 
-            onClick = {() => {displayRazorpay();}}
+            onClick = {() => displayRazorpay()}
             >
               Place Order</button>
           </div>
