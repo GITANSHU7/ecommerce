@@ -19,7 +19,7 @@ const Checkout = ({history}) => {
   const [contactSaved , setContactSaved] = useState("");
   const [locality, setLocality] = useState("");
   const [localitySaved , setLocalitySaved] = useState("");
-  const [name , setName] = useState("");
+  const [name , setName] = useState("Gitanshu");
   const [nameSaved , setNameSaved] = useState("");
 
   const dispatch = useDispatch();
@@ -192,7 +192,7 @@ const Checkout = ({history}) => {
             className="form-control"
             onChange={(e) => setContact(e.target.value)}
             value={contact}
-            maxlength="10"
+            maxLength="10"
             autoFocus
             required
           />
@@ -351,7 +351,7 @@ const Checkout = ({history}) => {
           <div className="col-md-6">
             <button className="btn btn-primary"   
             disabled = {!address.length || !pincode.length || !products.length ||!name.length ||!locality.length ||!contact.length} 
-            onClick = {() => displayRazorpay()}
+            onClick = {() => history.push("/payment")}
             >
               Place Order</button>
           </div>
