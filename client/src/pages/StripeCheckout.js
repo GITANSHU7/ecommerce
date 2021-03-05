@@ -13,6 +13,9 @@ const StripeCheckout = ({ history }) => {
   const [processing, setProcessing] = useState("");
   const [disabled, setDisabled] = useState(true);
   const [clientSecret, setClientSecret] = useState("");
+  const [cartTotal , setCartTotal] = useState(0);
+  const [totalAfterDiscount , setTotalAfterDiscount ] = useState(0)
+  const [ payable , setPayable]  = useState(0)
 
   const stripe = useStripe();
   const elements = useElements();
@@ -21,6 +24,10 @@ const StripeCheckout = ({ history }) => {
     createPaymentIntent(user.token , coupon).then((res) => {
       console.log("create payment intent", res.data);
       setClientSecret(res.data.clientSecret);
+      // on succesful payment
+      setCartTotal(res.data.cartTotal);
+      setTotalAfterDiscount(res.data.totalAfterDiscount);
+      setPayable(res.data.payable);
     });
   }, []);
 
@@ -96,7 +103,7 @@ const StripeCheckout = ({ history }) => {
           disabled={processing || disabled || succeeded}
         >
           <span id="button-text">
-            {processing ? <div className="spinner" id="spinner"></div> : "Pay"}
+            {processing ? <div className="spinner" id="spinner"></div> :  "Amount To Pay"} ₹{(payable / 100).toFixed(2)}
           </span>
         </button>
         <br />
