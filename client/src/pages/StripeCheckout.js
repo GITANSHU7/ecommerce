@@ -32,7 +32,8 @@ const StripeCheckout = ({ history }) => {
       payment_method: {
         card: elements.getElement(CardElement),
         billing_details: {
-          name: e.target.name.value,
+          name: user.name,
+          email : user.email,
        
         },
       },
