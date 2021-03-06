@@ -5,7 +5,7 @@ const router = express.Router();
 // middlewares
 const { authCheck } = require("../middlewares/auth");
 // controllers
-const { userCart , getUserCart , emptyCart , saveAddress , savePincode, contactNo, userName, saveLocality ,applyCouponToUserCart} = require("../controllers/user");
+const { userCart , getUserCart , emptyCart , saveAddress , savePincode, contactNo, userName, saveLocality ,applyCouponToUserCart , createOrder} = require("../controllers/user");
 
 router.post("/all/cart", authCheck, userCart); // save cart
 router.get("/all/cart", authCheck, getUserCart); // save cart
@@ -19,5 +19,8 @@ router.post("/user/name", authCheck, userName);
 //coupon 
 router.post("/user/cart/coupon" , authCheck,applyCouponToUserCart);
 
+//order
+
+router.post("/user/order" , authCheck , createOrder)
 
 module.exports = router;
