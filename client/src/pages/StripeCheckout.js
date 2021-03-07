@@ -3,6 +3,9 @@ import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import { useSelector, useDispatch } from "react-redux";
 import { createPaymentIntent } from "../functions/stripe";
 import { Link } from "react-router-dom";
+import { createOrder, emptyUserCart } from "../functions/user";
+
+
 
 const StripeCheckout = ({ history }) => {
   const dispatch = useDispatch();
@@ -47,19 +50,37 @@ const StripeCheckout = ({ history }) => {
     });
 
     if (payload.error) {
-      setError(`Payment failed ${payload.error.message}`);
-      setProcessing(false);
-    } else {
-      // here you get result after successful payment
-      // create order and save in database for admin to process
-      // empty user cart from redux store and local storage
-      console.log(JSON.stringify(payload, null, 4));
-      setError(null);
-      setProcessing(false);
-      setSucceeded(true);
-    }
-  };
-
+        setError(`Payment failed ${payload.error.message}`);
+        setProcessing(false);
+      } else {
+        // here you get result after successful payment
+        // create order and save in database for admin to process
+        createOrder(payload, user.token).then((res) => {
+          if (res.data.ok) {
+            // empty cart from local storage
+            if (typeof window !== "undefined") localStorage.removeItem("cart");
+            // empty cart from redux
+            dispatch({
+              type: "ADD_TO_CART",
+              payload: [],
+            });
+            // reset coupon to false
+            dispatch({
+              type: "COUPON_APPLIED",
+              payload: false,
+            });
+            // empty cart from database
+            emptyUserCart(user.token);
+          }
+        });
+        // empty user cart from redux store and local storage
+        console.log(JSON.stringify(payload, null, 4));
+        setError(null);
+        setProcessing(false);
+        setSucceeded(true);
+      }
+    };
+  
   const handleChange = async (e) => {
     // listen for changes in the card element
     // and display any errors as the custoemr types their card details
