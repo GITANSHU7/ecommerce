@@ -153,6 +153,7 @@ fetchProducts({ model });
 const showTypes = () =>
     types.map((t) => (
       <Checkbox
+      key  = {t}
         value={t}
         name={t}
         checked={t === type}
