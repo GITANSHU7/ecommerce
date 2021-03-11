@@ -5,6 +5,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { CheckCircleOutlined, CloseCircleOutlined } from "@ant-design/icons";
 import { toast } from "react-toastify";
 import ShowPaymentInfo from "../../components/cards/ShowPaymentInfo";
+import ModalImage from "react-modal-image";
+
 
 
 const History = () => {
@@ -28,6 +30,7 @@ const History = () => {
           <th scope="col">Title</th>
           <th scope="col">Price</th>
           <th scope="col">Brand</th>
+          <th scope="col">Images</th>
           <th scope="col">Type</th>
           <th scope="col">Count</th>
           <th scope="col">Shipping</th>
@@ -42,7 +45,12 @@ const History = () => {
             </td>
             <td>{p.product.price}</td>
             <td>{p.product.manufacturer}</td>
-            <td>{p.type}</td>
+            <td>
+              <div style = {{width:"100px" , height:"100px"}} >
+              {p.product.images.length ? (<ModalImage small = {p.product.images[0].url} large = {p.product.images[0].url} />) : "" }
+         </div>
+          </td>
+          <td>{p.product.type}</td>
             <td>{p.count}</td>
             <td>
               {p.product.shipping === "Yes" ? (
