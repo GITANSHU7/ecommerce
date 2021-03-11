@@ -15,6 +15,7 @@ import {
   PDFDownloadLink,
   PDFViewer,
 } from "@react-pdf/renderer";
+import logo from "../../components/logo.png"
 
 
 const History = () => {
@@ -82,7 +83,9 @@ const History = () => {
         <Document>
           <Page size="A4">
             <View>
-              <Text>Section #1</Text>
+              <Text>Hypekar </Text>
+              <View>    <img src = {logo} style={{ display: "block" ,  marginRight: "auto"  , marginLeft:"auto"}} /> 
+     </View>
               <Text>Section #2</Text>
             </View>
           </Page>
