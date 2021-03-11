@@ -27,29 +27,31 @@ const History = () => {
     <table className="table table-bordered">
       <thead className="thead-light">
         <tr>
+        <th scope="col">Images</th>
           <th scope="col">Title</th>
           <th scope="col">Price</th>
           <th scope="col">Brand</th>
-          <th scope="col">Images</th>
           <th scope="col">Type</th>
           <th scope="col">Count</th>
           <th scope="col">Shipping</th>
+          <th scope="col">Total</th>
         </tr>
       </thead>
 
       <tbody>
         {order.products.map((p, i) => (
           <tr key={i}>
+             <td>
+              <div style = {{width:"100px" , height:"100px"}} >
+              {p.product.images.length ? (<ModalImage small = {p.product.images[0].url} large = {p.product.images[0].url} />) : "" }
+         </div>
+          </td>
             <td>
               <b>{p.product.title}</b>
             </td>
             <td>{p.product.price}</td>
             <td>{p.product.manufacturer}</td>
-            <td>
-              <div style = {{width:"100px" , height:"100px"}} >
-              {p.product.images.length ? (<ModalImage small = {p.product.images[0].url} large = {p.product.images[0].url} />) : "" }
-         </div>
-          </td>
+           
           <td>{p.product.type}</td>
             <td>{p.count}</td>
             <td>
@@ -59,6 +61,7 @@ const History = () => {
                 <CloseCircleOutlined style={{ color: "red" }} />
               )}
             </td>
+            <td>₹{p.product.price  * p.count}</td>
           </tr>
         ))}
       </tbody>
