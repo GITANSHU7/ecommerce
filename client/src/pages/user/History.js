@@ -14,7 +14,9 @@ import {
   StyleSheet,
   PDFDownloadLink,
   PDFViewer,
+  Image
 } from "@react-pdf/renderer";
+
 import logo from "../../components/logo.png"
 
 
@@ -82,10 +84,11 @@ const History = () => {
       document={
         <Document>
           <Page size="A4">
+          <View>
+        <Image src="http://blog.oxforddictionaries.com/wp-content/uploads/mountain-names.jpg" />
+      </View>
             <View>
               <Text>Hypekar </Text>
-              <View>    <img src = {logo} style={{ display: "block" ,  marginRight: "auto"  , marginLeft:"auto"}} /> 
-     </View>
               <Text>Section #2</Text>
             </View>
           </Page>
