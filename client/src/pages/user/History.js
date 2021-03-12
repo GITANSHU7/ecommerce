@@ -6,16 +6,8 @@ import { CheckCircleOutlined, CloseCircleOutlined } from "@ant-design/icons";
 import { toast } from "react-toastify";
 import ShowPaymentInfo from "../../components/cards/ShowPaymentInfo";
 import ModalImage from "react-modal-image";
-import {
-  Document,
-  Page,
-  Text,
-  View,
-  StyleSheet,
-  PDFDownloadLink,
-  PDFViewer,
-  Image
-} from "@react-pdf/renderer";
+import { PDFDownloadLink } from "@react-pdf/renderer";
+import Invoice from "../../components/order/Invoice";
 
 import logo from "../../components/logo.png"
 
@@ -78,22 +70,9 @@ const History = () => {
       </tbody>
     </table>
   );
-
   const showDownloadLink = (order) => (
     <PDFDownloadLink
-      document={
-        <Document>
-          <Page size="A4">
-          <View>
-        <Image src="http://blog.oxforddictionaries.com/wp-content/uploads/mountain-names.jpg" />
-      </View>
-            <View>
-              <Text>Hypekar </Text>
-              <Text>Section #2</Text>
-            </View>
-          </Page>
-        </Document>
-      }
+      document={<Invoice order={order} />}
       fileName="invoice.pdf"
       className="btn btn-sm btn-block btn-outline-primary"
     >

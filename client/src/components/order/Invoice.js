@@ -1,5 +1,6 @@
 import React from "react";
-import { Document, Page, Text, StyleSheet } from "@react-pdf/renderer";
+import { Document, Page, Text, StyleSheet , View , Image} from "@react-pdf/renderer";
+
 import {
   Table,
   TableHeader,
@@ -14,17 +15,17 @@ const Invoice = ({ order }) => (
       <Text style={styles.header} fixed>
         ~ {new Date().toLocaleString()} ~
       </Text>
-      <Text style={styles.title}>Order Invoice</Text>
-      <Text style={styles.author}>React Redux Ecommerce</Text>
+      <Text style={styles.title}>HYPEKAR</Text>
+      <Text style={styles.author}>HOME OF ALL ACCESSORIES</Text>
       <Text style={styles.subtitle}>Order Summary</Text>
-
+      
       <Table>
         <TableHeader>
           <TableCell>Title</TableCell>
           <TableCell>Price</TableCell>
           <TableCell>Quantity</TableCell>
           <TableCell>Brand</TableCell>
-          <TableCell>Color</TableCell>
+          <TableCell>Type</TableCell>
         </TableHeader>
       </Table>
 
@@ -33,8 +34,8 @@ const Invoice = ({ order }) => (
           <DataTableCell getContent={(x) => x.product.title} />
           <DataTableCell getContent={(x) => `$${x.product.price}`} />
           <DataTableCell getContent={(x) => x.count} />
-          <DataTableCell getContent={(x) => x.product.brand} />
-          <DataTableCell getContent={(x) => x.product.color} />
+          <DataTableCell getContent={(x) => x.product.manufacturer} />
+          <DataTableCell getContent={(x) => x.product.type} />
         </TableBody>
       </Table>
 
