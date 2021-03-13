@@ -4,7 +4,7 @@ const Order = require("../models/order");
 //orders, orderStatus
 
 exports.orders = async (req, res) => {
-  let allOrders = await Orders
+  let allOrders = await Order
     .find({})
     .sort("-createdAt")
     .populate("products.product")
