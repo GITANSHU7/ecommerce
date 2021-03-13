@@ -46,7 +46,8 @@ locality: {
 cart:{
     type:Array,
     dafault:[]
-}
+},
+wishlist : [{type : ObjectId , ref: "product"}],
 },{timestamps : true}); 
 
 module.exports= mongoose.model("User", userSchema)
