@@ -4,7 +4,7 @@ const Order = require("../models/order");
 //orders, orderStatus
 
 exports.orders = async (req, res) => {
-  let allOrders = await orders
+  let allOrders = await Orders
     .find({})
     .sort("-createdAt")
     .populate("products.product")
@@ -16,7 +16,7 @@ exports.orders = async (req, res) => {
 exports.orderStatus = async (req, res) => {
   const { orderId, orderStatus } = req.body;
 
-  let updated = await order
+  let updated = await Order
     .findByIdAndUpdate(orderId, { orderStatus }, { new: true })
     .exec();
 
