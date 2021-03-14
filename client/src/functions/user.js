@@ -118,3 +118,10 @@ await axios.post(`${process.env.REACT_APP_API}/user/wishlist`, {productId} , {
   }, 
 });
 
+
+export const getWishlist = async (authtoken) =>
+  await axios.get(`${process.env.REACT_APP_API}/user/wishlist`, {
+    headers: {
+      authtoken,
+    },
+  });

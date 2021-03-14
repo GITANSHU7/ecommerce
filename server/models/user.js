@@ -47,7 +47,7 @@ cart:{
     type:Array,
     dafault:[]
 },
-wishlist : [{type : ObjectId , ref: "product"}],
+wishlist : [{type : ObjectId , ref: "Product"}],
 },{timestamps : true}); 
 
 module.exports= mongoose.model("User", userSchema)
