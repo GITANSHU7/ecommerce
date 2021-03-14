@@ -7,6 +7,10 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import ProductListItems from "./ProductListItems";
 import _ from "lodash";
 import { useSelector, useDispatch } from "react-redux";
+import { addToWishlist } from "../../functions/user";
+import { toast } from "react-toastify";
+import { useHistory } from "react-router-dom";
+
 
 
   
@@ -23,7 +27,8 @@ const [tooltip, setTooltip] = useState('Click to add')
   const dispatch = useDispatch();
 
 
-
+let history = useHistory();
+ 
   const handleAddToCart = () => {
     // create cart array
     let cart = [];
@@ -58,6 +63,15 @@ const [tooltip, setTooltip] = useState('Click to add')
       }
     };
   
+    const handleAddToWishlist = (e) => {
+      e.preventDefault();
+      addToWishlist(product._id, user.token).then((res) => {
+        console.log("ADDED TO WISHLIST", res.data);
+        toast.success("Added to wishlist")
+        history.push("/user/wishlist");
+      });
+    };
+  
 
   return (
     <>
@@ -85,9 +99,10 @@ const [tooltip, setTooltip] = useState('Click to add')
             <a onClick={handleAddToCart}>
               <ShoppingCartOutlined className="text-danger" /> <br /> Add to Cart
             </a> </Tooltip> ,
-            <Link to="/">
-              <HeartOutlined className="text-info" /> <br /> Add to Wishlist
-            </Link>,
+             <a onClick={handleAddToWishlist}>
+             <HeartOutlined className="text-info" /> <br /> Add to Wishlist
+           </a>
+            ,
           ]}
         >
             <ProductListItems product = {product} />
