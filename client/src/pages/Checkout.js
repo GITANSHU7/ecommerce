@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { toast } from "react-toastify";
-import { getUserCart, emptyUserCart , saveUserAddress , saveUserPincode , applyCoupon  , saveUserLocality , saveUserContact, saveUserName} from "../functions/user";
+import { getUserCart, emptyUserCart , saveUserAddress , saveUserPincode , applyCoupon  , 
+  saveUserLocality , saveUserContact, saveUserName , createCashOrderForUser} from "../functions/user";
 import axios from "axios";
 import Logo from "../logo";
 
@@ -320,9 +321,13 @@ const Checkout = ({history}) => {
 }
 
       //cash on delivery
-
+        const createCashOrder = () => {
+          createCashOrder(user.token).then((res) => {
+            console.log("user cash order create res" , res)
+          })
+        }
  
-
+  
   return (
     <div className="row">
       <div className="col-md-6">
