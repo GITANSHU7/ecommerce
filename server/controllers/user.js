@@ -231,3 +231,41 @@ exports.removeFromWishlist = async (req, res) => {
 
   res.json({ ok: true });
 };
+
+
+
+// cod
+
+
+
+exports.createCashOrder = async (req,res) => {
+  const {COD} = req.body.stripeResponse;
+  const user = await User.findOne({ email: req.user.email }).exec();
+
+  let {products} = await Cart.findOne({orderdBy : user._id}).exec();
+
+  let newOrder = await new Order({
+    products,
+    paymentIntent,
+    orderdBy : user._id ,
+  }).save();  
+
+// decrement quantity , increment sold
+
+let bulkOption = products.map((item) => {
+  return {
+    updateOne:{
+      filter : { _id : item.product._id}, // IMPORTANT item.product
+      update : { $inc : { quantity : -item.count , sold: +item.count}},
+    },
+  }
+});
+
+  let updated = await Product.bulkWrite(bulkOption , {});
+  console.log("PRODUCT QUANTITY DEC-- AND SOLD++" , updated);
+
+
+
+  console.log("new order saved" ,  newOrder);
+  res.json({ok:true})
+};

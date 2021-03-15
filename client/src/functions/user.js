@@ -127,10 +127,10 @@ export const getWishlist = async (authtoken) =>
   });
 
 
-  export const createCashOrderForUser = async (authtoken) =>
+  export const createCashOrderForUser = async (authtoken , COD) =>
   await axios.post(
     `${process.env.REACT_APP_API}/user/cash-order`,
-    {},
+    { COD },
     {
       headers: {
         authtoken,
