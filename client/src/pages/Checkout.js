@@ -23,7 +23,7 @@ const Checkout = ({history}) => {
   const [nameSaved , setNameSaved] = useState("");
 
   const dispatch = useDispatch();
-  const { user  } = useSelector((state) => ({ ...state }));
+  const { user  , COD } = useSelector((state) => ({ ...state }));
 
   useEffect(() => {
     getUserCart(user.token).then((res) => {
@@ -319,6 +319,10 @@ const Checkout = ({history}) => {
       paymentObject.open();
 }
 
+      //cash on delivery
+
+ 
+
   return (
     <div className="row">
       <div className="col-md-6">
@@ -349,11 +353,17 @@ const Checkout = ({history}) => {
 
         <div className="row">
           <div className="col-md-6">
-            <button className="btn btn-primary"   
+           {COD ? (
+              <button className="btn btn-primary"   
+              disabled = {!address.length || !pincode.length || !products.length ||!name.length ||!locality.length ||!contact.length} 
+              onClick = {createCashOrder}
+              >
+                Place Order</button>
+           ) :  <button className="btn btn-primary"   
             disabled = {!address.length || !pincode.length || !products.length ||!name.length ||!locality.length ||!contact.length} 
             onClick = {() => history.push("/payment")}
             >
-              Place Order</button>
+              Place Order</button>}
           </div>
           
           <div className="col-md-6">

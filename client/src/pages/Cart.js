@@ -16,13 +16,26 @@ const Cart = ({ history }) => {
 
   const saveOrderToDb = () => {
   userCart(cart,user.token)
-  .then((res) => {
+  .then((res) => {  
     console.log("CART POST" ,res);
     if(res.data.ok) history.push("/checkout")
   }) 
   .catch((err) => console.log("save err" , err))
   };
 
+  const saveCashOrderToDb = () => {
+
+    dispatch({
+      type : "COD" ,
+      payload : true,
+    });
+    userCart(cart,user.token)
+    .then((res) => {
+      console.log("CART POST" ,res);
+      if(res.data.ok) history.push("/checkout")
+    }) 
+    .catch((err) => console.log("save err" , err))
+    };
   const showCartItems = () => (
     <table className="table table-bordered">
       <thead className="thead-light">
@@ -75,13 +88,23 @@ const Cart = ({ history }) => {
           Total: <b>₹{getTotal()}</b>
           <hr />
           {user ? (
-            <button
+           <>
+               <button
               onClick={saveOrderToDb}
               className="btn btn-sm btn-primary mt-2"
               disabled={!cart.length}
             >
               Proceed to Checkout
             </button>
+            <br />
+            <button
+              onClick={saveCashOrderToDb}
+              className="btn btn-sm btn-primary mt-2"
+              disabled={!cart.length}
+            >
+              CASH ON DELIVERY
+            </button>
+           </>
           ) : (
             <button className="btn btn-sm btn-primary mt-2">
               <Link
