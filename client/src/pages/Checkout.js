@@ -322,7 +322,7 @@ const Checkout = ({history}) => {
 
       //cash on delivery
         const createCashOrder = () => {
-          createCashOrder(user.token).then((res) => {
+          createCashOr(user.token).then((res) => {
             console.log("user cash order create res" , res)
           })
         }
