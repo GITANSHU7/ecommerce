@@ -24,7 +24,7 @@ const Checkout = ({history}) => {
   const [nameSaved , setNameSaved] = useState("");
 
   const dispatch = useDispatch();
-  const { user  , COD } = useSelector((state) => ({ ...state }));
+  const { user  , COD  , coupon } = useSelector((state) => ({ ...state }));
 
   useEffect(() => {
     getUserCart(user.token).then((res) => {
@@ -322,7 +322,7 @@ const Checkout = ({history}) => {
 
       //cash on delivery
         const createCashOrder = () => {
-          createCashOrderForUser(user.token , COD).then((res) => {
+          createCashOrderForUser(user.token , COD , coupon).then((res) => {
             console.log("user cash order create res" , res)
           })
         }
