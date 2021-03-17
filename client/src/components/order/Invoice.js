@@ -51,13 +51,13 @@ const Invoice = ({ order }) => (
         </Text>
         {"\n"}
         <Text>
-          Order Status: {"  "}
+          Order Current Status: {"  "}
           {order.orderStatus}
         </Text>
         {"\n"}
         <Text>
-          Total Paid: {"       "}
-           ₹ {order.paymentIntent.amount}
+          Total Paid: 
+            {order.paymentIntent.amount}
         </Text>
       </Text>
 

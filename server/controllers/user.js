@@ -241,7 +241,7 @@ exports.removeFromWishlist = async (req, res) => {
 
 
 exports.createCashOrder = async (req,res) => {
-  const {COD} = req.body;
+  const {COD , couponApplied} = req.body;
 
   if (!COD) return res.status(400).send("create  cash order failed")
  
