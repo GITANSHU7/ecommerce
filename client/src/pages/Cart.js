@@ -74,7 +74,7 @@ const Cart = ({ history }) => {
         <div className="col-md-4">
           <h4>Order Summary</h4>
           <hr />
-          <p>Products</p>
+          <p>Products Details</p>
           {cart.map((c, i) => (
             <div key={i}>
               <p>
