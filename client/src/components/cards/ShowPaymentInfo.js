@@ -15,7 +15,7 @@ const ShowPaymentInfo = ({ order }) => (
       {" / "}
       <span>Currency: {order.paymentIntent.currency.toUpperCase()}</span>
       {" / "}
-      <span>Method: {order.paymentIntent.payment_method_types[0]}</span>
+      <span>Method: {order.paymentIntent.payment_method_types}</span>
       {" / "}
       <span>Payment: {order.paymentIntent.status.toUpperCase()}</span>
       {" / "}

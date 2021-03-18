@@ -239,46 +239,51 @@ exports.removeFromWishlist = async (req, res) => {
 // cod
 
 
+exports.createCashOrder = async (req, res) => {
+  const { COD, couponApplied } = req.body;
+  // if COD is true, create order with status of Cash On Delivery
 
-exports.createCashOrder = async (req,res) => {
-  const {COD , couponApplied} = req.body;
+  if (!COD) return res.status(400).send("Create cash order failed");
 
-  if (!COD) return res.status(400).send("create  cash order failed")
- 
   const user = await User.findOne({ email: req.user.email }).exec();
 
-  let userCart = await Cart.findOne({orderdBy : user._id}).exec();
+  let userCart = await Cart.findOne({ orderdBy: user._id }).exec();
+
+  let finalAmount = 0;
+
+  if (couponApplied && userCart.totalAfterDiscount) {
+    finalAmount = userCart.totalAfterDiscount * 100;
+  } else {
+    finalAmount = userCart.cartTotal * 100;
+  }
 
   let newOrder = await new Order({
-    products : userCart.products,
-    paymentIntent : {
-      
-        id: uniqueid(),
-        amount: userCart.cartTotal,
-        currency : "inr",
-        status : "CASH ON DELIVERY" ,
-        created : Date.now(),
-        payment_method_type : ["cash"],
+    products: userCart.products,
+    paymentIntent: {
+      id: uniqueid(),
+      amount: finalAmount,
+      currency: "inr",
+      status: "Cash On Delivery",
+      created: Date.now(),
+      payment_method_types: ["cash"],
     },
-    orderdBy : user._id ,
-  }).save();  
+    orderdBy: user._id,
+    
+  }).save();
 
-// decrement quantity , increment sold
+  // decrement quantity, increment sold
+  let bulkOption = userCart.products.map((item) => {
+    return {
+      updateOne: {
+        filter: { _id: item.product._id }, // IMPORTANT item.product
+        update: { $inc: { quantity: -item.count, sold: +item.count } },
+      },
+    };
+  });
 
-let bulkOption = userCart.products.map((item) => {
-  return {
-    updateOne:{
-      filter : { _id : item.product._id}, // IMPORTANT item.product
-      update : { $inc : { quantity : -item.count , sold: +item.count}},
-    },
-  }
-});
+  let updated = await Product.bulkWrite(bulkOption, {});
+  console.log("PRODUCT QUANTITY-- AND SOLD++", updated);
 
-  let updated = await Product.bulkWrite(bulkOption , {});
-  console.log("PRODUCT QUANTITY DEC-- AND SOLD++" , updated);
-
-
-
-  console.log("new order saved" ,  newOrder);
-  res.json({ok:true})
+  console.log("NEW ORDER SAVED", newOrder);
+  res.json({ ok: true });
 };
