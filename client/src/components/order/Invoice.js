@@ -40,10 +40,11 @@ const Invoice = ({ order }) => (
       </Table>
 
       <Text style={styles.text}>
-        <Text>
+       {/* <Text>
           Date: {"               "}
-          {new Date(order.paymentIntent.created * 1000).toLocaleString()}
-        </Text>
+          {new Date().toLocaleString()}
+          
+       </Text> */}
         {"\n"}
         <Text>
           Order Id: {"         "}
