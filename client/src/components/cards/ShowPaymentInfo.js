@@ -21,7 +21,7 @@ const ShowPaymentInfo = ({ order }) => (
       {" / "}
       <span>
         Orderd on:{" / "}
-        {new Date(order.paymentIntent.created * 1000).toLocaleString()}
+        {new Date().toLocaleString()}
       </span>
       {" / "}
       <span className="badge bg-primary text-white">
