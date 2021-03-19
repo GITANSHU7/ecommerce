@@ -264,7 +264,7 @@ exports.createCashOrder = async (req, res) => {
       amount: finalAmount,
       currency: "inr",
       status: "Cash On Delivery",
-      //created: Date.now(),
+      created: new Date(),
       payment_method_types: ["cash"],
     },
     orderdBy: user._id,
