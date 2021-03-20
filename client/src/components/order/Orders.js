@@ -6,8 +6,14 @@ import ModalImage from "react-modal-image";
 
 const Orders = ({ orders, handleStatusChange }) => {
     const showOrderInTable = (order) => (
+      
         <table className="table table-bordered">
-          <thead className="thead-light">
+           {order.orderStatus === "Not Processed" ? (
+                    <hr style={{ color: "green" }} />
+                  ) : (
+                    <hr style={{ color: "red" }} />
+                  )}
+          <thead className="thead-dark">
             <tr>
             <th scope="col">Images</th>
               <th scope="col">Title</th>
@@ -44,6 +50,15 @@ const Orders = ({ orders, handleStatusChange }) => {
                   )}
                 </td>
                 <td>₹{p.product.price  * p.count}</td>
+                <td>{p.product.type}</td>
+                <td>{p.count}</td>
+                <td>
+                  {order.orderStatus === "Not Processed" ? (
+                    <CheckCircleOutlined style={{ color: "green" }} />
+                  ) : (
+                    <CloseCircleOutlined style={{ color: "red" }} />
+                  )}
+                </td>
               </tr>
             ))}
           </tbody>

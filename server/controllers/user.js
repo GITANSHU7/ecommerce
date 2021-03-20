@@ -3,7 +3,7 @@ const Product = require("../models/product");
 const Cart = require("../models/cart");
 const Coupon = require("../models/coupon");
 const Order = require("../models/order");
-const uniqueid = require("uniqueid")
+const uniqueid = require("uniqueid");
 
 
 exports.userCart = async (req, res) => {
@@ -264,7 +264,7 @@ exports.createCashOrder = async (req, res) => {
       amount: finalAmount,
       currency: "inr",
       status: "Cash On Delivery",
-      created: new Date().toLocaleString(),
+      created: Date.now(),
       payment_method_types: ["cash"],
     },
     orderdBy: user._id,
