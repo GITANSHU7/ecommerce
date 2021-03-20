@@ -53,8 +53,9 @@ const Orders = ({ orders, handleStatusChange }) => {
                 <td>{p.product.type}</td>
                 <td>{p.count}</td>
                 <td>
-                  {order.orderStatus === "Not Processed" ? (
-                    <CheckCircleOutlined style={{ color: "green" }} />
+                
+                {order.orderStatus === "Processing" ? (
+                    <CheckCircleOutlined style={{ color: "orange" }} />
                   ) : (
                     <CloseCircleOutlined style={{ color: "red" }} />
                   )}
