@@ -60,6 +60,11 @@ const Orders = ({ orders, handleStatusChange }) => {
                   ) : (
                    ""
                   )}
+                   {order.orderStatus === "Dispatched" ? (
+                    <CheckCircleOutlined style={{ color: "green" }} />
+                  ) : (
+                   ""
+                  )}
                 </td>
               </tr>
             ))}
