@@ -8,11 +8,7 @@ const Orders = ({ orders, handleStatusChange }) => {
     const showOrderInTable = (order) => (
       
         <table className="table table-bordered">
-           {order.orderStatus === "Not Processed" ? (
-                    <hr style={{ color: "green" }} />
-                  ) : (
-                    <hr style={{ color: "red" }} />
-                  )}
+           
           <thead className="thead-dark">
             <tr>
             <th scope="col">Images</th>
@@ -46,7 +42,7 @@ const Orders = ({ orders, handleStatusChange }) => {
                   {p.product.shipping === "Yes" ? (
                     <CheckCircleOutlined style={{ color: "green" }} />
                   ) : (
-                    <CloseCircleOutlined style={{ color: "red" }} />
+                    ""
                   )}
                 </td>
                 <td>₹{p.product.price  * p.count}</td>
@@ -57,7 +53,12 @@ const Orders = ({ orders, handleStatusChange }) => {
                 {order.orderStatus === "Processing" ? (
                     <CheckCircleOutlined style={{ color: "orange" }} />
                   ) : (
-                    <CloseCircleOutlined style={{ color: "red" }} />
+                   ""
+                  )}
+                   {order.orderStatus === "Not Processed" ? (
+                    <CheckCircleOutlined style={{ color: "red" }} />
+                  ) : (
+                   ""
                   )}
                 </td>
               </tr>
