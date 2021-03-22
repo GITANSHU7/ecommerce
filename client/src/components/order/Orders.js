@@ -2,10 +2,11 @@ import React from "react";
 import { CheckCircleOutlined, CloseCircleOutlined } from "@ant-design/icons";
 import ShowPaymentInfo from "../cards/ShowPaymentInfo";
 import ModalImage from "react-modal-image";
-
+import { FcProcess } from 'react-icons/fc';
 
 const Orders = ({ orders, handleStatusChange }) => {
-    const showOrderInTable = (order) => (
+  
+  const showOrderInTable = (order) => (
       
         <table className="table table-bordered">
            
@@ -76,6 +77,37 @@ const Orders = ({ orders, handleStatusChange }) => {
       {orders.map((order) => (
         <div key={order._id} className="row pb-5">
           <div className="btn btn-block bg-light">
+          <div>
+         
+         {order.orderStatus === "Processing" ? (
+                    <FcProcess style={{ Color: "orange", fontSize : "2rem" }}><button>processing</button></FcProcess>
+                  ) : (
+                   ""
+                  )}
+                   {order.orderStatus === "Not Processed" ? (
+                    <i class="fas fa-store-alt-slash" style={{ color: "red" , fontSize : "2rem" }} />
+                  ) : (
+                   ""
+                  )}
+                   {order.orderStatus === "Dispatched" ? (
+                     <i className="fas fa-shipping-fast" style={{ color: "green"  , fontSize : "bold"}}></i>
+                   
+                  ) : (
+                   ""
+                  )}
+                   {order.orderStatus === "Cancelled" ? (
+                     <i class="fas fa-window-close" style={{ color: "red"  , fontSize : "2rem"}}></i>
+                   
+                  ) : (
+                   ""
+                  )}
+                   {order.orderStatus === "Completed" ? (
+                     <i class="fas fa-check-circle" style={{ color: "green"  , fontSize : "2rem"}}></i>
+                   
+                  ) : (
+                   ""
+                  )}
+   </div> 
             <ShowPaymentInfo order={order} showStatus={false} />
 
             <div className="row">
