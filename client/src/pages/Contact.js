@@ -39,10 +39,10 @@ export default class Contact extends Component {
     render() {
         return (
             <>
-            <div className = "jumbotron text-info h1 font-weight-bold text-center" style={{ 
-      backgroundImage: `url("https://i.imgur.com/OJpLTSX.jpg"  )`,   backgroundSize: 'cover', 
-      backgroundPosition: 'center center',
-      backgroundRepeat: 'no-repeat',
+            <div className = "jumbotron text-warning h1 font-weight-bold text-center" style={{ 
+      backgroundImage: `url("https://i.imgur.com/dimlmg7.png"  )`,   backgroundSize: 'cover', 
+      backgroundPosition: 'center center',  
+      backgroundRepeat: 'no-repeat', 
     }}>
           <Jumbotron text={["24x7 Support", "Hassle free service", "Genuine Products"]} />
       
