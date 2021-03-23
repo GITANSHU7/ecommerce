@@ -8,9 +8,12 @@ function AppContact() {
     <div id="contact" className="block contactBlock" >
       <div className="container-fluid titleHolder">
         <div  style={{textAlign: "center"}}>
-          <h2>Get in Touch</h2>
-          <p>We are here to help You<i className="fas fa-grin-hearts" style={{color:'red' , margin : '5px', fontSize:'15px'}}></i></p>
-        </div>
+         <strong> <h2 style={{fontSize : "3rem" , color : "black"}}>Contact Us</h2></strong>
+         <br />
+          <strong><p style = {{fontSize : "1rem" , fontFamily : "sans-serif" , color : "orange"}}>Do you have any questions? Please do not hesitate to contact us directly .Our team will come back to you within a matter of hours to help you.<i className="fas fa-grin-hearts" style={{color:'red' , margin : '5px', fontSize:'15px'}}></i></p>
+        </strong>
+          </div>
+          <br />
         <Form
           name="normal_login"
           className="login-form"

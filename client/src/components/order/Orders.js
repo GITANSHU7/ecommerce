@@ -47,26 +47,8 @@ const Orders = ({ orders, handleStatusChange }) => {
                   )}
                 </td>
                 <td>₹{p.product.price  * p.count}</td>
-                <td>{p.product.type}</td>
-                <td>{p.count}</td>
-                <td>
-                
-                {order.orderStatus === "Processing" ? (
-                    <CheckCircleOutlined style={{ color: "orange" }} />
-                  ) : (
-                   ""
-                  )}
-                   {order.orderStatus === "Not Processed" ? (
-                    <CheckCircleOutlined style={{ color: "red" }} />
-                  ) : (
-                   ""
-                  )}
-                   {order.orderStatus === "Dispatched" ? (
-                    <CheckCircleOutlined style={{ color: "green" }} />
-                  ) : (
-                   ""
-                  )}
-                </td>
+              
+               
               </tr>
             ))}
           </tbody>
