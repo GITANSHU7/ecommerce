@@ -39,8 +39,8 @@ export default class Contact extends Component {
     render() {
         return (
             <>
-            <div className = "jumbotron text-warning h1 font-weight-bold text-center" style={{ 
-      backgroundImage: `url("https://i.imgur.com/dimlmg7.png"  )`,   backgroundSize: 'cover', 
+            <div className = "jumbotron text-warning h3 font-weight-bold text-center" style={{ 
+      backgroundImage: `url("https://i.imgur.com/dimlmg7.png"  )`,   backgroundSize: "cover", height : "100%", 
       backgroundPosition: 'center center',  
       backgroundRepeat: 'no-repeat', 
     }}>

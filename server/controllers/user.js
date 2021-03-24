@@ -111,6 +111,8 @@ exports.saveLocality = async (req,res) => {
   res.json({ok:true});
 };
 
+
+
 exports.userName = async (req,res) => {
   const saveName = await User.findOneAndUpdate(
       { email : req.user.email},

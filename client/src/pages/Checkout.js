@@ -96,7 +96,7 @@ const Checkout = ({history}) => {
       }
     });
   };
-  
+
   const saveLocalityToDb = () => {
     // console.log(address);
     saveUserLocality(user.token, locality).then((res) => {
@@ -207,9 +207,9 @@ const Checkout = ({history}) => {
         disabled = {!address.length || !pincode.length ||!name.length ||!locality.length ||!contact.length} 
         >
           Save
-        </button>
+      </button> 
     </>
-  );
+      ); 
 
       const showProductSummary = () => 
         products.map((p, i) => (

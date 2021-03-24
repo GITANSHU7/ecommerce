@@ -44,6 +44,7 @@ import SideDrawer from "./components/drawer/SideDrawer";
 import Checkout from "./pages/Checkout";
 import CreateCouponPage from "./pages/coupon/CreateCouponPage";
 import Payment from "./pages/Payment";
+import testing2 from "./pages/testing2";
 
 
 
@@ -88,6 +89,7 @@ const App = () => {
     <ToastContainer />
     <Switch>
       <Route exact path="/" component={Home} />
+      <Route exact path="/testing2" component={testing2} />
       <Route exact path="/about" component={About} />
       <Route exact path="/contact" component={Contact} />
       <Route exact path="/testing" component={Testing} />

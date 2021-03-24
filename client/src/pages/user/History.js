@@ -14,6 +14,7 @@ import logo from "../../components/logo.png"
 
 const History = () => {
   const [orders, setOrders] = useState([]);
+  let dispatch = useDispatch();
   const { user } = useSelector((state) => ({ ...state }));
 
   useEffect(() => {
@@ -38,6 +39,9 @@ const History = () => {
           <th scope="col">Count</th>
           <th scope="col">Shipping</th>
           <th scope="col">Total</th>
+          
+        
+          
         </tr>
       </thead>
 

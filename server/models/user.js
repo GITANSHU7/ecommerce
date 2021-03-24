@@ -3,19 +3,14 @@ const mongoose = require("mongoose");
 const {ObjectId} =mongoose.Schema;
 
 const userSchema = new mongoose.Schema({
-name:{
-    type:String,
-    require: true,
-    maxlength:32,
-    trim: true
-},
+    name: String,
 email:{
     type:String,
     require: true,
     trim:true,
     unique:true,
 },
-address:{
+ address:{
     type:String,
     require: true,
 },

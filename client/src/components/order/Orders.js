@@ -20,6 +20,7 @@ const Orders = ({ orders, handleStatusChange }) => {
               <th scope="col">Quantity</th>
               <th scope="col">Shipping</th>
               <th scope="col">Total</th>
+              
             </tr>
           </thead>
     
@@ -47,7 +48,7 @@ const Orders = ({ orders, handleStatusChange }) => {
                   )}
                 </td>
                 <td>₹{p.product.price  * p.count}</td>
-              
+                  
                
               </tr>
             ))}
@@ -58,6 +59,7 @@ const Orders = ({ orders, handleStatusChange }) => {
     <>
       {orders.map((order) => (
         <div key={order._id} className="row pb-5">
+          
           <div className="btn btn-block bg-light">
           <div>
          
@@ -72,7 +74,7 @@ const Orders = ({ orders, handleStatusChange }) => {
                    ""
                   )}
                    {order.orderStatus === "Dispatched" ? (
-                     <i className="fas fa-shipping-fast" style={{ color: "green"  , fontSize : "bold"}}></i>
+                     <i className="fas fa-shipping-fast" style={{ color: "green" ,  fontSize : "2rem"}}></i>
                    
                   ) : (
                    ""

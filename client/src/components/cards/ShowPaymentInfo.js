@@ -1,8 +1,19 @@
-import React from "react";
+import React , {useState} from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-const ShowPaymentInfo = ({ order }) => (
+
+const ShowPaymentInfo = ({ order }) => {
+
+
+return (
+  
   <div>
+  
     <p>
+     {/* <span>Name : {user.name}</span> {"/"}
+      <span>Email : {user.email}</span> {"/"} */}
+      
+
       <span>Order Id: {order.paymentIntent.id}</span>
       {" / "}
       <span>
@@ -11,8 +22,8 @@ const ShowPaymentInfo = ({ order }) => (
           style: "currency",
           currency: "INR",
         })}
-      </span>
-      {" / "}
+      </span> 
+      {" / "} 
       <span>Currency: {order.paymentIntent.currency.toUpperCase()}</span>
       {" / "}
       <span>Method: {order.paymentIntent.payment_method_types}</span>
@@ -20,6 +31,7 @@ const ShowPaymentInfo = ({ order }) => (
       <span>Payment: {order.paymentIntent.status.toUpperCase()}</span>
       {" / "}
       <span>
+        
         Orderd on:{" / "}
         {new Date(order.paymentIntent.created * 1000).toLocaleString()}
       </span>
@@ -28,7 +40,9 @@ const ShowPaymentInfo = ({ order }) => (
         STATUS: {order.orderStatus}
       </span>
     </p>
+    
   </div>
 );
+      };
 
 export default ShowPaymentInfo;
