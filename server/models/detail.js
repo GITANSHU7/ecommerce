@@ -4,12 +4,6 @@ const { ObjectId } = mongoose.Schema;
 
 const detailSchema = new mongoose.Schema({
     name: String,
-email:{
-    type:String,
-    require: true,
-    trim:true,
-    
-},
  address:{
     type:String,
     require: true,
