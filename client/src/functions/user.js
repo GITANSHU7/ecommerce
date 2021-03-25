@@ -26,14 +26,7 @@ await axios.put(`${process.env.REACT_APP_API}/all/cart`,
 });
 
 
-export const saveUserAddress = async (authtoken, address) => await axios.post(`${process.env.REACT_APP_API}/user/address`,{ address }, {
-  headers: {
-    authtoken,
-  },
-}
-);
-
-export const saveUserPincode = async (authtoken, pincode) => await axios.post(`${process.env.REACT_APP_API}/user/pincode`,{ pincode }, {
+export const saveUserAddress = async (authtoken, Customer_address) => await axios.post(`${process.env.REACT_APP_API}/user/address`,{ Customer_address }, {
   headers: {
     authtoken,
   },
@@ -41,7 +34,7 @@ export const saveUserPincode = async (authtoken, pincode) => await axios.post(`$
 );
 
 
-export const saveUserContact = async (authtoken, contact) => await axios.post(`${process.env.REACT_APP_API}/user/contact`,{ contact }, {
+export const saveUserPincode = async (authtoken, Customer_pincode) => await axios.post(`${process.env.REACT_APP_API}/user/pincode`,{ Customer_pincode }, {
   headers: {
     authtoken,
   },
@@ -49,7 +42,7 @@ export const saveUserContact = async (authtoken, contact) => await axios.post(`$
 );
 
 
-export const saveUserName = async (authtoken, name) => await axios.post(`${process.env.REACT_APP_API}/user/name`,{ name }, {
+export const saveUserContact = async (authtoken, Customer_contact) => await axios.post(`${process.env.REACT_APP_API}/user/contact`,{ Customer_contact }, {
   headers: {
     authtoken,
   },
@@ -57,7 +50,7 @@ export const saveUserName = async (authtoken, name) => await axios.post(`${proce
 );
 
 
-export const saveUserLocality = async (authtoken, locality) => await axios.post(`${process.env.REACT_APP_API}/user/locality`,{ locality }, {
+export const saveUserName = async (authtoken, Customer_name) => await axios.post(`${process.env.REACT_APP_API}/user/name`,{ Customer_name }, {
   headers: {
     authtoken,
   },
@@ -65,12 +58,15 @@ export const saveUserLocality = async (authtoken, locality) => await axios.post(
 );
 
 
-export const applyCoupon = async (authtoken, coupon) => await axios.post(`${process.env.REACT_APP_API}/user/cart/coupon`,{ coupon }, {
+export const saveUserLocality = async (authtoken, Customer_locality) => await axios.post(`${process.env.REACT_APP_API}/user/locality`,{ Customer_locality }, {
   headers: {
     authtoken,
   },
 }
 );
+
+
+
 
 
 export const createContact = async (contact, authtoken) =>
@@ -84,6 +80,12 @@ export const createContact = async (contact, authtoken) =>
     }
   );
 
+  export const applyCoupon = async (authtoken, coupon) => await axios.post(`${process.env.REACT_APP_API}/user/cart/coupon`,{ coupon }, {
+    headers: {
+      authtoken,
+    },
+  }
+  );
   export const createOrder = async (stripeResponse, authtoken) =>
   await axios.post(
     `${process.env.REACT_APP_API}/user/order`,

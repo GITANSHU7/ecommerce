@@ -12,12 +12,12 @@ const { userCart , getUserCart , emptyCart , saveAddress , savePincode, contactN
 router.post("/all/cart", authCheck, userCart); // save cart
 router.get("/all/cart", authCheck, getUserCart); // save cart
 router.put("/all/cart", authCheck, emptyCart); // delete cart
-router.post("/user/address" , authCheck , saveAddress);
+
 router.post("/user/pincode", authCheck , savePincode);
 router.post("/user/contact", authCheck, contactNo);
 router.post("/user/locality", authCheck, saveLocality);
 router.post("/user/name", authCheck, userName);
-
+router.post("/user/address" , authCheck , saveAddress);
 //coupon 
 router.post("/user/cart/coupon" , authCheck,applyCouponToUserCart);
 

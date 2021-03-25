@@ -67,7 +67,7 @@ const Checkout = ({history}) => {
       }
     });
   };
-    
+   
   const savePincodeToDb = () => {
     // console.log(address);
     saveUserPincode(user.token, pincode).then((res) => {

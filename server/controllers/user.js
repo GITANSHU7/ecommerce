@@ -79,18 +79,12 @@ exports.getUserCart = async (req, res) => {
   };
   
 
-  exports.saveAddress = async (req,res) => {
-      const userAddress = await User.findOneAndUpdate(
-          { email : req.user.email},
-          {address : req.body.address}
-      ).exec();
-      res.json({ok:true});
-  };
+ 
 
   exports.savePincode = async (req,res) => {
     const userPincode = await User.findOneAndUpdate(
         { email : req.user.email},
-        {pincode : req.body.pincode}
+        {Customer_pincode : req.body.Customer_pincode}
     ).exec();
     res.json({ok:true});
 };
@@ -98,7 +92,7 @@ exports.getUserCart = async (req, res) => {
 exports.contactNo = async (req,res) => {
   const userContact = await User.findOneAndUpdate(
       { email : req.user.email},
-      {contact : req.body.contact}
+      {Customer_contact : req.body.Customer_contact}
   ).exec();
   res.json({ok:true});
 };
@@ -106,7 +100,7 @@ exports.contactNo = async (req,res) => {
 exports.saveLocality = async (req,res) => {
   const userLocality = await User.findOneAndUpdate(
       { email : req.user.email},
-      {locality : req.body.locality}
+      {Customer_locality : req.body.Customer_locality}
   ).exec();
   res.json({ok:true});
 };
@@ -116,7 +110,7 @@ exports.saveLocality = async (req,res) => {
 exports.userName = async (req,res) => {
   const saveName = await User.findOneAndUpdate(
       { email : req.user.email},
-      {name : req.body.name}
+      {Customer_name : req.body.Customer_name}
   ).exec();
   res.json({ok:true});
 };
@@ -124,6 +118,13 @@ exports.userName = async (req,res) => {
 
 
 
+exports.saveAddress = async (req,res) => {
+  const userAddress = await User.findOneAndUpdate(
+      { email : req.user.email},
+      {Customer_address : req.body.Customer_address}
+  ).exec();
+  res.json({ok:true});
+};
 
 exports.applyCouponToUserCart = async (req, res) => {
   const { coupon } = req.body;
