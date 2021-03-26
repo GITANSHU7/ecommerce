@@ -26,7 +26,7 @@ await axios.put(`${process.env.REACT_APP_API}/all/cart`,
 });
 
 
-export const saveUserAddress = async (authtoken, Customer_address) => await axios.post(`${process.env.REACT_APP_API}/user/address`,{ Customer_address }, {
+export const saveUserAddress = async (authtoken, address) => await axios.post(`${process.env.REACT_APP_API}/user/address`,{ address }, {
   headers: {
     authtoken,
   },
@@ -34,7 +34,7 @@ export const saveUserAddress = async (authtoken, Customer_address) => await axio
 );
 
 
-export const saveUserPincode = async (authtoken, Customer_pincode) => await axios.post(`${process.env.REACT_APP_API}/user/pincode`,{ Customer_pincode }, {
+export const saveUserPincode = async (authtoken, pincode) => await axios.post(`${process.env.REACT_APP_API}/user/pincode`,{ pincode }, {
   headers: {
     authtoken,
   },
@@ -42,7 +42,7 @@ export const saveUserPincode = async (authtoken, Customer_pincode) => await axio
 );
 
 
-export const saveUserContact = async (authtoken, Customer_contact) => await axios.post(`${process.env.REACT_APP_API}/user/contact`,{ Customer_contact }, {
+export const saveUserContact = async (authtoken, contact) => await axios.post(`${process.env.REACT_APP_API}/user/contact`,{ contact }, {
   headers: {
     authtoken,
   },
@@ -50,7 +50,7 @@ export const saveUserContact = async (authtoken, Customer_contact) => await axio
 );
 
 
-export const saveUserName = async (authtoken, Customer_name) => await axios.post(`${process.env.REACT_APP_API}/user/name`,{ Customer_name }, {
+export const saveUserName = async (authtoken, name) => await axios.post(`${process.env.REACT_APP_API}/user/name`,{ name }, {
   headers: {
     authtoken,
   },
@@ -58,7 +58,7 @@ export const saveUserName = async (authtoken, Customer_name) => await axios.post
 );
 
 
-export const saveUserLocality = async (authtoken, Customer_locality) => await axios.post(`${process.env.REACT_APP_API}/user/locality`,{ Customer_locality }, {
+export const saveUserLocality = async (authtoken, locality) => await axios.post(`${process.env.REACT_APP_API}/user/locality`,{ locality }, {
   headers: {
     authtoken,
   },

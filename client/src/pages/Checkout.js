@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { toast } from "react-toastify";
-import { getUserCart, emptyUserCart , saveUserAddress , saveUserPincode , applyCoupon  , 
-  saveUserLocality , saveUserContact, saveUserName , createCashOrderForUser} from "../functions/user";
+import { getUserCart, emptyUserCart ,  applyCoupon , createCashOrderForUser} from "../functions/user";
+import { saveUserAddress , saveUserPincode   , 
+  saveUserLocality , saveUserContact, saveUserName } from "../functions/user"
 import axios from "axios";
 import Logo from "../logo";
 
@@ -59,7 +60,7 @@ const Checkout = ({history}) => {
   };
 
   const saveAddressToDb = () => {
-    // console.log(address);
+     console.log(address);
     saveUserAddress(user.token, address).then((res) => {
       if (res.data.ok) {
         setAddressSaved(true);
@@ -69,7 +70,7 @@ const Checkout = ({history}) => {
   };
    
   const savePincodeToDb = () => {
-    // console.log(address);
+    console.log(pincode);
     saveUserPincode(user.token, pincode).then((res) => {
       if (res.data.ok) {
         setPincodeSaved(true);
@@ -78,7 +79,7 @@ const Checkout = ({history}) => {
     });
   };
   const saveContactToDb = () => {
-    // console.log(address);
+     console.log(contact);
     saveUserContact(user.token, contact).then((res) => {
       if (res.data.ok) {
         setContactSaved(true);
@@ -88,7 +89,7 @@ const Checkout = ({history}) => {
   };
   
   const saveNameToDb = () => {
-    // console.log(address);
+     console.log(name);
     saveUserName(user.token, name).then((res) => {
       if (res.data.ok) {
         setNameSaved(true);
@@ -98,7 +99,7 @@ const Checkout = ({history}) => {
   };
 
   const saveLocalityToDb = () => {
-    // console.log(address);
+     console.log(locality);
     saveUserLocality(user.token, locality).then((res) => {
       if (res.data.ok) {
         setLocalitySaved(true);
@@ -202,7 +203,7 @@ const Checkout = ({history}) => {
         </form>
         
         <button className="btn btn-primary mt-2" onClick={() => {
-          savePincodeToDb(); saveAddressToDb(); saveLocalityToDb(); saveContactToDb() ; saveNameToDb();
+     saveAddressToDb(); saveContactToDb() ;    savePincodeToDb(); saveAddressToDb(); saveLocalityToDb(); saveNameToDb();
         }} 
         disabled = {!address.length || !pincode.length ||!name.length ||!locality.length ||!contact.length} 
         >

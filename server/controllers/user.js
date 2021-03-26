@@ -84,7 +84,7 @@ exports.getUserCart = async (req, res) => {
   exports.savePincode = async (req,res) => {
     const userPincode = await User.findOneAndUpdate(
         { email : req.user.email},
-        {Customer_pincode : req.body.Customer_pincode}
+        {pincode : req.body.pincode}
     ).exec();
     res.json({ok:true});
 };
@@ -92,7 +92,7 @@ exports.getUserCart = async (req, res) => {
 exports.contactNo = async (req,res) => {
   const userContact = await User.findOneAndUpdate(
       { email : req.user.email},
-      {Customer_contact : req.body.Customer_contact}
+      {contact : req.body.contact}
   ).exec();
   res.json({ok:true});
 };
@@ -100,7 +100,7 @@ exports.contactNo = async (req,res) => {
 exports.saveLocality = async (req,res) => {
   const userLocality = await User.findOneAndUpdate(
       { email : req.user.email},
-      {Customer_locality : req.body.Customer_locality}
+      {locality : req.body.locality}
   ).exec();
   res.json({ok:true});
 };
@@ -121,7 +121,7 @@ exports.userName = async (req,res) => {
 exports.saveAddress = async (req,res) => {
   const userAddress = await User.findOneAndUpdate(
       { email : req.user.email},
-      {Customer_address : req.body.Customer_address}
+      {address : req.body.address}
   ).exec();
   res.json({ok:true});
 };

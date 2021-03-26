@@ -18,7 +18,6 @@ email:{
     unique:true,
 },
 
-
 role:{
     type:String, 
     default:"subscriber"

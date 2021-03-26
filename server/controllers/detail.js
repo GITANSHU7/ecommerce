@@ -1,12 +1,12 @@
-const Coupon = require("../models/detail");
-
+const Detail = require("../models/detail");
+const User = require("../models/user");
 // create, remove, list
 
 exports.create = async (req, res) => {
-  try {
-    const { name, } = req.body.coupon;
-    res.json(await new Coupon({ name, expiry, discount }).save());
-  } catch (err) {
-    console.log(err);
-  }
-};
+    try {
+      const { name, address, contact,pincode, locality } = req.body.detail;
+   res.json(await new Detail({ name, address, contact,pincode, locality }).save());
+    } catch (err) {
+      console.log(err);
+    }
+  };
