@@ -10,6 +10,13 @@ const detailSchema = new mongoose.Schema({
         minlength: [2,"Too short"],
         maxlength: [15,"Too long"],
     },
+    email:{
+        type:String,
+        require: true,
+        trim:true,
+        unique:false,
+        sparse : true,
+    }, 
  address:{
     unique : "false",
     sparse: "true",

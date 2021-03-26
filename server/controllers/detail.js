@@ -4,8 +4,8 @@ const User = require("../models/user");
 
 exports.create = async (req, res) => {
     try {
-      const { name, address, contact,pincode, locality } = req.body.detail;
-   res.json(await new Detail({ name, address, contact,pincode, locality }).save());
+      const { name, email, address, contact,pincode, locality } = req.body.detail;
+   res.json(await new Detail({ name, email ,address, contact,pincode, locality }).save());
     } catch (err) {
       console.log(err);
     }
