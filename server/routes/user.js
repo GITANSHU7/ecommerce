@@ -7,7 +7,7 @@ const { authCheck } = require("../middlewares/auth");
 // controllers
 const { userCart , getUserCart , emptyCart , saveAddress , savePincode, contactNo, userName, saveLocality ,
     applyCouponToUserCart , createOrder , orders , 
-    addToWishlist , removeFromWishlist , wishlist , createCashOrder} = require("../controllers/user");
+    addToWishlist , removeFromWishlist , wishlist , createCashOrder, create} = require("../controllers/user");
 
 router.post("/all/cart", authCheck, userCart); // save cart
 router.get("/all/cart", authCheck, getUserCart); // save cart
@@ -34,6 +34,8 @@ router.post("/user/wishlist" , authCheck , addToWishlist);
 router.get("/user/wishlist" , authCheck , wishlist);
 router.put("/user/wishlist/:productId" , authCheck , removeFromWishlist)
 
+
+//router.post("/address", authCheck , create);
 
 
 module.exports = router;

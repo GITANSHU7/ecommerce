@@ -10,12 +10,11 @@ import { createOrUpdateUser } from "../../functions/auth";
 const RegisterComplete = ({ history }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const[name,setName] = useState("")
+ 
   const {user} =useSelector((state) => ({...state}))
   let dispatch = useDispatch();
   useEffect(() => {
     setEmail(window.localStorage.getItem("emailForRegistration"));
-    setName(window.localStorage.getItem("nameForRegistration"));
     // console.log(window.location.href);
     // console.log(window.localStorage.getItem("emailForRegistration"));
   }, []);
@@ -88,12 +87,7 @@ const RegisterComplete = ({ history }) => {
         placeholder="Password"
         autoFocus
       />
-      <input type="text"
-      className="form-control"
-      value={name}
-      onChange={(e) => setName(e.target.value)}
-      placeholder="enter name"
-      autoFocus />
+     
       <br />
       <button type="submit" className="btn btn-raised">
         Complete Registration

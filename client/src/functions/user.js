@@ -139,3 +139,16 @@ export const getWishlist = async (authtoken) =>
       },
     }
   );
+
+
+  
+export const createAddress = async (user, authtoken) =>
+await axios.post(
+  `${process.env.REACT_APP_API}/address`,
+  { user },
+  {
+    headers: {
+      authtoken,
+    },
+  }
+);

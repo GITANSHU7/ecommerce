@@ -290,3 +290,15 @@ exports.createCashOrder = async (req, res) => {
   console.log("NEW ORDER SAVED", newOrder);
   res.json({ ok: true });
 };
+
+
+// testing
+{/*
+exports.create = async (req, res) => {
+  try {
+    const { name, address, contact,pincode, locality } = req.body.user;
+ res.json(await new User({ name,address, contact,pincode, locality }).save());
+  } catch (err) {
+    console.log(err);
+  }
+}; */}

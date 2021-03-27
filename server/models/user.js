@@ -23,6 +23,19 @@ role:{
     default:"subscriber"
 
 },
+address : String,
+
+contact:{
+    type: Number,
+    require: true,
+    
+    
+},
+pincode:{
+    require: true,
+    type:String,
+   
+},
 cart:{
     type:Array,
     dafault:[]

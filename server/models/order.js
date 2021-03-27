@@ -4,6 +4,28 @@ const { ObjectId } = mongoose.Schema;
 
 const orderSchema = new mongoose.Schema(
   {
+    name: String,
+    email:{
+        type:String,
+        require: true,
+        trim:true,
+        unique:true,
+    },
+     address:{
+        type:String,
+        require: true,
+    },
+    contact:{
+        type: Number,
+        require: true,
+        
+        
+    },
+    pincode:{
+        require: true,
+        type:String,
+       
+    },
     products: [
       {
         product: {

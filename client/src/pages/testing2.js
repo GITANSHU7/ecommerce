@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { createAddress } from '../functions/detail';
+import { createAddress } from '../functions/user';
 import { toast } from "react-toastify";
 import { useEffect } from 'react';
 
@@ -17,11 +17,7 @@ const Testing2 = () => {
 
     let dispatch = useDispatch();
     const { user } = useSelector((state) => ({ ...state }));
-    useEffect(() => {
-        setEmail(window.localStorage.getItem("emailForRegistration"));
-        // console.log(window.location.href);
-        // console.log(window.localStorage.getItem("emailForRegistration"));
-      }, []);
+   
     const handleSubmit = (e) => {
         e.preventDefault();
         
@@ -97,10 +93,8 @@ const Testing2 = () => {
             required
           />
         </div>
-        <div className="form-group">
-          <label className="text-muted">Email.</label>
-           </div>
-        <button className="btn btn-outline-primary">Save</button>
+        
+       <button className="btn btn-outline-primary">Save</button>
           
 </form>
                   </div>
