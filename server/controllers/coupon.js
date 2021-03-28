@@ -1,11 +1,12 @@
 const Coupon = require("../models/coupon");
+const user = require("../models/user");
 
 // create, remove, list
 
 exports.create = async (req, res) => {
   try {
-    const { name, expiry, discount } = req.body.coupon;
-    res.json(await new Coupon({ name, expiry, discount }).save());
+    const { name, expiry, discount ,  } = req.body.coupon;
+    res.json(await new Coupon({ name, expiry, discount  , orderdBy: user._id,}).save());
   } catch (err) {
     console.log(err);
   }

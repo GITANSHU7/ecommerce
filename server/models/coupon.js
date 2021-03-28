@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 const { ObjectId } = mongoose.Schema;
 
 const couponSchema = new mongoose.Schema(
@@ -19,7 +20,8 @@ const couponSchema = new mongoose.Schema(
   discount:{
       type:Number,
       required:true,
-  }
+  },
+  orderdBy: { type: ObjectId, ref: "User" },
   },
   { timestamps: true }
 );
