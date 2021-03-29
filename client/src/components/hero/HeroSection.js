@@ -24,14 +24,14 @@ function HeroSection() {
         >
           ACCESSORIES
         </Button>
-        <Button
+       {/* <Button
           className='btns'
           buttonStyle='btn--primary'
           buttonSize='btn--large'
           onClick={console.log('hey')}
         >
           MAINTAINANCE KIT <i className='far fa-play-circle' />
-        </Button>
+       </Button>*/}
       </div>
     </div>
   );
