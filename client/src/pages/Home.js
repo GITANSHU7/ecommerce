@@ -9,7 +9,22 @@ import { Footer } from "../components/Working/footer";
 import AppFaq from "./faq";
 import BrandList from "../components/brand/BrandList";
 import ModelList from "../components/model/ModelList";
+import styled from "styled-components";
+import { NewsLetter } from "../components/subscribe";
 
+const AppContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(254, 193, 130);
+  background: linear-gradient(
+    50deg,
+    rgba(254, 193, 130, 1) 20%,
+    rgba(254, 160, 142, 1) 100%
+  );
+`;
 
  function Home() {
     
@@ -32,6 +47,9 @@ import ModelList from "../components/model/ModelList";
 
         <ModelList />
     </div>
+    <AppContainer>
+      <NewsLetter />
+    </AppContainer>
     <Footer />
         
             
