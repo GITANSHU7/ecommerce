@@ -15,7 +15,7 @@ const Testing2 = () => {
  
 
 
-    let dispatch = useDispatch();
+    //let dispatch = useDispatch();
     const { user } = useSelector((state) => ({ ...state }));
    
     const handleSubmit = (e) => {
@@ -37,6 +37,7 @@ const Testing2 = () => {
     
     return (
         <div>
+          
               <form onSubmit={handleSubmit}>
             <div className="form-group">
               <label className="text-muted">Name</label>

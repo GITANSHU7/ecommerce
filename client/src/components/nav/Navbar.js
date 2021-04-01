@@ -57,12 +57,12 @@ function Navbar() {
             <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
           </div>
           <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-           {/* <li className='nav-item'>
+            <li className='nav-item'>
             <span className="float-right " style= {{color:'white'}}>
         <Search/>
       </span>
             </li>
-  */}
+  
             <li className='nav-item'>
               <Link
                 to='/shop'
