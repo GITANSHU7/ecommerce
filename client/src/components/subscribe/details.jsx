@@ -82,6 +82,7 @@ const SubscribeButton = styled.button`
 
 export function Details(props) {
   return (
+    
     <DetailsContainer>
       <InnerContainer>
         <Header>Hey, wait...</Header>

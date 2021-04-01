@@ -16,7 +16,7 @@ const AppContainer = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
-  align-items: center;
+  flex-direction : row;
   justify-content: center;
   background: rgb(254, 193, 130);
   background: linear-gradient(
