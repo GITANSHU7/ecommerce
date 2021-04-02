@@ -2,6 +2,7 @@ import React from 'react'
 import Jumbotron from "../components/cards/Jumbotron";
 import { MoreAboutSection } from '../components/HomeCard/moreAboutSection';
 import { Footer } from '../components/Working/footer';
+import Team from './team';
 
 
 
@@ -15,6 +16,7 @@ function About() {
       
               </div>  
               <MoreAboutSection />
+              <Team />
               <Footer />
         </>
     )
