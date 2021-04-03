@@ -1,140 +1,56 @@
-import React from "react";
-
-// reactstrap components
-import {
-  Button,
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  Form,
-  Input,
-  InputGroupAddon,
-  InputGroupText,
-  InputGroup,
-  Container,
-  Col,
-} from "reactstrap";
-
-
-function LoginPage() {
-  const [firstFocus, setFirstFocus] = React.useState(false);
-  const [lastFocus, setLastFocus] = React.useState(false);
-  React.useEffect(() => {
-    document.body.classList.add("login-page");
-    document.body.classList.add("sidebar-collapse");
-    document.documentElement.classList.remove("nav-open");
-    window.scrollTo(0, 0);
-    document.body.scrollTop = 0;
-    return function cleanup() {
-      document.body.classList.remove("login-page");
-  
-    };
-  }, []);
+import React from 'react'
+import "./testin2.css";
+export default function testing2() {
   return (
-    <>
-      
-      <div className="page-header clear-filter" filter-color="blue">
-        <div
-          className="ddgdv"
-          style={{
-            backgroundImage: `url("https://i.imgur.com/KmNp1Lv.jpg")`,
-          }}
-        ></div>
-        <div className="content">
-          <Container>
-            <Col className="ml-auto mr-auto" md="4">
-              <Card className="card-login card-plain">
-                <Form action="" className="form" method="">
-                  <CardHeader className="text-center">
-                    <div className="logo-container">
-                      <img
-                        alt="..."
-                        //src={require("assets/img/now-logo.png")}
-                      ></img>
+    <div>
+      <div className="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
+    <div className="card card0 border-0">
+        <div className="row d-flex">
+            <div className="col-lg-6">
+                <div className="card1 pb-5">
+                    <div className="row"> <img src="https://i.imgur.com/CXQmsmF.png" className="logo" /> </div>
+                    <div className="row px-3 justify-content-center mt-4 mb-5 border-line"> <img src="https://i.imgur.com/uNGdWHi.png" className="image"/> </div>
+                </div>
+            </div>
+            <div className="col-lg-6">
+                <div className="card2 card border-0 px-4 py-5">
+                    <div className="row mb-4 px-3">
+                        <h6 className="mb-0 mr-4 mt-2">Sign in with</h6>
+                        <div className="facebook text-center mr-3">
+                            <div className="fa fa-facebook"></div>
+                        </div>
+                        <div className="twitter text-center mr-3">
+                            <div className="fa fa-twitter"></div>
+                        </div>
+                        <div className="linkedin text-center mr-3">
+                            <div className="fa fa-linkedin"></div>
+                        </div>
                     </div>
-                  </CardHeader>
-                  <CardBody>
-                    <InputGroup
-                      className={
-                        "no-border input-lg" +
-                        (firstFocus ? " input-group-focus" : "")
-                      }
-                    >
-                      <InputGroupAddon addonType="prepend">
-                        <InputGroupText>
-                          <i className="now-ui-icons users_circle-08"></i>
-                        </InputGroupText>
-                      </InputGroupAddon>
-                      <Input
-                        placeholder="First Name..."
-                        type="text"
-                        onFocus={() => setFirstFocus(true)}
-                        onBlur={() => setFirstFocus(false)}
-                      ></Input>
-                    </InputGroup>
-                    <InputGroup
-                      className={
-                        "no-border input-lg" +
-                        (lastFocus ? " input-group-focus" : "")
-                      }
-                    >
-                      <InputGroupAddon addonType="prepend">
-                        <InputGroupText>
-                          <i className="now-ui-icons text_caps-small"></i>
-                        </InputGroupText>
-                      </InputGroupAddon>
-                      <Input
-                        placeholder="Last Name..."
-                        type="text"
-                        onFocus={() => setLastFocus(true)}
-                        onBlur={() => setLastFocus(false)}
-                      ></Input>
-                    </InputGroup>
-                  </CardBody>
-                  <CardFooter className="text-center">
-                    <Button
-                      block
-                      className="btn-round"
-                      color="info"
-                      href="#pablo"
-                      onClick={(e) => e.preventDefault()}
-                      size="lg"
-                    >
-                      Get Started
-                    </Button>
-                    <div className="pull-left">
-                      <h6>
-                        <a
-                          className="link"
-                          href="#pablo"
-                          onClick={(e) => e.preventDefault()}
-                        >
-                          Create Account
-                        </a>
-                      </h6>
+                    <div className="row px-3 mb-4">
+                        <div className="line"></div> <small className="or text-center">Or</small>
+                        <div className="line"></div>
                     </div>
-                    <div className="pull-right">
-                      <h6>
-                        <a
-                          className="link"
-                          href="#pablo"
-                          onClick={(e) => e.preventDefault()}
-                        >
-                          Need Help?
-                        </a>
-                      </h6>
+                    <div className="row px-3"> <label className="mb-1">
+                            <h6 className="mb-0 text-sm">Email Address</h6>
+                        </label> <input className="mb-4" type="text" name="email" placeholder="Enter a valid email address" /> </div>
+                    <div className="row px-3"> <label className="mb-1">
+                            <h6 className="mb-0 text-sm">Password</h6>
+                        </label> <input type="password" name="password" placeholder="Enter password" /> </div>
+                    <div className="row px-3 mb-4">
+                        <div className="custom-control custom-checkbox custom-control-inline"> <input id="chk1" type="checkbox" name="chk" className="custom-control-input" /> <label for="chk1" className="custom-control-label text-sm">Remember me</label> </div> <a href="#" className="ml-auto mb-0 text-sm">Forgot Password?</a>
                     </div>
-                  </CardFooter>
-                </Form>
-              </Card>
-            </Col>
-          </Container>
+                    <div className="row mb-3 px-3"> <button type="submit" className="btn btn-blue text-center">Login</button> </div>
+                    <div className="row mb-4 px-3"> <small className="font-weight-bold">Don't have an account? <a className="text-danger ">Register</a></small> </div>
+                </div>
+            </div>
         </div>
-       
-      </div>
-    </>
-  );
+        <div className="bg-blue py-4">
+            <div className="row px-3"> <small className="ml-4 ml-sm-5 mb-2">Copyright &copy; 2019. All rights reserved.</small>
+                <div className="social-contact ml-4 ml-sm-auto"> <span className="fa fa-facebook mr-4 text-sm"></span> <span className="fa fa-google-plus mr-4 text-sm"></span> <span className="fa fa-linkedin mr-4 text-sm"></span> <span className="fa fa-twitter mr-4 mr-sm-5 text-sm"></span> </div>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+  )
 }
-
-export default LoginPage;
