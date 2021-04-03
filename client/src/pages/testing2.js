@@ -1,105 +1,140 @@
-import React from 'react'
-import { useState } from 'react';
-import { useDispatch, useSelector } from "react-redux";
-import { createAddress } from '../functions/user';
-import { toast } from "react-toastify";
-import { useEffect } from 'react';
+import React from "react";
 
-const Testing2 = () => {
-    const [name, setName] = useState("");
-    const [address , setAddress]  = useState("");
-    const [locality , setLocality]  = useState("");
-    const [contact , setContact]  = useState("");
-    const [pincode , setPincode]  = useState("");
-    const [email, setEmail] = useState("");
- 
+// reactstrap components
+import {
+  Button,
+  Card,
+  CardHeader,
+  CardBody,
+  CardFooter,
+  Form,
+  Input,
+  InputGroupAddon,
+  InputGroupText,
+  InputGroup,
+  Container,
+  Col,
+} from "reactstrap";
 
 
-    //let dispatch = useDispatch();
-    const { user } = useSelector((state) => ({ ...state }));
-   
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        
-        // console.table(name, expiry, discount);
-        createAddress({ name, address, contact,pincode, locality }, user.token)
-          .then((res) => {
-            setName("");
-            setAddress("");
-            setLocality("");
-            setContact("");
-            setPincode("");
-           
-            toast.success(`"${res.data.name}" is created`);
-          })
-          .catch((err) => console.log("create coupon err", err));
-      };
-    
-    return (
-        <div>
-          
-              <form onSubmit={handleSubmit}>
-            <div className="form-group">
-              <label className="text-muted">Name</label>
-              <input
-                type="text"
-                className="form-control"
-                onChange={(e) => setName(e.target.value)}
-                value={name}
-                autoFocus
-                required
-              />
-            </div>
-            <div className="form-group">
-          <label className="text-muted">Addrress</label>
-          <input
-            type="text"
-            className="form-control"
-            onChange={(e) => setAddress(e.target.value)}
-            value={address}
-            autoFocus
-            required
-          />
+function LoginPage() {
+  const [firstFocus, setFirstFocus] = React.useState(false);
+  const [lastFocus, setLastFocus] = React.useState(false);
+  React.useEffect(() => {
+    document.body.classList.add("login-page");
+    document.body.classList.add("sidebar-collapse");
+    document.documentElement.classList.remove("nav-open");
+    window.scrollTo(0, 0);
+    document.body.scrollTop = 0;
+    return function cleanup() {
+      document.body.classList.remove("login-page");
+  
+    };
+  }, []);
+  return (
+    <>
+      
+      <div className="page-header clear-filter" filter-color="blue">
+        <div
+          className="ddgdv"
+          style={{
+            backgroundImage: `url("https://i.imgur.com/KmNp1Lv.jpg")`,
+          }}
+        ></div>
+        <div className="content">
+          <Container>
+            <Col className="ml-auto mr-auto" md="4">
+              <Card className="card-login card-plain">
+                <Form action="" className="form" method="">
+                  <CardHeader className="text-center">
+                    <div className="logo-container">
+                      <img
+                        alt="..."
+                        //src={require("assets/img/now-logo.png")}
+                      ></img>
+                    </div>
+                  </CardHeader>
+                  <CardBody>
+                    <InputGroup
+                      className={
+                        "no-border input-lg" +
+                        (firstFocus ? " input-group-focus" : "")
+                      }
+                    >
+                      <InputGroupAddon addonType="prepend">
+                        <InputGroupText>
+                          <i className="now-ui-icons users_circle-08"></i>
+                        </InputGroupText>
+                      </InputGroupAddon>
+                      <Input
+                        placeholder="First Name..."
+                        type="text"
+                        onFocus={() => setFirstFocus(true)}
+                        onBlur={() => setFirstFocus(false)}
+                      ></Input>
+                    </InputGroup>
+                    <InputGroup
+                      className={
+                        "no-border input-lg" +
+                        (lastFocus ? " input-group-focus" : "")
+                      }
+                    >
+                      <InputGroupAddon addonType="prepend">
+                        <InputGroupText>
+                          <i className="now-ui-icons text_caps-small"></i>
+                        </InputGroupText>
+                      </InputGroupAddon>
+                      <Input
+                        placeholder="Last Name..."
+                        type="text"
+                        onFocus={() => setLastFocus(true)}
+                        onBlur={() => setLastFocus(false)}
+                      ></Input>
+                    </InputGroup>
+                  </CardBody>
+                  <CardFooter className="text-center">
+                    <Button
+                      block
+                      className="btn-round"
+                      color="info"
+                      href="#pablo"
+                      onClick={(e) => e.preventDefault()}
+                      size="lg"
+                    >
+                      Get Started
+                    </Button>
+                    <div className="pull-left">
+                      <h6>
+                        <a
+                          className="link"
+                          href="#pablo"
+                          onClick={(e) => e.preventDefault()}
+                        >
+                          Create Account
+                        </a>
+                      </h6>
+                    </div>
+                    <div className="pull-right">
+                      <h6>
+                        <a
+                          className="link"
+                          href="#pablo"
+                          onClick={(e) => e.preventDefault()}
+                        >
+                          Need Help?
+                        </a>
+                      </h6>
+                    </div>
+                  </CardFooter>
+                </Form>
+              </Card>
+            </Col>
+          </Container>
         </div>
-        <div className="form-group">
-          <label className="text-muted">Pincode</label>
-          <input
-            type="text"
-            className="form-control"
-            onChange={(e) => setPincode(e.target.value)}
-            value={pincode}
-            autoFocus
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label className="text-muted">Locality</label>
-          <input
-            type="text"
-            className="form-control"
-            onChange={(e) => setLocality(e.target.value)}
-            value={locality}
-            autoFocus
-            required />
-            </div>
-            <div className="form-group">
-          <label className="text-muted">Contact No.</label>
-          <input
-            type="text"
-            className="form-control"
-            onChange={(e) => setContact(e.target.value)}
-            value={contact}
-            maxLength="10"
-            autoFocus
-            required
-          />
-        </div>
-        
-       <button className="btn btn-outline-primary">Save</button>
-          
-</form>
-                  </div>
-    )
+       
+      </div>
+    </>
+  );
 }
 
-export default Testing2;
+export default LoginPage;
