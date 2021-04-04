@@ -8,8 +8,8 @@ export default function testing2() {
         <div className="row d-flex">
             <div className="col-lg-6">
                 <div className="card1 pb-5">
-                    <div className="row"> <img src="https://i.imgur.com/CXQmsmF.png" className="logo" /> </div>
-                    <div className="row px-3 justify-content-center mt-4 mb-5 border-line"> <img src="https://i.imgur.com/uNGdWHi.png" className="image"/> </div>
+                    <div className="row"> <img src="https://i.imgur.com/LdtVNMz.png" className="logo" /> </div>
+                    <div className="row px-3 justify-content-center mt-4 mb-5 border-line"> <img src="https://i.imgur.com/QnwsmeF.png" className="image"/> </div>
                 </div>
             </div>
             <div className="col-lg-6">
@@ -17,7 +17,7 @@ export default function testing2() {
                     <div className="row mb-4 px-3">
                         <h6 className="mb-0 mr-4 mt-2">Sign in with</h6>
                         <div className="facebook text-center mr-3">
-                            <div className="fa fa-facebook"></div>
+                        <i className="fab fa-google"></i>
                         </div>
                         <div className="twitter text-center mr-3">
                             <div className="fa fa-twitter"></div>
