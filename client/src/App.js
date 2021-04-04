@@ -45,6 +45,7 @@ import Checkout from "./pages/Checkout";
 import CreateCouponPage from "./pages/coupon/CreateCouponPage";
 import Payment from "./pages/Payment";
 import testing2 from "./pages/testing2";
+import testing3 from "./components/Working/testing3";
 
 
 
@@ -93,6 +94,7 @@ const App = () => {
       <Route exact path="/about" component={About} />
       <Route exact path="/contact" component={Contact} />
       <Route exact path="/testing" component={Testing} />
+      <Route exact path="/testing3" component={testing3} />
       <Route exact path="/login" component={Login} />
       <Route exact path="/register" component={Register} />
       <Route exact path="/register/complete" component={RegisterComplete} />
