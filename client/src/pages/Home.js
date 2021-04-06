@@ -36,7 +36,8 @@ const AppContainer = styled.div`
             <Cards />
             
     <ServicesSection />
-    <ReviewsSection />
+{/*
+    <ReviewsSection /> */}
     <AppFaq />
     
     <div style={{backgroundColor : "white"}}>
