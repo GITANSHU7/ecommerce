@@ -49,8 +49,8 @@ export default class Contact extends Component {
               </div>  
 
               <AppContact />
-              <ReviewsSection />
-              <BrandList />
+              
+    
     <Footer />
               </>
         )
