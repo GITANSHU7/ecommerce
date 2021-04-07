@@ -10,7 +10,7 @@ function AppFaq() {
       <div className="container-fluid">
         <div className="titleHolder" style={{textAlign: "center" , paddingTop:"20px"}}>
           <h2>Frequently Asked Questions</h2>
-          <p>Quidem reiciendis iure, aperiam blanditiis. Alias esse, nam, ea quam</p>
+          <p>some of the basic questions ask by user</p>
         </div>
         <Collapse defaultActiveKey={['1']}>
           <Panel header="How to setup the theme?" key="1">
