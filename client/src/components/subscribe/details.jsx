@@ -8,6 +8,10 @@ const DetailsContainer = styled.div`
   flex: 1;
   align-items: center;
   justify-content: center;
+  @media screen and (max-width: 480px) {
+    margin-top : -6rem;
+    
+  }
 `;
 
 const InnerContainer = styled.div`
@@ -21,6 +25,10 @@ const Header = styled.h1`
   color: #262fec;
   font-weight: 700;
   font-size: 45px;
+  
+  @media screen and (max-width: 480px) {
+    font-size : 20px;
+  }
 `;
 
 const SubHeader = styled.h3`
@@ -28,12 +36,18 @@ const SubHeader = styled.h3`
   color: #000;
   font-weight: 700;
   font-size: 24px;
+  @media screen and (max-width: 480px) {
+    font-size : 20px;
+  }
 `;
 
 const Text = styled.p`
   color: #000;
   font-weight: 500;
   font-size: 20px;
+  @media screen and (max-width: 480px) {
+    font-size : 15px;
+  }
 `;
 
 const FormGroup = styled.div`
@@ -41,6 +55,9 @@ const FormGroup = styled.div`
   position: relative;
   height: 53px;
   margin-top: 1em;
+  @media screen and (max-width: 480px) {
+    width :15rem;
+ 
 `;
 
 const EmailInput = styled.input`
@@ -56,6 +73,9 @@ const EmailInput = styled.input`
   &::placeholder {
     color: #272727;
   }
+  
+  @media screen and (max-width: 480px) {
+    width :15rem;
 `;
 
 const SubscribeButton = styled.button`
@@ -78,6 +98,9 @@ const SubscribeButton = styled.button`
   &:hover {
     background-color: #1820bb;
   }
+  
+  @media screen and (max-width: 480px) {
+    margin-left : 2rempx;
 `;
 
 export function Details(props) {

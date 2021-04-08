@@ -19,6 +19,11 @@ const SideImageContainer = styled.div`
   clip-path: polygon(0 0, 100% 0, 100% 100%, 15% 100%);
   border-top-right-radius: 26px;
   border-bottom-right-radius: 26px;
+  
+  @media screen and (max-width: 480px) {
+    width: 18em;
+    height: 13em;
+  }
 `;
 
 const Image = styled.div`
