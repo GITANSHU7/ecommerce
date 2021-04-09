@@ -4,11 +4,12 @@ import { EyeOutlined, ShoppingCartOutlined } from "@ant-design/icons";
 import _ from "lodash";
 import { Link } from "react-router-dom";
 
+import "./Test.css";
 import { useSelector, useDispatch } from "react-redux";
 
 const { Meta } = Card;
 
-const ProductCard = ({ product }) => {
+const TestCard = ({ product }) => {
 
 const [tooltip, setTooltip] = useState('Click to add')
 
@@ -54,13 +55,12 @@ const [tooltip, setTooltip] = useState('Click to add')
   
 
   // destructure
-  const { images,type ,title, description, slug } = product;
+  const { images,type ,title, description, slug , manufacturer } = product;
   const { price } = product ;
   return (
-    <div id="product">
-    {
-        products.map(product =>(
-            <div className="card" key={product._id}>
+    <div >
+
+            <div className="card">
   <Link to={`/product/${slug}`}>
                 <img
           src={images && images.length ? images[0].url : ""}
@@ -69,18 +69,20 @@ const [tooltip, setTooltip] = useState('Click to add')
         />
                 </Link>
                 <div className="content">
-                    <h3>
-                    <Link to={`/product/${slug}`}>{product.title}</Link>
-                    </h3>
-                    <span>${product.price}</span>
-                    <p>{product.description}</p>
-                    <button onClick={()=> addCart(product._id)}>Add to cart</button>
+                    <h5>
+                    <Link to={`/product/${slug}`}>{title}</Link>
+                    </h5>
+                    <p>by {manufacturer}</p>
+                    <span>₹{price}</span>
+                    <p>{type}</p>
+                    
+                    <button onClick={handleAddToCart} disabled = {product.quantity < 1}>Add to cart</button>
                 </div>
             </div>
-        ))
-    }
+        
+    
  </div>
   );
 };
 
-export default ProductCard;
+export default TestCard;
