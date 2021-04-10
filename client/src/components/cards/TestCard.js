@@ -8,7 +8,7 @@ import "./Test.css";
 import { useSelector, useDispatch } from "react-redux";
 
 const { Meta } = Card;
-const [tooltip, setTooltip] = useState('Click to add')
+
 
 const TestCard = ({ product }) => {
 
@@ -76,8 +76,8 @@ const [tooltip, setTooltip] = useState('Click to add')
                     <p>by {manufacturer}</p>
                     <span>₹{price}</span>
                     <p>{type}</p>
-                    <Tooltip title={tooltip}>
-                    <button onClick={handleAddToCart} disabled = {product.quantity < 1 ? "OUT OF STOCK" : "ADD TO CART"}>Add to cart</button> </Tooltip>
+                    
+                    <button onClick={handleAddToCart} disabled = {product.quantity < 1 }>Add to cart</button>
                 </div>
             </div>
         
