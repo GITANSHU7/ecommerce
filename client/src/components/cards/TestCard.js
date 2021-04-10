@@ -76,7 +76,7 @@ const [tooltip, setTooltip] = useState('Click to add')
                     <span>₹{price}</span>
                     <p>{type}</p>
                     
-                    <button onClick={handleAddToCart} disabled = {product.quantity < 1}>Add to cart</button>
+                    <button onClick={handleAddToCart} disabled = {product.quantity < 1 ? "OUT OF STOCK" : "ADD TO CART"}>Add to cart</button>
                 </div>
             </div>
         
