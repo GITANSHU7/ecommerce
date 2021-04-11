@@ -29,8 +29,8 @@ function Team() {
           <Col xs={{ span: 24 }} sm={{ span: 12 }} md={{ span: 8 }} style = {{backgroundColor: "#51E1ED"}}>
             <Card
               hoverable
-              cover={<img alt="Test" src={image3} />}
-              style={{height  : "30px"}}
+              cover={<img alt="Test" src={image1}  />}
+              
             >
               <Meta title="Clean and Elegant" />
             </Card>
