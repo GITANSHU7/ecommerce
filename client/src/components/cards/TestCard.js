@@ -78,6 +78,9 @@ const [tooltip, setTooltip] = useState('Click to add')
                     <p>{type}</p>
                     
                     <button onClick={handleAddToCart} disabled = {product.quantity < 1 }>Add to cart</button>
+                    <Link to={`/product/${slug}`}>
+                      <button>View Product</button>
+                    </Link>
                 </div>
             </div>
         

@@ -21,6 +21,7 @@ function Team() {
             <Card
               hoverable
               cover={<img alt="Modern Design" src={image2} 
+             style={{borderRadius : "50%"}}
               />}
             >
               <Meta title="Modern Design"  />
