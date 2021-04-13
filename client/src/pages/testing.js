@@ -6,6 +6,7 @@ import { Pagination } from "antd";
 import LoadingCard from "../components/cards/LoadingCard";
 import ProductCard from "../components/cards/ProductCard";
 import { getProducts, getProductsCount } from "../functions/product";
+import TestCard from "../components/cards/TestCard";
 
 
 
@@ -42,7 +43,7 @@ const Testing = () => {
           <div className="row">
             {products.map((product) => (
               <div key={product._id} className="col-md-4">
-                <ProductCard product={product} />
+                <TestCard product={product} />
               </div>
             ))}
           </div>

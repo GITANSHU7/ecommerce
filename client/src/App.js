@@ -47,8 +47,6 @@ import Payment from "./pages/Payment";
 import testing2 from "./pages/testing2";
 import testing3 from "./components/Working/testing3";
 
-
-
 const App = () => {
   const dispatch = useDispatch();
 
