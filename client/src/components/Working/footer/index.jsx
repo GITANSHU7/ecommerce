@@ -6,7 +6,6 @@ import Logo  from "../../../logo";
 import { Marginer } from "../marginer";
 
 
-
 const FooterContainer = styled.div`
   width: 100%;
   height: 500px;
