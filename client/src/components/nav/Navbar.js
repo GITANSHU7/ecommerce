@@ -59,7 +59,7 @@ function Navbar() {
           <ul className={click ? 'nav-menu active' : 'nav-menu'}>
             <li className='nav-item'>
             <span className="float-right " style= {{color:'white'}}>
-        <Search/>
+     {/*   <Search/> */}
       </span>
             </li>
   
@@ -91,7 +91,7 @@ function Navbar() {
               </Link>
   </li> 
        
-
+{/*
 
 		{!user && (
             <li className='nav-item'>
@@ -116,7 +116,7 @@ function Navbar() {
             </li> )} 
           </ul>
        {/*  {button && <Button buttonStyle='btn--outline'>Register</Button>} */}   
-      
+      </ul>
          </div>
       </nav>
     </>
