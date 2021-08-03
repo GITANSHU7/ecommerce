@@ -116,7 +116,7 @@ const Checkout = ({history}) => {
     setDiscountError("")
     }
     }
-    placeholder = "Enter Coupon"
+    placeholder = "Enter Coupon Code"
     value= {coupon}
     type= "text"
     className= "form-control" />

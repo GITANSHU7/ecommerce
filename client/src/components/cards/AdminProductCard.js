@@ -8,7 +8,7 @@ const { Meta } = Card;
 
 const AdminProductCard = ({ product , handleRemove }) => {
   // destructure
-  const { title, description, type,images , slug , transmission} = product;
+  const { title, description, type,images , slug ,transmission} = product;
 
   return (
     <Card
