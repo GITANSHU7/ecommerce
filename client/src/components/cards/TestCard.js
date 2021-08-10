@@ -61,6 +61,7 @@ const [tooltip, setTooltip] = useState('Click to add')
   return (
     <div >
 
+<Link to={`/product/${slug}`}>
             <div className="card">
   <Link to={`/product/${slug}`}>
                 <img
@@ -73,17 +74,18 @@ const [tooltip, setTooltip] = useState('Click to add')
                     <h5>
                     <Link to={`/product/${slug}`}>{title}</Link>
                     </h5>
+                    <span style={{float:"right" , fontSize : "1rem"}} >₹{price}</span>
                     <p>by {manufacturer}</p>
-                    <span>₹{price}</span>
-                    <p>{type}</p>
                     
-                    <button onClick={handleAddToCart} disabled = {product.quantity < 1 }>Add to cart</button>
-                    <Link to={`/product/${slug}`}>
+                 {/*   <p>{type}</p> */}
+                    <Tooltip title={tooltip}>
+                    <button onClick={handleAddToCart} disabled = {product.quantity < 1 }>Add to cart</button></Tooltip>
+                {/*    <Link to={`/product/${slug}`}>
                       <button>View Product</button>
-                    </Link>
+  </Link>*/}
                 </div>
             </div>
-        
+            </Link>
     
  </div>
   );

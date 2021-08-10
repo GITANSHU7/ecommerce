@@ -41,6 +41,12 @@
 }
 .card p{
     margin: 10px 0;
+    color: black;
+}
+
+.card p a{
+    text-decoration: none;
+    color: black;
 }
 .card button{
     border: none;

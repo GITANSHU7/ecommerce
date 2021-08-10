@@ -12,6 +12,11 @@ const CardContainer = styled.div`
   border: 2px solid #fff;
   background-color: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
+  
+  @media screen and (max-width: 1000px){
+    display : none ;
+  }
+  
 `;
 
 export function NewsLetter(props) {

@@ -4,7 +4,7 @@ import {
   fetchProductsByFilter,
 } from "../functions/product";
 import { useSelector, useDispatch } from "react-redux";
-import ProductCard from "../components/cards/ProductCard";
+import TestCard from "../components/cards/TestCard";
 
 import { getBrandModels, getBrands } from "../functions/brand";
 import { Menu, Slider, Checkbox , Radio} from "antd";
@@ -255,7 +255,7 @@ const showTypes = () =>
           <div className="row pb-5">
             {products.map((p) => (
               <div key = {p._id} className="col-md-4 mt-3">
-                <ProductCard product={p} />
+                <TestCard product={p} />
               </div>
             ))}
           </div>
