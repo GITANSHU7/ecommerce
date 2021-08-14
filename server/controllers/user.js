@@ -302,3 +302,11 @@ exports.create = async (req, res) => {
     console.log(err);
   }
 }; */}
+
+
+exports.getUserProfile = async (req,res) => {
+  const user = await User.findOne({email: req.user.email}) ;
+  res.status(200).json({
+    success : true , user
+  })
+}
