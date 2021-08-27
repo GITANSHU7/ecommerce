@@ -68,6 +68,18 @@ exports.getUserCart = async (req, res) => {
     res.json({ products, cartTotal, totalAfterDiscount });
   };
   
+
+exports.getcontact = async(req,res) => {
+  const user = await User.findOne({ email: req.user.email }).exec();
+  let detail = await User.findOne({user : user._id})
+  .populate("address").exec();
+
+  const {address} = detail;
+  res.json({address})
+}
+
+
+
   //empty cart
 
   exports.emptyCart = async (req, res) => {
@@ -294,15 +306,17 @@ exports.createCashOrder = async (req, res) => {
 
 // testing
 {/*
-exports.create = async (req, res) => {
-  try {
-    const { name, address, contact,pincode, locality } = req.body.user;
- res.json(await new User({ name,address, contact,pincode, locality }).save());
-  } catch (err) {
-    console.log(err);
-  }
-}; */}
+exports.personalDetails = async (req, res) => {
 
+  const {address, pincode, locality,contact} = req.body;
+ const user = await User.create({address, pincode, locality,contact});
+  
+res.json({ success : true , user});
+
+}
+*/}
+
+//get user profile
 
 exports.getUserProfile = async (req,res) => {
   const user = await User.findOne({email: req.user.email}) ;
@@ -310,3 +324,158 @@ exports.getUserProfile = async (req,res) => {
     success : true , user
   })
 }
+
+
+// update user
+
+exports.updateProfile = async(req,res) => {
+  const newUserData = {name : req.body.name 
+    , address : req.body.address, 
+    contact : req.body.contact  ,
+  pincode : req.body.pincode,
+
+  }
+
+  const user = await User.findOneAndUpdate({email: req.user.email} , newUserData , {
+    new: true,
+
+  })
+  res.json({ok : true})
+}
+
+// add shipping
+
+exports.newShip = async(req,res) => {
+ 
+  const {shipper_name,shipper_address , shipper_contact ,shipper_pincode } = req.body
+
+  const shipping = await User.create({shipper_name,shipper_address , 
+      shipper_contact ,shipper_pincode });
+
+  res.json(shipping);
+}
+
+
+
+exports.saveName = async (req,res) => {
+  const userLocality = await User.findOneAndUpdate(
+      { email : req.user.email},
+      {shipper_name : req.body.shipper_name}
+  ).exec();
+  res.json({ok:true});
+};
+
+
+
+exports.shipPincode = async (req,res) => {
+  const userPincode = await User.findOneAndUpdate(
+      { email : req.user.email},
+      {shipper_pincode : req.body.shipper_pincode}
+  ).exec();
+  res.json({ok:true});
+};
+
+exports.shipContact = async (req,res) => {
+const userContact = await User.findOneAndUpdate(
+    { email : req.user.email},
+    {shipper_contact : req.body.shipper_contact}
+).exec();
+res.json({ok:true});
+};
+
+exports.shipLocality = async (req,res) => {
+const userLocality = await User.findOneAndUpdate(
+    { email : req.user.email},
+    {shipper_locality : req.body.shipper_locality}
+).exec();
+res.json({ok:true});
+};
+
+
+
+
+
+
+
+exports.shipAddress = async (req,res) => {
+const userAddress = await User.findOneAndUpdate(
+    { email : req.user.email},
+    {shipper_address : req.body.shipper_address}
+).exec();
+res.json({ok:true});
+};
+
+
+
+//update shipping details
+
+exports.updateShipper_name = async(req,res) => {
+  const updateName = {shipper_name : req.body.shipper_name 
+    
+
+  }
+
+  const user = await User.findOneAndUpdate({email: req.user.email} , updateName , {
+    new: true,
+
+  })
+  res.json({ok : true})
+};
+
+
+exports.updateShipper_address = async(req,res) => {
+  const updateAddress = {shipper_address : req.body.shipper_address 
+    
+
+  }
+
+  const user = await User.findOneAndUpdate({email: req.user.email} , updateAddress , {
+    new: true,
+
+  })
+  res.json({ok : true})
+};
+
+
+exports.updateShipper_pincode = async(req,res) => {
+  const updatePincode = {shipper_pincode : req.body.shipper_pincode
+    
+
+  }
+
+  const user = await User.findOneAndUpdate({email: req.user.email} , updatePincode , {
+    new: true,
+
+  })
+  res.json({ok : true})
+};
+
+
+exports.updateShipper_contact = async(req,res) => {
+  const updateContact = {shipper_contact : req.body.shipper_contact
+    
+
+  }
+
+  const user = await User.findOneAndUpdate({email: req.user.email} , updateContact , {
+    new: true,
+
+  })
+  res.json({ok : true})
+};
+
+
+
+exports.updateShipper_locality = async(req,res) => {
+  const updateLocality = {shipper_locality : req.body.shipper_locality
+    
+
+  }
+
+  const user = await User.findOneAndUpdate({email: req.user.email} , updateLocality , {
+    new: true,
+
+  })
+  res.json({ok : true})
+};
+

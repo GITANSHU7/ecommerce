@@ -46,6 +46,7 @@ import CreateCouponPage from "./pages/coupon/CreateCouponPage";
 import Payment from "./pages/Payment";
 import testing2 from "./pages/testing2";
 import testing3 from "./components/Working/testing3";
+import Testing3 from "./pages/testing3";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -121,6 +122,10 @@ const App = () => {
         <Route exact path="/shop" component={Shop} />
         <Route exact path="/cart" component={Cart} />
         <Route exact path="/checkout" component={Checkout} />
+       
+        <Route exact path="/testing4" component={Testing3} />
+        
+
         <AdminRoute exact path="/admin/coupon" component={CreateCouponPage} />
         <UserRoute exact path="/payment" component={Payment} />
 

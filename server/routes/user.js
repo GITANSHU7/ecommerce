@@ -7,7 +7,9 @@ const { authCheck } = require("../middlewares/auth");
 // controllers
 const { userCart , getUserCart , emptyCart , saveAddress , savePincode, contactNo, userName, saveLocality ,
     applyCouponToUserCart , createOrder , orders , 
-    addToWishlist , removeFromWishlist , wishlist , createCashOrder, create , getUserProfile} = require("../controllers/user");
+    addToWishlist , removeFromWishlist , wishlist , 
+    createCashOrder, updateProfile, getUserProfile, newShip, saveName, shipAddress, shipContact, shipPincode, updateShipper_name, updateShipper_address, updateShipper_contact, updateShipper_pincode, getcontact, personalDetails, updateShipper_locality} = require("../controllers/user");
+const { update } = require("../models/user");
 
 router.post("/all/cart", authCheck, userCart); // save cart
 router.get("/all/cart", authCheck, getUserCart); // save cart
@@ -41,5 +43,28 @@ router.put("/user/wishlist/:productId" , authCheck , removeFromWishlist)
 // get user details
 
 router.get("/user/profile" , authCheck ,getUserProfile)
+
+
+// update user details
+
+router.put("/user/update-profile" , authCheck , updateProfile)
+
+//add shipping details
+router.post("/user/user-shipping" , authCheck , newShip)
+
+router.post("/user/shipper/name", authCheck, saveName);
+router.post("/user/shipper/pincode", authCheck, shipPincode);
+router.post("/user/shipper/address", authCheck, shipAddress);
+router.post("/user/shipper/contact", authCheck, shipContact);
+
+router.put("/user/update/name", authCheck, updateShipper_name);
+router.put("/user/update/address", authCheck, updateShipper_address);
+router.put("/user/update/contact", authCheck, updateShipper_contact);
+router.put("/user/update/pincode", authCheck, updateShipper_pincode);
+router.put("/user/update/locality", authCheck, updateShipper_locality);
+
+router.get("/user/get-contact" , authCheck,getcontact);
+
+
 
 module.exports = router;

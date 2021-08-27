@@ -74,7 +74,7 @@ const Header = () => {
       {user && (
         <SubMenu
           icon={<UserOutlined style = {{fontSize : '1.7rem' , color: 'white'}} /> }
-          title={user.email && user.email}
+          title={user.name && user.name}
           className="float-right text-white"
           
         >

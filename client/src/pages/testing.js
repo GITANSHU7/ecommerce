@@ -16,6 +16,8 @@ const Testing = () => {
   const [loading, setLoading] = useState(false);
   const [productsCount, setProductsCount] = useState(0);
   const [page, setPage] = useState(1);
+  const [visible , setVisible] = useState(6)
+
 
   useEffect(() => {
     loadAllProducts();
@@ -34,18 +36,26 @@ const Testing = () => {
     });
   };
 
+  //show more button
+  const showMoreItems= () => {
+    setVisible((prevValue) => prevValue * 6)
+  };
+
+
+
   return (
     <>
       <div className="container">
         {loading ? (
-          <LoadingCard count={6} />
+          <LoadingCard count={12} />
         ) : (
           <div className="row">
-            {products.map((product) => (
+            {products.slice(0, visible).map((product) => (
               <div key={product._id} className="col-md-4">
                 <TestCard product={product} />
               </div>
             ))}
+            <button onClick= {showMoreItems}>Load more</button>
           </div>
         )}
       </div>
@@ -54,7 +64,7 @@ const Testing = () => {
         <nav className="col-md-4 offset-md-4 text-center pt-5 p-3">
           <Pagination
             current={page}
-            total={(productsCount / 6) * 10}
+            total={(productsCount / 4) * 10}
             onChange={(value) => setPage(value)}
           />
         </nav>

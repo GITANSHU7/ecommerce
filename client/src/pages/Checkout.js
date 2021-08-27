@@ -3,7 +3,11 @@ import { useSelector, useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import { getUserCart, emptyUserCart ,  applyCoupon , createCashOrderForUser} from "../functions/user";
 import { saveUserAddress , saveUserPincode   , 
-  saveUserLocality , saveUserContact, saveUserName } from "../functions/user"
+  saveUserLocality , saveUserContact, saveUserName ,updateShipperPincode,
+  updateShipperContact,updateShipperLocality,updateShipperName ,updateShipperAddress
+
+
+} from "../functions/user"
 import axios from "axios";
 import Logo from "../logo";
 
@@ -23,6 +27,13 @@ const Checkout = ({history}) => {
   const [localitySaved , setLocalitySaved] = useState("");
   const [name , setName] = useState("Gitanshu");
   const [nameSaved , setNameSaved] = useState("");
+  const [shipper_pincode ,setShipper_pincode] = useState("");
+  const [shipper_name , setShipper_name] = useState("");
+  const [shipper_locality,setShipper_locality] = useState("");
+  const [shipper_address , setShipper_address] = useState("");
+  const [shipper_contact , setShipper_contact] = useState("")
+
+
 
   const dispatch = useDispatch();
   const { user  , COD } = useSelector((state) => ({ ...state }));
@@ -59,50 +70,50 @@ const Checkout = ({history}) => {
     });
   };
 
-  const saveAddressToDb = () => {
-     console.log(address);
-    saveUserAddress(user.token, address).then((res) => {
+  const saveShipperAddressToDb = () => {
+     console.log(shipper_address);
+    updateShipperAddress(user.token, shipper_address).then((res) => {
       if (res.data.ok) {
-        setAddressSaved(true);
+        updateShipperAddress(true);
         
       }
     });
   };
    
-  const savePincodeToDb = () => {
-    console.log(pincode);
-    saveUserPincode(user.token, pincode).then((res) => {
+  const saveShipperPincodeToDb = () => {
+    console.log(shipper_pincode);
+    updateShipperPincode (user.token, shipper_pincode).then((res) => {
       if (res.data.ok) {
-        setPincodeSaved(true);
+        setShipper_pincode(true);
         
       }
     });
   };
-  const saveContactToDb = () => {
-     console.log(contact);
-    saveUserContact(user.token, contact).then((res) => {
+  const saveShipperContactToDb = () => {
+     console.log(shipper_contact);
+    updateShipperContact(user.token, shipper_contact).then((res) => {
       if (res.data.ok) {
-        setContactSaved(true);
+        setShipper_contact(true);
        
       }
     });
   };
   
-  const saveNameToDb = () => {
-     console.log(name);
-    saveUserName(user.token, name).then((res) => {
+  const saveShipperNameToDb = () => {
+     console.log(shipper_name);
+    updateShipperName(user.token, shipper_name).then((res) => {
       if (res.data.ok) {
-        setNameSaved(true);
+        setShipper_name(true);
 
       }
     });
   };
 
-  const saveLocalityToDb = () => {
-     console.log(locality);
-    saveUserLocality(user.token, locality).then((res) => {
+  const saveShipperLocalityToDb = () => {
+     console.log(shipper_locality);
+    updateShipperLocality(user.token, shipper_locality).then((res) => {
       if (res.data.ok) {
-        setLocalitySaved(true);
+        setShipper_locality(true);
         toast.success("Address saved");
       }
     });
@@ -131,14 +142,14 @@ const Checkout = ({history}) => {
       <br />
      
 
-<form onSubmit={setName}>
+<form onSubmit={setShipper_name}>
         <div className="form-group">
           <label className="text-muted">Name</label>
           <input
             type="text"
             className="form-control"
-            onChange={(e) => setName(e.target.value)}
-            value={name}
+            onChange={(e) => setShipper_name(e.target.value)}
+            value={shipper_name}
             autoFocus
             required
           />
@@ -146,55 +157,55 @@ const Checkout = ({history}) => {
         </form>
 <br />
 
-<form onSubmit={setAddress}>
+<form onSubmit={setShipper_address}>
         <div className="form-group">
           <label className="text-muted">Addrress</label>
           <input
             type="text"
             className="form-control"
-            onChange={(e) => setAddress(e.target.value)}
-            value={address}
+            onChange={(e) => setShipper_address(e.target.value)}
+            value={shipper_address}
             autoFocus
             required
           />
         </div>
         </form>
 <br />
-<form onSubmit={setPincode}>
+<form onSubmit={setShipper_pincode}>
         <div className="form-group">
           <label className="text-muted">Pincode</label>
           <input
             type="text"
             className="form-control"
-            onChange={(e) => setPincode(e.target.value)}
-            value={pincode}
+            onChange={(e) => setShipper_pincode(e.target.value)}
+            value={shipper_pincode}
             autoFocus
             required
           />
         </div>
         </form>
         <br />
-<form onSubmit={setLocality}>
+<form onSubmit={setShipper_locality}>
         <div className="form-group">
           <label className="text-muted">Locality</label>
           <input
             type="text"
             className="form-control"
-            onChange={(e) => setLocality(e.target.value)}
-            value={locality}
+            onChange={(e) => setShipper_locality(e.target.value)}
+            value={shipper_locality}
             autoFocus
             required
           />
         </div>
         </form>
-        <form onSubmit={setContact}>
+        <form onSubmit={setShipper_contact}>
         <div className="form-group">
           <label className="text-muted">Contact No.</label>
           <input
             type="text"
             className="form-control"
-            onChange={(e) => setContact(e.target.value)}
-            value={contact}
+            onChange={(e) => setShipper_contact(e.target.value)}
+            value={shipper_contact}
             maxLength="10"
             autoFocus
             required
@@ -203,7 +214,7 @@ const Checkout = ({history}) => {
         </form>
         
         <button className="btn btn-primary mt-2" onClick={() => {
-     saveAddressToDb(); saveContactToDb() ;    savePincodeToDb(); saveAddressToDb(); saveLocalityToDb(); saveNameToDb();
+     saveShipperAddressToDb(); saveShipperContactToDb() ;    saveShipperPincodeToDb(); saveShipperNameToDb(); saveShipperLocalityToDb(); 
         }} 
         disabled = {!address.length || !pincode.length ||!name.length ||!locality.length ||!contact.length} 
         >

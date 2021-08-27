@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 
 
 const ShowPaymentInfo = ({ order }) => {
+  let dispatch = useDispatch();
+  let { user  } = useSelector((state) => ({ ...state }));
 
 
 return (
@@ -10,10 +12,12 @@ return (
   <div>
   
     <p>
+    <span>Email : {user.email}</span>
      {/* <span>Name : {user.name}</span> {"/"}
       <span>Email : {user.email}</span> {"/"} */}
-      
-
+       {" / "}
+       
+       {" / "}
       <span>Order Id: {order.paymentIntent.id}</span>
       {" / "}
       <span>

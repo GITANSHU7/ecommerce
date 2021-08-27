@@ -59,7 +59,7 @@ function Navbar() {
           <ul className={click ? 'nav-menu active' : 'nav-menu'}>
             <li className='nav-item'>
             <span className="float-right " style= {{color:'white'}}>
-     {/*   <Search/> */}
+     <Search/> 
       </span>
             </li>
   

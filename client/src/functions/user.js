@@ -7,6 +7,14 @@ export const userCart = async (cart, authtoken) => await axios.post(`${process.e
     }
   );
 
+//get user details
+export const  getUserDeatils = async(authtoken) =>
+await axios.get(`${process.env.REACT_APP_API}/user/profile`, {
+  headers: {
+    authtoken,
+  },
+})
+
 
 export const getUserCart = async (authtoken) =>
 await axios.get(`${process.env.REACT_APP_API}/all/cart`, {
@@ -40,6 +48,10 @@ export const saveUserPincode = async (authtoken, pincode) => await axios.post(`$
   },
 }
 );
+
+
+
+
 
 
 export const saveUserContact = async (authtoken, contact) => await axios.post(`${process.env.REACT_APP_API}/user/contact`,{ contact }, {
@@ -152,3 +164,58 @@ await axios.post(
     },
   }
 );
+
+
+
+//add shipping
+
+export const addShipping = async (authtoken) => 
+await axios.post(`${process.env.REACT_APP_API}/add-shipping`,
+{
+  headers: {
+    authtoken,
+  },
+}
+);
+
+
+//update
+export const updateShipperPincode = async (authtoken, shipper_pincode) => await axios.put(`${process.env.REACT_APP_API}/user/update/pincode`,{ shipper_pincode }, {
+  headers: {
+    authtoken,
+  },
+}
+);
+
+export const updateShipperName = async (authtoken, shipper_name) => await axios.put(`${process.env.REACT_APP_API}/user/update/name`,{ shipper_name }, {
+  headers: {
+    authtoken,
+  },
+}
+);
+
+
+export const updateShipperContact = async (authtoken, shipper_contact) => await axios.put(`${process.env.REACT_APP_API}/user/update/contact`,{ shipper_contact }, {
+  headers: {
+    authtoken,
+  },
+}
+);
+
+
+export const updateShipperLocality = async (authtoken, shipper_locality) => await axios.put(`${process.env.REACT_APP_API}/user/update/locality`,{ shipper_locality }, {
+  headers: {
+    authtoken,
+  },
+}
+);
+
+
+
+export const updateShipperAddress = async (authtoken, shipper_address) => await axios.put(`${process.env.REACT_APP_API}/user/update/address`,{ shipper_address }, {
+  headers: {
+    authtoken,
+  },
+}
+);
+
