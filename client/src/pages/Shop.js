@@ -7,7 +7,7 @@ import { useSelector, useDispatch } from "react-redux";
 import TestCard from "../components/cards/TestCard";
 
 import { getBrandModels, getBrands } from "../functions/brand";
-import { Menu, Slider, Checkbox , Radio} from "antd";
+import { Menu, Slider, Checkbox , Radio , Dropdown} from "antd";
 import { DollarOutlined, DownSquareOutlined } from "@ant-design/icons";
 import { Select } from "antd";
 import { getModels } from "../functions/model"
@@ -164,6 +164,25 @@ const showTypes = () =>
       </Checkbox>
     ));
 
+
+// filter 
+const filterTypes = () =>
+<div className="row">
+               
+                <select name="category"  onChange={handleType} >
+                    <option value=''>All Products</option>
+                    {
+                        types.map(t => (
+                            <option value={t} key={t}>
+                                {t}
+                            </option>
+                        ))
+                    }
+                </select>
+            </div>
+
+
+
     const handleType = (e) => {
     
       dispatch({
@@ -184,7 +203,7 @@ const showTypes = () =>
           <h4>Search/Filter</h4>
           <hr />
 
-          <Menu defaultOpenKeys = {[ "1" , "2" , "3" , "4"]} mode="inline">
+          <Menu defaultOpenKeys = {[ "1" , "2" , "3" , "4" , "5"]} mode="inline">
             <SubMenu
               Key = "1"
               title={
@@ -240,6 +259,18 @@ const showTypes = () =>
               </div>
             </SubMenu>
 
+            <SubMenu
+             Key = "5"
+              title={
+                <span className="h6">
+                  <DownSquareOutlined /> Product Type
+                </span>
+              }
+            >
+              <div style={{ maringTop: "-10px" }} className="pr-5">
+                {filterTypes()}
+              </div>
+            </SubMenu>
           </Menu>
         </div>
 

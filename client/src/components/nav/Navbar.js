@@ -47,79 +47,8 @@ function Navbar() {
 
   return (
     <>
-      <nav className='navbar'>
-        <div className='navbar-container'>
-          <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
-         <img src = {logo} style={{ display: "block" ,  marginRight: "auto"  , marginLeft:"auto"}} /> 
-            
-          </Link>
-          <div className='menu-icon' onClick={handleClick}>
-            <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
-          </div>
-          <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-            <li className='nav-item'>
-            <span className="float-right " style= {{color:'white'}}>
-     <Search/> 
-      </span>
-            </li>
-  
-            <li className='nav-item'>
-              <Link
-                to='/shop'
-                className='nav-links'
-                onClick={closeMobileMenu}
-              >
-                Shop
-              </Link>
-            </li>
-			 <li className='nav-item'>
-              <Link
-                to='/contact'
-                className='nav-links'
-                onClick={closeMobileMenu}
-              >
-                contact us
-              </Link>
-  </li> 
-  <li className='nav-item'>
-              <Link
-                to='/testing'
-                className='nav-links'
-                onClick={closeMobileMenu}
-              >
-                Testing
-              </Link>
-  </li> 
-       
-{/*
-
-		{!user && (
-            <li className='nav-item'>
-              <Link
-                to='/register'
-                className='nav-links'
-                onClick={closeMobileMenu}
-              >
-                <button className= "btn btn-success">Register</button>
-              </Link>
-            </li> )}
-			
-			{!user && (
-            <li>
-              <Link
-                to='/login'
-                className='nav-links'
-                onClick={closeMobileMenu}
-              >
-                <button className = "btn btn-danger">Login</button>
-              </Link>
-            </li> )} 
-          </ul>
-       {/*  {button && <Button buttonStyle='btn--outline'>Register</Button>} */}   
-      </ul>
-         </div>
-      </nav>
-    </>
+     kzffsflfdhd
+     </>
   );
 }
 

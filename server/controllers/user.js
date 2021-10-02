@@ -239,6 +239,7 @@ exports.wishlist = async (req, res) => {
   res.json(list);
 };
 
+
 exports.removeFromWishlist = async (req, res) => {
   const { productId } = req.params;
   const user = await User.findOneAndUpdate(

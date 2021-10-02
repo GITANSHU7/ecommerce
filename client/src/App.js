@@ -32,7 +32,7 @@ import ProductCreate from "./pages/admin/product/ProductCreate";
 import AllProducts from "./pages/admin/product/AllProducts";
 import ProductUpdate from "./pages/admin/product/ProductUpdate";
 import logo from "./components/logo.png";
-import Navbar from "./components/nav/Navbar";
+
 import "./App.css"
 import { Footer } from "./components/Working/footer";
 import Product from "./pages/Product";
@@ -47,6 +47,10 @@ import Payment from "./pages/Payment";
 import testing2 from "./pages/testing2";
 import testing3 from "./components/Working/testing3";
 import Testing3 from "./pages/testing3";
+import Testing5 from "./pages/testing5";
+
+import Navbar from  "./components/navbar/Navbar";
+
 
 const App = () => {
   const dispatch = useDispatch();
@@ -80,10 +84,7 @@ const App = () => {
 
   return (
     <>
-    {/*<Header /> 
-    <Link to = "/"><img src = {logo} style={{display: "block" ,marginRight: "auto"}} /></Link> */}
-    <Header />
-    <SideDrawer />
+<Header />
     <Navbar />
     
     <ToastContainer />
@@ -124,6 +125,7 @@ const App = () => {
         <Route exact path="/checkout" component={Checkout} />
        
         <Route exact path="/testing4" component={Testing3} />
+        <Route exact path="/testing5" component={Testing5} />
         
 
         <AdminRoute exact path="/admin/coupon" component={CreateCouponPage} />

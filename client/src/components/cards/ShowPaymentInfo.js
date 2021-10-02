@@ -12,17 +12,15 @@ return (
   <div>
   
     <p>
-    <span>Email : {user.email}</span>
-     {/* <span>Name : {user.name}</span> {"/"}
-      <span>Email : {user.email}</span> {"/"} */}
-       {" / "}
-       
-       {" / "}
+    {/* <span>Email : {user.role}</span> */}
+      <span>Name : {user.name}</span> {"/"}
+      <span>Email : {user.email}</span> {"/"} 
+      
       <span>Order Id: {order.paymentIntent.id}</span>
       {" / "}
       <span>
         Amount:{" / "}
-        {(order.paymentIntent.amount /= 100).toLocaleString("en-US", {
+        {(order.paymentIntent.amount / 100).toLocaleString("en-US", {
           style: "currency",
           currency: "INR",
         })}

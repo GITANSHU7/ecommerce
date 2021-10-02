@@ -1,8 +1,8 @@
 import React from "react";
 import ModalImage from "react-modal-image";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { GiCrossMark } from 'react-icons/gi';
+import logo from "../../components/logo.png"
 
 import { useSelector, useDispatch } from "react-redux";
 
@@ -66,8 +66,11 @@ const ProductCardInCheckout = ({ p }) => {
       <tr>
           <td>
               <div style = {{width:"100px" , height:"100px"}} >
-              {p.images.length ? (<ModalImage small = {p.images[0].url} large = {p.images[0].url} />) : "" }
-         </div>
+              {p.images.length ? (
+              <ModalImage small={p.images[0].url} large={p.images[0].url} />
+            ) : (
+              <ModalImage small={logo} large={logo} />
+            )}</div>
           </td>
 
         

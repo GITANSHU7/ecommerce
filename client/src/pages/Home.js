@@ -11,6 +11,7 @@ import BrandList from "../components/brand/BrandList";
 import ModelList from "../components/model/ModelList";
 import styled from "styled-components";
 import { NewsLetter } from "../components/subscribe";
+import Banner from "../components/HomeCard/Banner";
 
 const AppContainer = styled.div`
   width: 100%;
@@ -33,6 +34,8 @@ const AppContainer = styled.div`
     return (
         <>
             <HeroSection />
+
+            {/* <Banner /> */}
             <Cards />
             
     <ServicesSection />

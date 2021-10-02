@@ -10,8 +10,8 @@ import './HeroSection.css';
 function HeroSection() {
   return (
     <div className='hero-container'>
-      <video src='/videos/speed.mp4' autoPlay loop muted />
-     
+      {/* <video src='/videos/speed.mp4' autoPlay loop muted />
+      */}
      <h1 >PROVIDING THE BEST TO YOU</h1>
      {/* <p>CHOOSE FROM</p>
      */}

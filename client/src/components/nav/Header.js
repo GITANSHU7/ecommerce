@@ -50,14 +50,14 @@ const Header = () => {
       </Item>
       
   */}
- <Item key="Cart" icon={<ShoppingCartOutlined style = {{fontSize : '1rem' ,color:'white'}} />}>
+ {/* <Item key="Cart" icon={<ShoppingCartOutlined style = {{fontSize : '1rem' ,color:'white'}} />}>
         <Link to="/cart"> <Badge count = {cart.length} offset={[9,0]}><strong className="text-white">
           
           Cart
           
         </strong></Badge> </Link>
       </Item>
-  
+   */}
 
       {!user && (
         <Item key="register" icon={<UserAddOutlined style={{fontSize : '1.7rem' ,color:'white'}} />} className="float-left text-white">
