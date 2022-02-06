@@ -1,17 +1,16 @@
-import React, { useState, useEffect } from "react";
-import { auth , googleAuthProvider} from  "../../firebase";
-import { toast } from "react-toastify";
-import { useDispatch,useSelector } from "react-redux";
+import { GoogleOutlined } from "@ant-design/icons";
 import { Button } from "antd";
-import { MailOutlined, GoogleOutlined } from "@ant-design/icons";
-import { GoMail } from "react-icons/go";
-
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-toastify";
+import { auth, googleAuthProvider } from "../../firebase";
 import { createOrUpdateUser } from "../../functions/auth";
 
 
 
+
 const Register = ({history}) => {
-  const [email, setEmail] = useState("mayank95866@gmail.com");
+  const [email, setEmail] = useState("");
  
 
   const {user} =useSelector((state) => ({...state}))
@@ -73,7 +72,7 @@ const Register = ({history}) => {
 
  
   const registerForm = () => (
-    <form onSubmit={handleSubmit}>
+    <form >
       <input
         type="email"
         className="form-control"
@@ -82,9 +81,7 @@ const Register = ({history}) => {
         onChange={(e) => setEmail(e.target.value)}
         autoFocus
       />
-
-        
-      <button type="submit" className="btn btn-raised" >
+        <button type="submit" className="btn-primary btn-lg btn-block mt-2 rounded"  color="primary">
         Register
       </button>
     </form>

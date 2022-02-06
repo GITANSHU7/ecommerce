@@ -76,7 +76,7 @@ const App = () => {
 
   return (
     <>
-<Header />
+{/* <Header /> */}
     <Navbar />
     
     <ToastContainer />

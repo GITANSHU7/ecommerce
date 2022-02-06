@@ -200,7 +200,7 @@ const filterTypes = () =>
     <div className="container-fluid">
       <div className="row">
         <div className="col-md-3 pt-2">
-          <h4>Search/Filter</h4>
+          <h4>Filter</h4>
           <hr />
 
           <Menu defaultOpenKeys = {[ "1" , "2" , "3" , "4" , "5"]} mode="inline">
@@ -259,7 +259,7 @@ const filterTypes = () =>
               </div>
             </SubMenu>
 
-            <SubMenu
+            {/* <SubMenu
              Key = "5"
               title={
                 <span className="h6">
@@ -270,7 +270,7 @@ const filterTypes = () =>
               <div style={{ maringTop: "-10px" }} className="pr-5">
                 {filterTypes()}
               </div>
-            </SubMenu>
+            </SubMenu> */}
           </Menu>
         </div>
 

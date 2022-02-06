@@ -40,7 +40,7 @@ function AppFaq() {
         <div className="quickSupport">
           <h3>Want quick support?</h3>
           {/* <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur velit necessitatibus praesentium aliquid eos in neque recusandae, incidunt esse dolore voluptatum nesciunt quod soluta consequuntur voluptatibus ab excepturi nobis! Porro!</p> */}
-          <Button type="primary" size="large"><i className="fas fa-envelope"></i> Email your question on  <strong> hypekar@gmail.com</strong></Button>
+          <Button type="primary" size="large"><i className="fas fa-envelope"></i> Email your question on  <strong> info@hypekar.com</strong></Button>
         <br />
         </div>
       </div>

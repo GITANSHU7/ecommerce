@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router";
 import { toast } from "react-toastify";
 import LoadingCard from "../../components/cards/LoadingCard";
 import { auth, googleAuthProvider } from "../../firebase";
@@ -10,8 +9,8 @@ import "./testin2.css";
 
 
 const Login = ({ history }) => {
-  const [email, setEmail] = useState("mayank95866@gmail.com");
-  const [password, setPassword] = useState("123456");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const [loading, setLoading] = useState(false);
 

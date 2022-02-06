@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import ProductCardInCheckout from "../components/cards/ProductCardInCheckout";
 import { userCart } from "../functions/user";
+import { Button, Radio, Tooltip } from 'antd';
 
 const Cart = ({ history }) => {
   const { cart, user } = useSelector((state) => ({ ...state }));
@@ -61,7 +62,7 @@ const Cart = ({ history }) => {
     <div className="container-fluid pt-2">
       <div className="row">
         <div className="col-md-8">
-          <h4>Cart / {cart.length} Product</h4>
+          <h4>{cart.length} item on your cart</h4>
 
           {!cart.length ? (
             <p>
@@ -89,24 +90,33 @@ const Cart = ({ history }) => {
           <hr />
           {user ? (
            <>
-               <button
-              onClick={saveOrderToDb}
-              className="btn btn-sm btn-primary mt-2"
-              disabled={!cart.length}
+           <Tooltip title=" Sorry, Currently we're not accepting order">
+               <Button
+              // onClick={saveOrderToDb}
+              type = "primary"
+              className="mt-2"
+              // disabled={!cart.length}
+             
+              // disabled
             >
               Proceed to Checkout
-            </button>
+             
+            </Button> </Tooltip>
             <br />
-            <button
-              onClick={saveCashOrderToDb}
-              className="btn btn-sm btn-primary mt-2"
-              disabled={!cart.length}
+            <Tooltip title=" Sorry, Currently we're not accepting order">
+            <Button
+            type = "info"
+              // onClick={saveCashOrderToDb}
+              className="mt-2"
+              // disabled={!cart.length}
+              
             >
               CASH ON DELIVERY
-            </button>
+            </Button>
+            </Tooltip>
            </>
           ) : (
-            <button className="btn btn-sm btn-primary mt-2">
+            <Button className="mt-2" type="primary">
               <Link
                 to={{
                   pathname: "/login",
@@ -115,7 +125,7 @@ const Cart = ({ history }) => {
               >
                 Login to Checkout
               </Link>
-            </button>
+            </Button>
           )}
         </div>
       </div>

@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
-import { getUserCart, emptyUserCart ,  applyCoupon , createCashOrderForUser} from "../functions/user";
-import {updateShipperPincode, updateShipperContact,updateShipperLocality,updateShipperName ,updateShipperAddress
-} from "../functions/user"
+import { applyCoupon, createCashOrderForUser, emptyUserCart, getUserCart, updateShipperAddress, updateShipperContact, updateShipperLocality, updateShipperName, updateShipperPincode } from "../functions/user";
+import { Button, Radio, Tooltip } from 'antd';
 
 const Checkout = ({history}) => {
   const [products, setProducts] = useState([]);
@@ -332,16 +331,18 @@ const getCart = () => {
         <div className="row">
           <div className="col-md-6">
            {COD ? (
-              <button className="btn btn-primary"   
+            
+              <Button className="btn btn-primary"   
               //disabled = {!address.length || !pincode.length || !products.length ||!name.length ||!locality.length ||!contact.length} 
-              onClick = {createCashOrder}
+              // onClick = {createCashOrder}
               >
-                Place Order</button>
-           ) :  <button className="btn btn-primary"   
+                <Tooltip title=" Sorry, Currently we're not accepting order"> Place Order </Tooltip></Button> 
+                
+           ) :  <Button className="btn btn-primary"   
             // disabled = {!address.length || !pincode.length || !products.length ||!name.length ||!locality.length ||!contact.length} 
             onClick = {() => history.push("/payment")}
             >
-              Place Order</button>}
+              Place Order</Button>}
           </div>
           
           <div className="col-md-6">

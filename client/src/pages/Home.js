@@ -1,17 +1,12 @@
 import React from "react";
+import styled from "styled-components";
+import '../App.css';
 import HeroSection from '../components/hero/HeroSection';
-import '../App.css'
 import Cards from '../components/HomeCard/Cards';
-import Jumbotron from '../components/cards/Jumbotron';
 import { ServicesSection } from "../components/HomeCard/serviceSection";
-import { ReviewsSection } from "../components/HomeCard/reviewSection";
+import { NewsLetter } from "../components/subscribe";
 import { Footer } from "../components/Working/footer";
 import AppFaq from "./faq";
-import BrandList from "../components/brand/BrandList";
-import ModelList from "../components/model/ModelList";
-import styled from "styled-components";
-import { NewsLetter } from "../components/subscribe";
-import Banner from "../components/HomeCard/Banner";
 
 
 const AppContainer = styled.div`
