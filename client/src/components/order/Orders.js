@@ -1,5 +1,5 @@
 import React from "react";
-import { CheckCircleOutlined, CloseCircleOutlined } from "@ant-design/icons";
+import { CheckCircleOutlined } from "@ant-design/icons";
 import ShowPaymentInfo from "../cards/ShowPaymentInfo";
 import ModalImage from "react-modal-image";
 import { FcProcess } from 'react-icons/fc';
@@ -73,7 +73,7 @@ const Orders = ({ orders, handleStatusChange }) => {
                   ) : (
                    ""
                   )}
-                   {order.orderStatus === "Dispatched" ? (
+                    {order.orderStatus === "Dispatched" ? (
                      <i className="fas fa-shipping-fast" style={{ color: "green" ,  fontSize : "2rem"}}></i>
                    
                   ) : (

@@ -1,14 +1,11 @@
-import React from 'react'
+import React from 'react';
 import Jumbotron from "../components/cards/Jumbotron";
 import { MoreAboutSection } from '../components/HomeCard/moreAboutSection';
 import { Footer } from '../components/Working/footer';
-import Team from './team';
-
 
 
 function About() {
     
-
     return (
         <>
           <div className = "jumbotron text-danger h1 font-weight-bold text-center">
@@ -16,7 +13,7 @@ function About() {
       
               </div>  
               <MoreAboutSection />
-              <Team />
+             
               <Footer />
         </>
     )
@@ -98,5 +95,5 @@ function AppAbout() {
   );
 }
 
-export default AppAbout; */}
+export default AppAbout;*/}
  

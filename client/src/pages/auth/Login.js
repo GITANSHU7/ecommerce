@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { auth, googleAuthProvider } from "../../firebase";
-import { toast } from "react-toastify";
-import { Button } from "antd";
-import { MailOutlined, GoogleOutlined } from "@ant-design/icons";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router";
+import { toast } from "react-toastify";
+import LoadingCard from "../../components/cards/LoadingCard";
+import { auth, googleAuthProvider } from "../../firebase";
 import { createOrUpdateUser } from "../../functions/auth";
 import "./testin2.css";
 
@@ -17,7 +16,6 @@ const Login = ({ history }) => {
   const [loading, setLoading] = useState(false);
 
   const { user } = useSelector((state) => ({ ...state }));
-
   useEffect(() => {
     if (user && user.token) history.push("/");
   }, [user]);
@@ -94,7 +92,8 @@ const Login = ({ history }) => {
       });
   };
 
-  const loginForm = () => (
+  const loginForm = () => {
+    return (
     <div className="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
     <div className="card card0 border-0">
         <div className="row d-flex">
@@ -111,12 +110,7 @@ const Login = ({ history }) => {
                         <div className="facebook text-center mr-3">
                         <i className="fab fa-google"  onClick={googleLogin}></i>
                         </div>
-                        <div className="twitter text-center mr-3">
-                            <div className="fa fa-twitter"></div>
-                        </div>
-                        <div className="linkedin text-center mr-3">
-                            <div className="fa fa-linkedin"></div>
-                        </div>
+                        
                     </div>
                     <div className="row px-3 mb-4">
                         <div className="line"></div> <small className="or text-center">Or</small>
@@ -133,7 +127,7 @@ const Login = ({ history }) => {
           onChange={(e) => setPassword(e.target.value)}
          /> </div>
                     <div className="row px-3 mb-4">
-                        <div className="custom-control custom-checkbox custom-control-inline"> <input id="chk1" type="checkbox" name="chk" className="custom-control-input" /> <label for="chk1" className="custom-control-label text-sm">Remember me</label> </div> <a href="/forgot/password" className="ml-auto mb-0 text-sm text-danger">Forgot Password?</a>
+                        <div className="custom-control custom-checkbox custom-control-inline">  </div> <a href="/forgot/password" className="ml-auto mb-0 text-sm text-danger">Forgot Password?</a>
                     </div>
                     <div className="row mb-3 px-3"> <button type="submit" className="btn btn-blue text-center"  onClick={handleSubmit} disabled={!email || password.length < 6}>Login</button> </div>
                     <div className="row mb-4 px-3"> <small className="font-weight-bold">Don't have an account? <a href= "/register" className="text-danger ">Register</a></small> </div>
@@ -146,32 +140,17 @@ const Login = ({ history }) => {
             </div>
         </div>
     </div>
-</div>);
+</div>
+    )};
 
   return (
     <div>
-          {loading ? (
-            <h4 className="text-danger">Loading...</h4>
-          ) : (
-            <h4>Login</h4>
-          )}
-          {loginForm()}
-{/*
-          <Button
-            onClick={googleLogin}
-            type="danger"
-            className="mb-3"
-            block
-            shape="round"
-            icon={<GoogleOutlined />}
-            size="large"
-          >
-            Login with Google
-          </Button>
-
-          <Link to="/forgot/password" className="float-right text-danger">
-           <strong> Forgot Password ??</strong>
-</Link> */}
+      {loading ? (
+        <LoadingCard count = {6} /> 
+      ) : (
+        loginForm()
+      )}
+        
         </div>
   );
 };

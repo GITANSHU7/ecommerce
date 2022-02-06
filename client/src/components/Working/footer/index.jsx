@@ -1,5 +1,5 @@
-
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Logo  from "../../../logo";
 
@@ -67,24 +67,24 @@ const SocialIcon = styled.div`
   }
 `;
 
-const Link = styled.a`
-  color: #fff;
-  transition: all 200ms ease-in-out;
-  cursor: pointer;
-  font-size: 14px;
-  &:not(:last-of-type) {
-    margin-right: 11px;
-    @media screen and (max-width: 480px) {
-      margin-right: 9px;
-    }
-  }
-  @media screen and (max-width: 480px) {
-    font-size: 12px;
-  }
-  &:hover {
-    color: #adadad;
-  }
-`;
+// const Links = styled.Link`
+//   color: #fff;
+//   transition: all 200ms ease-in-out;
+//   cursor: pointer;
+//   font-size: 14px;
+//   &:not(:last-of-type) {
+//     margin-right: 11px;
+//     @media screen and (max-width: 480px) {
+//       margin-right: 9px;
+//     }
+//   }
+//   @media screen and (max-width: 480px) {
+//     font-size: 12px;
+//   }
+//   &:hover {
+//     color: #adadad;
+//   }
+// `;
 
 const RightsReserved = styled.div`
   position: absolute;
@@ -99,7 +99,7 @@ export function Footer(props) {
   return (
     <FooterContainer>
       <Marginer direction="vertical" margin="5em" />
-      <Link to = "/conatct"><Logo  /></Link>
+      <Link to = "/conatct" ><Logo  /></Link>
       <Marginer direction="vertical" margin="1em" />
       <MotivationalText>One stop for</MotivationalText>
       <MotivationalText>All Your Need</MotivationalText>
@@ -107,9 +107,9 @@ export function Footer(props) {
       <Marginer direction="vertical" margin="5em" />
       <AccessibilityContainer>
         <PrivacyContainer>
-          <Link>Privacy Policy</Link>
-          <Link>Terms of Service</Link>
-          <Link to = "/contact">Contact</Link>
+          
+          <Link to = "/terms-condition" style={{color : "#fff", transition: "all 200ms ease-in-out", marginLeft: "5px"}}>Terms of Service</Link>
+          <Link to = "/contact" style={{color : "#fff", transition: "all 200ms ease-in-out", marginLeft: "10px"}}>Contact</Link>
         </PrivacyContainer>
         <SocialContainer>
           <SocialIcon>

@@ -393,11 +393,6 @@ res.json({ok:true});
 };
 
 
-
-
-
-
-
 exports.shipAddress = async (req,res) => {
 const userAddress = await User.findOneAndUpdate(
     { email : req.user.email},
@@ -454,11 +449,8 @@ exports.updateShipper_pincode = async(req,res) => {
 
 exports.updateShipper_contact = async(req,res) => {
   const updateContact = {shipper_contact : req.body.shipper_contact
-    
-
-  }
-
-  const user = await User.findOneAndUpdate({email: req.user.email} , updateContact , {
+    }
+const user = await User.findOneAndUpdate({email: req.user.email} , updateContact , {
     new: true,
 
   })

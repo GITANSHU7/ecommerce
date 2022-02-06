@@ -13,31 +13,33 @@ function AppFaq() {
           <p>some of the basic questions ask by user</p>
         </div>
         <Collapse defaultActiveKey={['1']}>
-          <Panel header="How to setup the theme?" key="1">
-            <p>Ut per tempor latine fuisset, cu quod posidonium vix. Mei cu erant bonorum, te ius vide maiorum hendrerit. In alii instructior vix, vis et elit maluisset, usu recusabo atomorum ut. Nibh diceret dolores vix et, id omnis adhuc maiestatis vim, ei mel legendos mnesarchum argumentum. Semper nusquam urbanitas sea te.</p>
+        <Panel header="How long does it take to ship my order?" key="1">
+            <p>Orders are usually shipped within 1-2 business days after placing the order.</p>
           </Panel>
-          <Panel header="Can I change plan or cancel at any time?" key="2">
-            <p>Postea ceteros corrumpit ius te, eos epicuri intellegebat consequuntur et. Sint quot suscipiantur ea nam. Nam pericula evertitur ut, per et quod nostro, autem augue id has. Virtute epicurei quo te, pri et novum essent senserit.</p>
+          <Panel header="When will my order arrive?" key="2">
+            <p> Shipping time is set by our delivery partners, according to the delivery method chosen by you. Additional details can be found in the order confirmation email you’ve received.</p>
           </Panel>
-          <Panel header="How to access through cloud?" key="3">
-            <p>Eu veritus ancillae suavitate per, cum in appellantur efficiantur. Eum cu clita ponderum lobortis, usu dicat exerci et, eam alii oblique interesset ea. Suas quidam volumus id eam, id populo euripidis temporibus pri. At eum quas putent iriure, fugit tritani sed ad. Per ad magna possim aliquam, est aeque exerci verear an, qui cu modus audire detraxit. Duo ne nostro rationibus, nam mutat omittam evertitur ad, meliore gubergren voluptatum at mel.</p>
+          <Panel header="How do I track my order" key="3">
+            <p>Once shipped, you’ll get a confirmation email that includes a tracking number and additional information regarding tracking your order.</p>
           </Panel>
-          <Panel header="Can I manage multiple task?" key="4">
-            <p>Mentitum offendit appareat nam ex, mea timeam nonumes pertinacia ne. Autem altera an vix, cu soluta aliquid pro, ne sit natum neglegentur. Ea ridens iudicabit eam, in dico appetere mediocrem nec. Sea idque consetetur no. Sonet minimum ex eam, vis an semper consequuntur definitionem. Vel legimus nostrum hendrerit eu, ea velit facete nec.</p>
+          <Panel header="What’s your return policy?" key="4">
+            <p>We allow the return of all items within 30 days of your original order’s date. If you’re interested in returning your items, send us an email with your order number and we’ll ship a return label.</p>
           </Panel>
-          <Panel header="How can I change my password?" key="5">
-            <p>Usu dolorem ceteros te. Veri exerci ne vix, modo ignota an qui. Ne oblique antiopam quo. Ex quem saepe cum, temporibus comprehensam qui at. Aliquip habemus fierent qui at. No facete omnesque argumentum sea, est tale error nihil ad.</p>
+          <Panel header="How do I make changes to an existing order?" key="5">
+            <p>Changes to an existing order can be made as long as the order is still in “processing” status. Please contact our team via email and we’ll make sure to apply the needed changes. If your order has already been shipped, we cannot apply any changes to it. If you are unhappy with your order when it arrives, please contact us for any changes you may require</p>
           </Panel>
-          <Panel header="How to manage my account?" key="6">
-            <p>Erant vitae alterum in mel, viris rationibus argumentum eu sea. Per ei diceret constituto, ei qui simul intellegam, ut eos dolor ceteros. Altera contentiones et eam. Discere alienum intellegat te duo. Erat dissentiet ei sed, eius dicat ne eum. Id tation everti nam, quo cu magna possit patrioque.</p>
+          <Panel header="Can I receive a refund?" key="6">
+            <p>If you are unhappy with the product you’ve received, you can get a refund.</p>
           </Panel>
+
+
         </Collapse>
         <br />
         <br />
 
         <div className="quickSupport">
           <h3>Want quick support?</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur velit necessitatibus praesentium aliquid eos in neque recusandae, incidunt esse dolore voluptatum nesciunt quod soluta consequuntur voluptatibus ab excepturi nobis! Porro!</p>
+          {/* <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur velit necessitatibus praesentium aliquid eos in neque recusandae, incidunt esse dolore voluptatum nesciunt quod soluta consequuntur voluptatibus ab excepturi nobis! Porro!</p> */}
           <Button type="primary" size="large"><i className="fas fa-envelope"></i> Email your question on  <strong> hypekar@gmail.com</strong></Button>
         <br />
         </div>

@@ -1,55 +1,47 @@
-import React , {useEffect, useState} from "react";
-import { Switch, Route, Link } from "react-router-dom";
-import Login from "./pages/auth/Login";
-import Register from "./pages/auth/Register";
-import Home from "./pages/Home";
-import Header from "./components/nav/Header";
-import Contact from "./pages/Contact";
-import About from "./pages/About";
-import Testing from "./pages/testing";
-//import logo from "./logo";
-import { toast, ToastContainer } from "react-toastify";
+import React, { useEffect } from "react";
+import { useDispatch } from 'react-redux';
+import { Route, Switch } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
-import RegisterComplete from "./pages/auth/RegisterComplete";
-import {auth}from './firebase';
-import {useDispatch} from 'react-redux'
-import ForgotPassword from './pages/auth/ForgotPassword';
-import { currentUser } from "./functions/auth";
-import History from "./pages/user/History";
-import UserRoute from "./components/routes/UserRoute";
-import Password from "./pages/user/Password";
-import Wishlist from "./pages/user/Wishlist";
-import AdminDashboard from "./pages/admin/AdminDashboard";
+import "./App.css";
+import Header from "./components/nav/Header";
+import Navbar from "./components/navbar/Navbar";
 import AdminRoute from "./components/routes/AdminRoute";
+import UserRoute from "./components/routes/UserRoute";
+import { auth } from './firebase';
+import { currentUser } from "./functions/auth";
+import About from "./pages/About";
+import AdminDashboard from "./pages/admin/AdminDashboard";
 import BrandCreate from "./pages/admin/brand/BrandCreate";
-import CategoryCreate from "./pages/admin/brand/CategoryCreate";
 import BrandUpdate from "./pages/admin/brand/BrandUpdate";
+import CategoryCreate from "./pages/admin/brand/CategoryCreate";
 import CategoryUpdate from "./pages/admin/brand/CategoryUpdate";
 import ModelCreate from "./pages/admin/model/ModelCreate";
 import ModelUpdate from "./pages/admin/model/ModelUpdate";
-import ProductCreate from "./pages/admin/product/ProductCreate";
 import AllProducts from "./pages/admin/product/AllProducts";
+import ProductCreate from "./pages/admin/product/ProductCreate";
 import ProductUpdate from "./pages/admin/product/ProductUpdate";
-import logo from "./components/logo.png";
-
-import "./App.css"
-import { Footer } from "./components/Working/footer";
-import Product from "./pages/Product";
+import ForgotPassword from './pages/auth/ForgotPassword';
+import Login from "./pages/auth/Login";
+import Register from "./pages/auth/Register";
+import RegisterComplete from "./pages/auth/RegisterComplete";
 import BrandHome from "./pages/brand/BrandHome";
-import ModelHome from "./pages/model/ModelHome";
-import Shop from "./pages/Shop";
 import Cart from "./pages/Cart";
-import SideDrawer from "./components/drawer/SideDrawer";
 import Checkout from "./pages/Checkout";
+import Contact from "./pages/Contact";
 import CreateCouponPage from "./pages/coupon/CreateCouponPage";
+import Home from "./pages/Home";
+import ModelHome from "./pages/model/ModelHome";
 import Payment from "./pages/Payment";
+import Product from "./pages/Product";
+import Shop from "./pages/Shop";
+import Terms from "./pages/Terms";
+import Testing from "./pages/testing";
 import testing2 from "./pages/testing2";
-import testing3 from "./components/Working/testing3";
-import Testing3 from "./pages/testing3";
-import Testing5 from "./pages/testing5";
-
-import Navbar from  "./components/navbar/Navbar";
+import TestRegister from "./pages/testRegister";
+import History from "./pages/user/History";
+import Password from "./pages/user/Password";
+import Wishlist from "./pages/user/Wishlist";
 
 
 const App = () => {
@@ -94,7 +86,7 @@ const App = () => {
       <Route exact path="/about" component={About} />
       <Route exact path="/contact" component={Contact} />
       <Route exact path="/testing" component={Testing} />
-      <Route exact path="/testing3" component={testing3} />
+      {/* <Route exact path="/testing3" component={testing3} /> */}
       <Route exact path="/login" component={Login} />
       <Route exact path="/register" component={Register} />
       <Route exact path="/register/complete" component={RegisterComplete} />
@@ -123,10 +115,12 @@ const App = () => {
         <Route exact path="/shop" component={Shop} />
         <Route exact path="/cart" component={Cart} />
         <Route exact path="/checkout" component={Checkout} />
+        <Route exact path="/terms-condition" component={Terms} />
        
-        <Route exact path="/testing4" component={Testing3} />
+        {/* <Route exact path="/testing4" component={Testing3} />
         <Route exact path="/testing5" component={Testing5} />
-        
+         */}
+         <Route exact path = "/test-register" component = {TestRegister} />
 
         <AdminRoute exact path="/admin/coupon" component={CreateCouponPage} />
         <UserRoute exact path="/payment" component={Payment} />

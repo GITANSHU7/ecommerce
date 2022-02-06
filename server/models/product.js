@@ -20,8 +20,6 @@ const productSchema = new mongoose.Schema(
         enum : ["Engine Oil" , "Air Filter", "Tyre","Oil Filter","Battery", "Spares and Maintainance Kit", "Accessories"],
      
      },
-    
-
     slug: {
       type: String,
       unique: true,

@@ -13,9 +13,9 @@ return (
   
     <p>
     {/* <span>Email : {user.role}</span> */}
-      <span>Name : {user.name}</span> {"/"}
+      {/* <span>Name : {user.name}</span> {"/"}
       <span>Email : {user.email}</span> {"/"} 
-      
+       */}
       <span>Order Id: {order.paymentIntent.id}</span>
       {" / "}
       <span>

@@ -128,7 +128,10 @@ const getCart = () => {
     value= {coupon}
     type= "text"
     className= "form-control" />
-    <button onClick={applyDiscountCoupon} className="btn btn-primary mt-2">Apply</button>
+    <button onClick={applyDiscountCoupon}
+    disabled = {total < 200}
+    
+    className="btn btn-primary mt-2">Apply</button>
 </>
   );
 
@@ -261,6 +264,9 @@ const getCart = () => {
 
       //cash on delivery
       const createCashOrder = () => {
+
+
+
         createCashOrderForUser(user.token, COD, couponTrueOrFalse).then((res) => {
           console.log("USER CASH ORDER CREATED RES ", res);
           // empty cart form redux, local Storage, reset coupon, reset COD, redirect
@@ -320,7 +326,7 @@ const getCart = () => {
         <p>Cart Total: {total}</p>
 
         {totalAfterDiscount > 0 && (
-          <p className= "text-success p-2">After Discount Price ₹{totalAfterDiscount}</p>
+          <h3 className= "text-success p-2">After Discount Price ₹{totalAfterDiscount}</h3>
         )}
 
         <div className="row">
@@ -332,7 +338,7 @@ const getCart = () => {
               >
                 Place Order</button>
            ) :  <button className="btn btn-primary"   
-            disabled = {!address.length || !pincode.length || !products.length ||!name.length ||!locality.length ||!contact.length} 
+            // disabled = {!address.length || !pincode.length || !products.length ||!name.length ||!locality.length ||!contact.length} 
             onClick = {() => history.push("/payment")}
             >
               Place Order</button>}

@@ -1,15 +1,14 @@
-import React, { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { toast } from "react-toastify";
-import DatePicker from "react-datepicker";
-import {
-  getCoupons,
-  removeCoupon,
-  createCoupon,
-} from "../../functions/coupon";
-import "react-datepicker/dist/react-datepicker.css";
 import { DeleteOutlined } from "@ant-design/icons";
+import React, { useEffect, useState } from "react";
+import Calendar from 'react-calendar';
+import "react-datepicker/dist/react-datepicker.css";
+import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
 import AdminNav from "../../components/nav/AdminNav";
+import {
+  createCoupon, getCoupons,
+  removeCoupon
+} from "../../functions/coupon";
 
 
 
@@ -99,14 +98,22 @@ const CreateCouponPage = () => {
             <div className="form-group">
               <label className="text-muted">Expiry</label>
               <br />
-              <DatePicker
+              {/* <DatePicker
                 className="form-control"
                 selected={new Date()}
                 value={expiry}
                 onChange={(date) => setExpiry(date)}
                 required
-              />
+              /> */}
+               <Calendar
+         
+         selected={new Date()}
+         value={expiry}
+         onChange={(date) => setExpiry(date)}
+         required
+      />
             </div>
+
 
             <button className="btn btn-outline-primary">Save</button>
           </form>

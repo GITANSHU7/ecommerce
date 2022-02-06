@@ -13,6 +13,7 @@ import styled from "styled-components";
 import { NewsLetter } from "../components/subscribe";
 import Banner from "../components/HomeCard/Banner";
 
+
 const AppContainer = styled.div`
   width: 100%;
   height: 100%;
@@ -28,36 +29,25 @@ const AppContainer = styled.div`
 `;
 
  function Home() {
-    
-
-
     return (
         <>
-            <HeroSection />
-
+     <HeroSection />
             {/* <Banner /> */}
-            <Cards />
-            
+            <Cards /> 
     <ServicesSection />
-{/*
-    <ReviewsSection /> */}
+{/*<ReviewsSection /> */}
     <AppFaq />
-    
-    <div style={{backgroundColor : "white"}}>
-
-        <BrandList />
+    {/* <div style={{backgroundColor : "white"}}>
+    <BrandList />
     </div>
     <div style={{backgroundColor : "white"}}>
-
-        <ModelList />
-    </div>
+    <ModelList />
+    </div> */}
     <AppContainer>
-      <NewsLetter />
+    <NewsLetter />
     </AppContainer>
-    <Footer />
-        
-            
-            </>
+    <Footer />    
+    </>
     )
 }
 
